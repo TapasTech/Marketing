@@ -1,0 +1,25 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+node_js:
+- "4"
+env:
+  global:
+  - secure: f0svq0zSX/8Azku+UWLavG6+flgmJ8/W9X+0zSYsO8Xsc6ePiO+QjO5BfpBOZ/lLMqsFWMgcaA6m3NTUUR1JysFTp7KSBSCDAok9uGEU2r9gH6DjRRvlNLYd0V4S1VIR10aZk6QCTMccPUAOJ6vx1tRUDWQ6+uHMo77/rd6sZoaOmSWFLbeFGhuxIMpaG8wtR4MFUgzMbGQ7VXY4bVNXqsaWLfN2lWGuUDODSkMkP7rb+8SOaGJ+2wQbkAIYiFglXrbfVBJ24gCl1mTme83Yx0AoEjBt8OUOwie6eR7HBS7M/FciaP10+o5B01LeD47YCBuTWXWepgWh3G9gZJEcqEf5aGt3eC26ojE0C7+zW1+JA37OT+Iv51K0VSWYae83lF5mXqTqWUbm64cqCDIXMeOLKqHiM+JoWB2o5CMXHxuaqKkX747NUiQ84kghluLf934Qvl5FswIzRQF3rZezAAjRYdH2kDHtmdJ81sAsA1jZwYsGB0U6YcclvgrCZPbcKd7djxQnaL1b6kmpVcOd463Hl39iBM/ZLO2w1ih2vyGyTDve8admCVlqQSCYMd5RPV8zrg724Xfv50Cad13J7h+51Bg5i1J97J+ZV6eAy3NsoPjEaTKWfrVOL1zjIIWqF+IZGVhuFS3jNLYiup82K7dtLVzSZ8NWGzmQ9PTky9U=
+  - secure: Be+L0Q/lGGDmrPBmH3W/zFBEEzpyd0bgVaempAAPua/cDfeESFxp6EgrJb+K7jNzL7BNgVQXKTmLxAX05jgmOzg/tfK0wkPfNERiCs50ROXAzpBbrESALY3G/lYddkivTndLdts1Z1lybbhCct7k0ock+amfVIN+HkB4ZO34U+0zI9ZcFd8/7jBfvDYOoJhvQbh8RYyCjI9yaCvdhurb88luEWow/V2nkgXGJGjr+s8IRpyEu5QgGnaGuyXEH8t9dqCDefULI4IhSlNLENf9pRcC9YKDkaKIS1x4k1csfDMiKqKqsas8bzik/gIzBlOQ869aEng3FAVLZlullmAFtiZ85537FI6bWwPbzLuKUBLV1Y6GQka2bOIwg/WoIlZ0W+/wxgRzs99SEYYVDavra8Tu35SkvtCzNdAgb+h+OGT+GcVPWPJjM92WsRVjvY1DIUee5yBvlpgciUPG/vcRucGt09NexFNOKXXqECJFlpPccpwoz+F2XcELuR8fUuTJDRIIahDVJnI3SQeSS5XfjsQonPOC7xKBkEL1oliJM2Fov6OWUPUjR1xBVAne63K1mM+Sy69WquAJgVrWARFw0igl9vApgy8GsyNebQ7aVP0+GPFVHvoACGx3zyechHuKKOSN4ww9ZcTSm2E4iwhzKFE8yvLI10OKqVaYknx/kII=
+
+before_install:
+  - npm i -g npm@^2.0.0
+before_script:
+  - npm prune
+script: 
+  - npm run build
+  - node ./bin/deploy.js
+
+branches:
+  except:
+    - master
