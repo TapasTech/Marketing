@@ -1,37 +1,126 @@
 html, body, #root {
   position: relative;
   height: 100%;
+  background-color: #000;
 }
-.swiper-container {
-  width: 100%;
-  height: 100%;
+.cover {
+  position: absolute;
+  left: -1000%;
+  top: -1000%;
+  z-index: -1;
+  opacity: 0;
 }
-.intro-container {
+.landscape {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: #3D4045;
-  overflow: hidden;
+  z-index: 10;
 }
-.intro-title {
-  margin: 40px 0 20px 0;
-  color: #fff;
-  text-align: center;
+.landscape.active {
+  display: block;
 }
-.intro-description {
-  width: 280px;
-  line-height: 40px;
-  border-radius: 40px;
-  margin: 20px auto;
-  text-align: center;
-  color:#b4b7bc;
-  box-shadow: 0 0 0 #555,0 1px 1px #555,0 0 0 #555,0 -1px 1px #282828;
+.landscape-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-.qrcode-container {
-  box-sizing: border-box;
-  width: 300px;
-  height: 300px;
-  border-radius: 22px;
-  padding: 22px;
+.landscape-box img {
+  display: block;
   margin: 0 auto;
-  background-color: #fff;
+  -webkit-animation: landscape 1.5s ease infinite alternate;
+  -o-animation: landscape 1.5s ease infinite alternate;
+  animation: landscape 1.5s ease infinite alternate;
+}
+.landscape-box span {
+  display: block;
+  color: #ffd40a;
+  text-align: center;
+}
+@-webkit-keyframes landscape {
+  0% {
+    -webkit-transform:rotate(-90deg);
+  }
+  30% {
+    -webkit-transform:rotate(-90deg);
+  }
+  70%{
+    -webkit-transform:rotate(0deg);
+  }
+  100% {
+    -webkit-transform:rotate(0deg);
+  }
+}
+@keyframes landscape{
+  0% {
+    transform:rotate(-90deg);
+  }
+  30% {
+    transform:rotate(-90deg);
+  }
+  70%{
+    transform:rotate(0deg);
+  }
+  100% {
+    transform:rotate(0deg);
+  }
+}
+
+.banner, #canvas, .affiliate {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  opacity: 1;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url('banner.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  opacity: 1;
+}
+
+#canvas {
+  width: 100%;
+  opacity: 1;
+}
+
+.main {
+  position: relative;
+  z-index: 100;
+}
+
+.main img {
+  width: 100%;
+}
+
+.content {
+  position: relative;
+  z-index: 100;
+}
+
+.affiliate {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
 }
