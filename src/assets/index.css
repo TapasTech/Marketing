@@ -1,8 +1,37 @@
-html, body {
-    position: relative;
-    height: 100%;
+html, body, #root {
+  position: relative;
+  height: 100%;
 }
 .swiper-container {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+.intro-container {
+  width: 100%;
+  height: 100%;
+  background-color: #3D4045;
+  overflow: hidden;
+}
+.intro-title {
+  margin: 40px 0 20px 0;
+  color: #fff;
+  text-align: center;
+}
+.intro-description {
+  width: 280px;
+  line-height: 40px;
+  border-radius: 40px;
+  margin: 20px auto;
+  text-align: center;
+  color:#b4b7bc;
+  box-shadow: 0 0 0 #555,0 1px 1px #555,0 0 0 #555,0 -1px 1px #282828;
+}
+.qrcode-container {
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  border-radius: 22px;
+  padding: 22px;
+  margin: 0 auto;
+  background-color: #fff;
 }

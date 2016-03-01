@@ -43,10 +43,16 @@ share()
 })
 
 window.onload = function() {
-  TouchPoint.init(window);
-  var swiper = new Swiper('.swiper-container', {
-      pagination: '.swiper-pagination',
-      paginationClickable: true,
-      direction: 'vertical'
-  });
+
+  if (is.desktop()) {
+    $('#root').html($('[data-role="pc"]').html());
+    $('#qrcode').qrcode(location.href);
+  } else {
+    TouchPoint.init(window);
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        direction: 'vertical'
+    });
+  }
+
 }

@@ -4,4 +4,4 @@ if [ -d "$DIR" ]; then
     rm -rf "$DIR"
 fi
 
-./node_modules/.bin/webpack --progress --color
+./node_modules/.bin/webpack --progress --production --color 
