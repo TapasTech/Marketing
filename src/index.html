@@ -12,8 +12,11 @@
   <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="text/template" data-role="mobile">
+  <img class="cover" src="">
+  <div id="root">
+    
+  </div>
+  <script type="text/template" data-platform="mobile">
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">Slide 1</div>
@@ -29,19 +32,19 @@
         </div>
     </div>
   </script>
-  <script type="text/template" data-role="pc">
-    <div class="intro-container">
-      <h1 class="intro-title">我是标题</h1>
+  <script type="text/template" data-platform="pc">
+    <div class="prompt-container">
+      <h1 class="prompt-title">我是标题</h1>
       <div class="qrcode-container">
         <div id="qrcode"></div>
       </div>
-      <div class="intro-description">请使用 手机/平板 扫描二维码</div>
+      <div class="prompt-description">请使用 手机/平板 扫描二维码</div>
     </div>
   </script>
   <script src="http://cdn.staticfile.org/jquery/3.0.0-alpha1/jquery.min.js"></script>
   <script src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+  <script src="http://cdn.staticfile.org/PreloadJS/0.6.0/preloadjs.min.js"></script>
   <script src="http://cdn.staticfile.org/is_js/0.7.4/is.min.js"></script>
-  <script src="http://cdn.staticfile.org/howler/2.0.0-beta5/howler.min.js"></script>
   <script src="http://cdn.staticfile.org/Swiper/3.2.7/js/swiper.min.js"></script>
   <script>
   var _hmt = _hmt || [];

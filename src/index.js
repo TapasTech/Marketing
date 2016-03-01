@@ -45,9 +45,10 @@ share()
 window.onload = function() {
 
   if (is.desktop()) {
-    $('#root').html($('[data-role="pc"]').html());
+    $('#root').html($('[data-platform="pc"]').html());
     $('#qrcode').qrcode(location.href);
   } else {
+    $('#root').html($('[data-platform="mobile"]').html());
     TouchPoint.init(window);
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
