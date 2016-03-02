@@ -44,8 +44,8 @@ share().then(res => {
     const wxData = {
       imgUrl: 'http://z.dtcj.com/youshu/cover.png',
       link: location.href,
-      desc: '解读DT时代消费者对“家”的新诉求',
-      title: '家居那些事，你「有数」吗？| CBNData'
+      desc: '用大数据解读DT时代消费者对“家”的新诉求',
+      title: 'CBNData | 家居那些事，你「有数」吗？'
     }
 
     wx.onMenuShareTimeline(wxData);
