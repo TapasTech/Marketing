@@ -1,6 +1,5 @@
 var share = require('./share');
 var post = require('./post');
-var TouchPoint = require('./utils/touch');
 
 require('./assets/index.css');
 
@@ -68,7 +67,6 @@ window.onload = function() {
     $('#root').html($('[data-platform="pc"]').html());
     $('#qrcode').qrcode(location.href);
   } else {
-    TouchPoint.init(window);
 
     var queue = new createjs.LoadQueue(true);
     var loaded = 0;
@@ -79,13 +77,19 @@ window.onload = function() {
         $('.process').text(Math.round(loaded / imageList.length * 100)+'%');
       } else {
         $('#root').html($('[data-platform="mobile"]').html());
-        
+
         var isEnd = new Date() >= new Date('2016-3-8');
+        var showApply = getParameterByName('apply');
+
+        if (showApply === '✓') {
+          $('.form').css('display', 'block');
+        }
 
         $('.apply').css('height', innerWidth * 110 / 1080);
 
         if (isEnd) {
           $('.apply-container').addClass('disabled');
+          $('.submit').addClass('disabled').html('报名已截止');
         }
 
         var swiper = new Swiper('.swiper-container', {
@@ -123,14 +127,6 @@ window.onload = function() {
 
         $(window).on('resize', handleOrientation)
 
-        function handleOrientation() {
-          if (innerWidth >= innerHeight) {
-            $('.landscape').css('display', 'block');
-          } else {
-            $('.landscape').css('display', 'none');
-          }
-        }
-
         $('.form').on('submit', function(e) {
           e.preventDefault();
           if ($('.submit').hasClass('disable')) {
@@ -149,7 +145,7 @@ window.onload = function() {
           if (!occupation) {
             return alert('请选择您的职业');
           }
-          $('.submit').addClass('disable').html('提交中...');
+          $('.submit').addClass('disabled').html('提交中...');
           post({
             name: name,
             mobile: mobile,
@@ -157,7 +153,7 @@ window.onload = function() {
             topic: topic
           })
           .then(res => {
-            $('.submit').removeClass('disable').html('点击报名');
+            $('.submit').removeClass('disabled').html('点击报名');
             if (res.error && res.error !== 'db') {
               return console.log(res.error);
             }
@@ -183,6 +179,9 @@ window.onload = function() {
 
         $('.success').on('click', function(e) {
           e.preventDefault();
+          if (showApply === '✓') {
+            return window.close();
+          }
           $(this).css('display', 'none');
           $('.form').css('display', 'none');
         })
@@ -191,4 +190,22 @@ window.onload = function() {
 
   }
 
+}
+
+function handleOrientation() {
+  if (innerWidth >= innerHeight) {
+    $('.landscape').css('display', 'block');
+  } else {
+    $('.landscape').css('display', 'none');
+  }
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
