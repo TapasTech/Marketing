@@ -112,26 +112,26 @@ select:not([multiple]) {
 .page-1 .step-2 {
   background-image: url(./1/1_2.png);
 
-  -webkit-animation-delay: 1.5s;
-  -o-animation-delay: 1.5s;
-  animation-delay: 1.5s;
+  -webkit-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 .page-1 .step-3 {
   background-image: url(./1/1_3.png);
 
-  -webkit-animation-delay: 2s;
-  -o-animation-delay: 2s;
-  animation-delay: 2s;
+  -webkit-animation-delay: 1.2s;
+  -o-animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
 
 .page-1 .step-4 {
   background-image: url(./1/1_4.png);
   background-position: bottom center;
 
-  -webkit-animation-delay: 3s;
-  -o-animation-delay: 3s;
-  animation-delay: 3s;
+  -webkit-animation-delay: 2.2s;
+  -o-animation-delay: 2.2s;
+  animation-delay: 2.2s;
 }
 
 .page-2 {
@@ -172,42 +172,30 @@ select:not([multiple]) {
 
 .page-4 .step-2 {
   background-image: url(./4/4_2.png);
-
-  -webkit-animation-delay: 0.5s;
-  -o-animation-delay: 0.5s;
-  animation-delay: 0.5s;
 }
 
 .page-4 .step-3 {
   background-image: url(./4/4_3.png);
+}
+
+.page-4 .step-4 {
+  background-image: url(./4/4_4.png);
+}
+
+.page-4 .step-5 {
+  background-image: url(./4/4_5.png);
 
   -webkit-animation-delay: 1s;
   -o-animation-delay: 1s;
   animation-delay: 1s;
 }
 
-.page-4 .step-4 {
-  background-image: url(./4/4_4.png);
-
-  -webkit-animation-delay: 1.5s;
-  -o-animation-delay: 1.5s;
-  animation-delay: 1.5s;
-}
-
-.page-4 .step-5 {
-  background-image: url(./4/4_5.png);
+.page-4 .step-6 {
+  background-image: url(./4/4_6.png);
 
   -webkit-animation-delay: 2s;
   -o-animation-delay: 2s;
   animation-delay: 2s;
-}
-
-.page-4 .step-6 {
-  background-image: url(./4/4_6.png);
-
-  -webkit-animation-delay: 2.5s;
-  -o-animation-delay: 2.5s;
-  animation-delay: 2.5s;
 }
 
 .page-6 {
@@ -221,6 +209,9 @@ select:not([multiple]) {
 
 .apply-container {
   background-image: url(./6/6_2.png);
+}
+.apply-container.disabled {
+  background-image: url(./6/6_3.png);
 }
 
 .apply {

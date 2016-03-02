@@ -80,7 +80,13 @@ window.onload = function() {
       } else {
         $('#root').html($('[data-platform="mobile"]').html());
         
+        var isEnd = new Date() >= new Date('2016-3-8');
+
         $('.apply').css('height', innerWidth * 110 / 1080);
+
+        if (isEnd) {
+          $('.apply-container').addClass('disabled');
+        }
 
         var swiper = new Swiper('.swiper-container', {
             pagination: '.swiper-pagination',
@@ -159,6 +165,7 @@ window.onload = function() {
 
         $('.apply').on('click', function(e) {
           e.preventDefault();
+          if (isEnd) return;
           $('.form').css('display', 'block');
         });
 
