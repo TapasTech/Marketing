@@ -115,6 +115,9 @@ window.onload = function() {
 
         $('.form').on('submit', function(e) {
           e.preventDefault();
+          if ($('.submit').hasClass('disable')) {
+            return;
+          }
           var name = $('#name').val(), 
               mobile = $('#mobile').val(), 
               occupation = $('#occupation').val(), 
@@ -128,6 +131,7 @@ window.onload = function() {
           if (!occupation) {
             return alert('请选择您的职业');
           }
+          $('.submit').addClass('disable').html('提交中...');
           post({
             name: name,
             mobile: mobile,
@@ -135,7 +139,7 @@ window.onload = function() {
             topic: topic
           })
           .then(res => {
-            console.log(res);
+            $('.submit').removeClass('disable').html('点击报名');
             if (res.error && res.error !== 'db') {
               return console.log(res.error);
             }

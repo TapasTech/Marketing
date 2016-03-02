@@ -245,6 +245,7 @@ select:not([multiple]) {
   background-color: #fff;
 }
 
+
 .form header {
   padding: 30px 0 0 6px;
   border-bottom: 12px solid #f7f7f7;
@@ -313,6 +314,10 @@ select:not([multiple]) {
   background-color: #FF720D;
   line-height: 2.5em;
   color: #fff;
+}
+
+.form.disable .submit {
+  background-color: #999;
 }
 
 .success {
