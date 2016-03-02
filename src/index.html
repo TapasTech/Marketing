@@ -5,36 +5,104 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <meta name="renderer" content="webkit">
-  <title></title>
-  <meta name="description" content="">
-  <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/typo.css/1.1/typo.min.css">
-  <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/Swiper/3.2.7/css/swiper.min.css">
+  <title>家居那些事，你「有数」吗？|CBNData</title>
+  <meta name="description" content="解读DT时代消费者对“家”的新诉求">
+  <link rel="stylesheet" href="http://cdn.staticfile.org/typo.css/1.1/typo.min.css">
+  <link rel="stylesheet" href="http://cdn.staticfile.org/Swiper/3.2.7/css/swiper.min.css">
+  <link rel="stylesheet" href="http://cdn.staticfile.org/animate.css/3.4.0/animate.min.css">
   <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
-  <img class="cover" src="">
+  <img class="cover" src="http://z.dtcj.com/youshu/cover.png">
   <div id="root">
-    
+    <div class="loading">
+      <div class="process">0%</div>
+    </div>
   </div>
   <script type="text/template" data-platform="mobile">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div>
-            <div class="swiper-slide">Slide 10</div>
+            <div class="swiper-slide page page-1">
+              <div class="step-3 animated fadeInUp"></div>
+              <div class="step-1 animated fadeInDown"></div>
+              <div class="step-2 animated fadeIn"></div>
+              <div class="step-4 animated fadeIn"></div>
+            </div>
+            <div class="swiper-slide page page-2"></div>
+            <div class="swiper-slide page page-3"></div>
+            <div class="swiper-slide page page-4">
+              <div class="step-1 animated fadeInLeft"></div>
+              <div class="step-2 animated fadeInDown"></div>
+              <div class="step-3 animated fadeInRight"></div>
+              <div class="step-4 animated fadeInUp"></div>
+              <div class="step-5 animated fadeIn"></div>
+              <div class="step-6 animated fadeIn"></div>
+            </div>
+            <div class="swiper-slide page page-5"></div>
+            <div class="swiper-slide page page-6">
+              <div class="apply-container">
+                <div class="apply"></div>
+              </div>
+            </div>
         </div>
+    </div>
+    <div class="form">
+      <header>
+        <h3>请留下您的信息，以便我们及时回复</h3>
+      </header>
+      <form>
+        <fieldset>
+          <label for="name">姓名</label>
+          <input class="text" type="text" id="name" placeholder="请输入您的姓名">
+        </fieldset>
+        <fieldset>
+          <label for="mobile">手机号码</label>
+          <input class="text" type="text" id="mobile" placeholder="请输入您的手机号码">
+        </fieldset>
+        <fieldset>
+          <label for="occupation">职业</label>
+          <select name="occupation" id="occupation">
+            <option value="" disabled selected>请选择您的职业</option>
+            <option value="设计师">设计师</option>
+            <option value="媒体人">媒体人</option>
+            <option value="品牌商">品牌商</option>
+            <option value="其他">其他</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <label>感兴趣的话题</label>
+          <fieldset class="radio">
+            <div>
+              <label for="topic1">1.消费者都是怎样进行家居用品风格搭配的？</label>
+              <input id="topic1" type="radio" name="topic" value="1.消费者都是怎样进行家居用品风格搭配的？" checked>
+            </div>
+            <div>
+              <label for="topic2">2.不同地域的消费者喜欢什么样式的家居用品？</label>
+              <input id="topic2" type="radio" name="topic" value="2.不同地域的消费者喜欢什么样式的家居用品？">
+            </div>
+            <div>
+              <label for="topic3">3.有哪些消费者和我的品味一样？</label>
+              <input id="topic3" type="radio" name="topic" value="3.有哪些消费者和我的品味一样？">
+            </div>
+            <div>
+              <label for="topic4">4.怎样打造一个完美的家居环境？</label>
+              <input id="topic4" type="radio" name="topic" value="4.怎样打造一个完美的家居环境？">
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <button type="submit" class="submit">点击报名</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="success">
+      <div class="background"></div>
+      <div class="message"></div>
     </div>
   </script>
   <script type="text/template" data-platform="pc">
     <div class="prompt-container">
-      <h1 class="prompt-title">我是标题</h1>
+      <h1 class="prompt-title">家居那些事，你「有数」吗？|CBNData</h1>
       <div class="qrcode-container">
         <div id="qrcode"></div>
       </div>
