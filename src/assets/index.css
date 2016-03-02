@@ -243,17 +243,17 @@ select:not([multiple]) {
 .page-4 .step-5 {
   background-image: url(./4/4_5.png);
 
-  -webkit-animation-delay: 1s;
-  -o-animation-delay: 1s;
-  animation-delay: 1s;
+  -webkit-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  animation-delay: 1.5s;
 }
 
 .page-4 .step-6 {
   background-image: url(./4/4_6.png);
 
-  -webkit-animation-delay: 2s;
-  -o-animation-delay: 2s;
-  animation-delay: 2s;
+  -webkit-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 .page-5 > div {

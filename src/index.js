@@ -91,9 +91,6 @@ window.onload = function() {
         var swiper = new Swiper('.swiper-container', {
             pagination: '.swiper-pagination',
             direction: 'vertical',
-            onInit: function() {
-
-            },
             onTouchStart: function(swiper) {
               if (swiper.activeIndex == 1 || swiper.activeIndex == 2) {
                 $('.swiper-container').addClass('no-background');
