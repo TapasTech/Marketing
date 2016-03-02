@@ -46,7 +46,7 @@ share().then(res => {
       imgUrl: 'http://z.dtcj.com/youshu/cover.png',
       link: location.href,
       desc: '解读DT时代消费者对“家”的新诉求',
-      title: '家居那些事，你「有数」吗？|CBNData'
+      title: '家居那些事，你「有数」吗？| CBNData'
     }
 
     wx.onMenuShareTimeline(wxData);
@@ -121,6 +121,18 @@ window.onload = function() {
               }
             }
         });
+
+        handleOrientation();
+
+        $(window).on('resize', handleOrientation)
+
+        function handleOrientation() {
+          if (innerWidth >= innerHeight) {
+            $('.landscape').css('display', 'block');
+          } else {
+            $('.landscape').css('display', 'none');
+          }
+        }
 
         $('.form').on('submit', function(e) {
           e.preventDefault();
