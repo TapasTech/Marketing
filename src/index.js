@@ -3,8 +3,7 @@ var TouchPoint = require('./utils/touch');
 
 require('./assets/index.css');
 
-share()
-.then(res => {
+share().then(res => {
 
   wx.config({
     debug: false,
