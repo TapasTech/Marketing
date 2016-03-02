@@ -113,6 +113,9 @@ window.onload = function() {
                 case 3:
                   $('.page-4').addClass('run');
                   break;
+                case 4:
+                  $('.page-5').addClass('run');
+                  break;
                 default:
                   break;
               }

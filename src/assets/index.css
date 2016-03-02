@@ -154,7 +154,7 @@ select:not([multiple]) {
   background-size: cover;
 }
 
-.page-4 .animated {
+.page-4 .animated, .page-5 .animated {
   -webkit-animation-play-state: paused;
   -o-animation-play-state: paused;
   animation-play-state: paused;
@@ -196,6 +196,23 @@ select:not([multiple]) {
   -webkit-animation-delay: 2s;
   -o-animation-delay: 2s;
   animation-delay: 2s;
+}
+
+.page-5 > div {
+  -webkit-background-size: auto 100%;
+  background-size: auto 100%;
+}
+
+.page-5 .step-1 {
+  background-image: url(./5/5_1.png);
+}
+
+.page-5 .step-2 {
+  background-image: url(./5/5_2.png);
+}
+
+.page-5 .step-3 {
+  background-image: url(./5/5_3.png);
 }
 
 .page-6 {
