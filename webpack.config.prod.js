@@ -4,11 +4,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  devtool: 'source-map',
   entry: ['./src/index'],
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: '[hash].js'
   },
   resolve: {
     extensions: ['', '.js']
@@ -26,15 +25,15 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin("[hash].css")
   ],
   module: {
     loaders: [{
       test: /\.css$/,
-      loaders: ['style', 'css']
+      loader: ExtractTextPlugin.extract("style-loader", "css-loader") 
     }, {
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-      loader: 'url-loader?limit=100',
+      loader: 'url-loader?name=[hash].[ext]&limit=100',
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
