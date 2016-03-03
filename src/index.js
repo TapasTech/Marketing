@@ -23,12 +23,6 @@ var imageList = [
   require('./assets/message.png')
 ]
 
-var showApply = getParameterByName('apply');
-
-if (showApply) {
-  $('#description').attr('content', '大数据“家”沙龙 点击报名');
-}
-
 share().then(res => {
 
   wx.config({
@@ -50,7 +44,7 @@ share().then(res => {
     const wxData = {
       imgUrl: 'http://z.dtcj.com/youshu/cover.png',
       link: location.href,
-      desc: showApply ? '大数据“家”沙龙 点击报名' : '用大数据解读DT时代消费者对“家”的新诉求',
+      desc: '大数据“家”沙龙 点击报名',
       title: '家居那些事，你「有数」吗？| CBNData'
     }
 
@@ -86,6 +80,7 @@ window.onload = function() {
 
         var isEnd = new Date() >= new Date('2016-3-8');
 
+        var showApply = getParameterByName('apply');
         if (showApply === '✓') {
           $('.form').css('display', 'block');
         }
