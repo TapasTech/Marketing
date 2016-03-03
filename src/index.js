@@ -154,17 +154,21 @@ window.onload = function() {
           })
           .then(res => {
             $('.submit').removeClass('disabled').html('点击报名');
-            if (res.error && res.error !== 'db') {
-              return console.log(res.error);
-            }
+
             if (res.error === 'db') {
               alert('您已提交过申请，请耐心等待工作人员与您取得联系。');
               $('.form').css('display', 'none');
               return;
             }
+
+            if (res.error === 'end') {
+              alert('对不起，报名已经截止，请期待下次活动。')
+            }
+
             if (res.message === 'Saved.') {
               $('.success').css('display', 'block');
             }
+
           })
           .catch(err => {
             console.log(err);
