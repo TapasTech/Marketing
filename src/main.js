@@ -1,10 +1,15 @@
-var share = require('./share');
-var TouchPoint = require('./utils/touch');
+import share from './scripts/share';
+import app from './scripts/app';
 
-require('./assets/index.css');
+require('./styles/index.css');
+
+// imageList
+
+const imageList = [
+  require('./assets/scan.png'),
+];
 
 share().then(res => {
-
   wx.config({
     debug: false,
     appId: 'wx918e2834917e93dc',
@@ -20,22 +25,18 @@ share().then(res => {
     ]
   });
   wx.ready(()=>{
-
     const wxData = {
       imgUrl: '',
       link: location.href,
       desc: '',
       title: ''
     }
-
     wx.onMenuShareTimeline(wxData);
     wx.onMenuShareAppMessage(wxData);
     wx.onMenuShareQQ(wxData);
     wx.onMenuShareWeibo(wxData);
     wx.onMenuShareQZone(wxData);
-
   });
-
 })
 .catch(err => {
   console.log(err)
@@ -47,12 +48,18 @@ window.onload = function() {
     $('#root').html($('[data-platform="pc"]').html());
     $('#qrcode').qrcode(location.href);
   } else {
-    $('#root').html($('[data-platform="mobile"]').html());
-    TouchPoint.init(window);
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        direction: 'vertical'
+    var queue = new createjs.LoadQueue(true);
+    var loaded = 0;
+    queue.loadManifest(imageList);
+    queue.on("fileload", function(event) {
+      loaded++;
+      if (loaded < imageList.length) {
+        $('.process').text(Math.round(loaded / imageList.length * 100)+'%');
+      } else {
+        $('#root').html($('[data-platform="mobile"]').html());
+        const isEnd = new Date() >= new Date('2016-4-13');
+        app.init();
+      }
     });
   }
-
 }

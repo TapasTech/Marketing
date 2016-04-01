@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: ['./src/index'],
+  entry: ['./src/main'],
   output: {
     path: path.join(__dirname, 'build'),
     filename: '[hash].js'
@@ -30,7 +30,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract("style-loader", "css-loader") 
+      loader: ExtractTextPlugin.extract("style-loader", "css-loader")
     }, {
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
       loader: 'url-loader?name=[hash].[ext]&limit=100',

@@ -1,16 +1,8 @@
-html, body, #root {
-  position: relative;
-  height: 100%;
-}
 .cover {
   position: absolute;
   left: -100%;
   top: -100%;
   z-index: -1;
-}
-.swiper-container {
-  width: 100%;
-  height: 100%;
 }
 .prompt-container {
   width: 100%;
