@@ -1,0 +1,11 @@
+.counter {
+  z-index: 2;
+
+  .score {
+    float: left;
+  }
+
+  .time {
+    float: right;
+  }
+}

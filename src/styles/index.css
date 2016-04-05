@@ -1,7 +1,12 @@
 @import "./base.css";
+@import "./utilities.css";
 
-@import "./loading.css";
+/* component */
+@import "./components/counter.css";
+@import "./components/loading.css";
+@import "./components/qrcode.css";
 
-@import "./qrcode.css";
-
-@import "./app.css";
+/* pages styles */
+@import "./pages/index.css";
+@import "./pages/page0.css";
+@import "./pages/page2.css";

@@ -43,6 +43,16 @@ share().then(res => {
 })
 
 window.onload = function() {
+  calcREM();
+
+  window.addEventListener('resize', calcREM, false);
+
+  function calcREM() {
+    var html = document.documentElement;
+    var windowWidth = html.clientWidth;
+    if (windowWidth > 640) windowWidth = 640;
+    html.style.fontSize = windowWidth / 6.4 + 'px';
+  }
 
   if (is.desktop()) {
     $('#root').html($('[data-platform="pc"]').html());

@@ -1,0 +1,8 @@
+.page0 {
+  .fingerprint {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    background: url('../assets/scan.png') no-repeat center/contain;
+  }
+}

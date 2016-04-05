@@ -1,11 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
-
-var autoprefixer = require('autoprefixer');
-var cssNested = require('postcss-nested');
-var cssVar = require('postcss-css-variables');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10', 'ie_mob >= 10',
@@ -33,9 +28,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    new OpenBrowserPlugin({
-      url: 'http://localhost:8080'
     })
   ],
   module: {
@@ -54,8 +46,14 @@ module.exports = {
       loader: 'babel-loader'
     }]
   },
-  postcss: function () {
-    return [cssVar, cssNested, autoprefixer(AUTOPREFIXER_BROWSERS)]
+  postcss: function(webpack) {
+    return [
+      require('postcss-import')({addDependencyTo: webpack}),
+      require('autoprefixer')(AUTOPREFIXER_BROWSERS),
+      require('postcss-nested'),
+      require('postcss-css-variables'),
+      require('postcss-zindex')
+    ]
   },
   devServer: {
     contentBase: './dist',

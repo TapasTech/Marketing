@@ -8,7 +8,6 @@
   <title></title>
   <meta name="description" content="">
   <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/typo.css/1.1/typo.min.css">
-  <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/Swiper/3.2.7/css/swiper.min.css">
   <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
@@ -20,8 +19,72 @@
   </div>
   <script type="text/template" data-platform="mobile">
     <div class="page-container">
-      <div class="content">
-      111
+      <div class="page page0 page-show">
+        <div class="fingerprint" data-role="switch" data-nextpage="1"></div>
+      </div>
+      <div class="page page1">
+        <button class="start-game" data-nextpage="2">下一步</button>
+      </div>
+      <div class="page page2">
+        <div class="counter clearfix">
+          <div class="score">
+            得分:
+            <span class="score-count">0</span>
+          </div>
+          <div class="time">
+            时间: 00:
+            <span class="time-count">10</span>
+          </div>
+        </div>
+        <div class="game game-show">
+          game1
+          <div data-role="littleD" data-nextgame="1">littleD</div>
+        </div>
+        <div class="game">
+          game2
+          <div data-role="littleD" data-nextgame="2">littleD</div>
+        </div>
+        <div class="game">
+          game3
+          <div data-role="littleD" data-nextgame="3">littleD</div>
+        </div>
+        <div class="game">
+          game4
+          <div data-role="littleD" data-nextgame="4">littleD</div>
+        </div>
+        <div class="game">
+          game5
+          <div data-role="littleD" data-nextgame="5">littleD</div>
+        </div>
+        <div class="game">
+          game6
+          <div data-role="littleD" data-nextgame="6">littleD</div>
+        </div>
+        <div class="game">
+          game7
+          <div data-role="littleD" data-nextgame="7">littleD</div>
+        </div>
+        <div class="game">
+          game8
+          <div data-role="littleD" data-nextgame="8">littleD</div>
+        </div>
+        <div class="game">
+          game9
+          <div data-role="littleD" data-nextgame="9">littleD</div>
+        </div>
+        <div class="game">
+          game10
+          <div class="finish-game">littleD</div>
+        </div>
+      </div>
+      <div class="page page3">
+        总得分
+        <span class="score-total"></span>
+        <button class="restart-game" data-nextpage="2">重新开始</button>
+        <div class="show-schedule" data-role="switch" data-nextpage="4">查看议程</div>
+      </div>
+      <div class="page page4">
+        活动议程
       </div>
     </div>
   </script>
@@ -38,7 +101,6 @@
   <script src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
   <script src="http://cdn.staticfile.org/PreloadJS/0.6.0/preloadjs.min.js"></script>
   <script src="http://cdn.staticfile.org/is_js/0.7.4/is.min.js"></script>
-  <script src="http://cdn.staticfile.org/Swiper/3.2.7/js/swiper.min.js"></script>
   <script>
   var _hmt = _hmt || [];
   (function() {
