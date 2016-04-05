@@ -36,23 +36,22 @@ module.exports = {
       loader: 'style!css!postcss'
     }, {
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-      loader: 'url-loader?limit=100',
+      loader: 'url?limit=100',
     }, {
       test: /\.html$/,
-      loader: 'raw-loader' // loaders: ['raw-loader'] is also perfectly acceptable.
+      loader: 'raw' // loaders: ['raw-loader'] is also perfectly acceptable.
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader'
+      loader: 'babel'
     }]
   },
   postcss: function(webpack) {
     return [
       require('postcss-import')({addDependencyTo: webpack}),
-      require('autoprefixer')(AUTOPREFIXER_BROWSERS),
       require('postcss-nested'),
       require('postcss-css-variables'),
-      require('postcss-zindex')
+      require('autoprefixer')(AUTOPREFIXER_BROWSERS),
     ]
   },
   devServer: {

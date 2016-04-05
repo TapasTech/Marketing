@@ -3,6 +3,14 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+var AUTOPREFIXER_BROWSERS = [
+  'ie >= 10', 'ie_mob >= 10',
+  'ff >= 30', 'chrome >= 34',
+  'safari >= 7', 'opera >= 23',
+  'ios >= 7', 'android >= 4.4',
+  'bb >= 10'
+];
+
 module.exports = {
   entry: ['./src/main'],
   output: {
@@ -30,14 +38,23 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+      loader: ExtractTextPlugin.extract("style", "css?minimize!postcss")
     }, {
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-      loader: 'url-loader?name=[hash].[ext]&limit=100',
+      loader: 'url?name=[hash].[ext]&limit=100',
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader'
+      loader: 'babel'
     }]
-  }
+  },
+  postcss: function(webpack) {
+    return [
+      require('postcss-import')({addDependencyTo: webpack}),
+      require('autoprefixer')(AUTOPREFIXER_BROWSERS),
+      require('postcss-nested'),
+      require('postcss-css-variables'),
+      require('postcss-zindex')
+    ]
+  },
 }
