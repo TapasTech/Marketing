@@ -56,5 +56,5 @@ module.exports = {
       require('postcss-css-variables'),
       require('postcss-zindex')
     ]
-  },
+  }
 }
