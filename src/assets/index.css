@@ -3,13 +3,7 @@ html, body, #root {
   height: 100%;
   background-color: #000;
 }
-.cover {
-  position: absolute;
-  left: -1000%;
-  top: -1000%;
-  z-index: -1;
-  opacity: 0;
-}
+
 .landscape {
   display: none;
   position: absolute;
@@ -87,19 +81,33 @@ html, body, #root {
 }
 
 .banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative;
   background-image: url('banner.png');
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
   background-size: cover;
   opacity: 1;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.banner img {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 #canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
   opacity: 1;
 }
@@ -107,10 +115,23 @@ html, body, #root {
 .main {
   position: relative;
   z-index: 100;
+  overflow: hidden;
 }
 
 .main img {
   width: 100%;
+}
+
+.main .button {
+  position: absolute;
+  left: 50%;
+  bottom: 24.5%;
+  width: 37%;
+  height: auto;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .content {
@@ -123,4 +144,37 @@ html, body, #root {
   left: 0;
   top: 0;
   z-index: 10;
+}
+
+.video {
+  position: absolute;
+  left: 0;
+  top: 17.5%;
+  width: 100%;
+  height: 8.75%;
+  z-index: 1000;
+}
+
+#map {
+  position: absolute;
+  left: 50%;
+  bottom: 27.885%;
+  width: 33.1%;
+  height: 4.32%;
+  z-index: 1000;
+  transform: translateX(-1%);
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+}
+
+.video-js .vjs-big-play-button {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

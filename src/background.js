@@ -1,5 +1,5 @@
 module.exports = function() {
-    setTimeout(start, 200);
+    window.backgroundTimer = setTimeout(start, 200);
 }
 
 function start() {
