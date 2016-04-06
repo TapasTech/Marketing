@@ -82,7 +82,7 @@ html, body, #root {
 
 .banner {
   position: relative;
-  background-image: url('banner.png');
+  background-image: url('banner.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
@@ -95,13 +95,13 @@ html, body, #root {
 .banner img {
   position: absolute;
   left: 50%;
-  top: 0;
-  height: 100%;
+  top: 50%;
+  height: 80%;
   width: auto;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -webkit-transform: translate(-60%, -50%);
+  -ms-transform: translate(-60%, -50%);
+  -o-transform: translate(-60%, -50%);
+  transform: translate(-60%, -50%);
 }
 
 #canvas {
@@ -148,10 +148,14 @@ html, body, #root {
 
 .video {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 17.5%;
-  width: 100%;
-  height: 8.75%;
+  width: 80%;
+  height: 7%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 1000;
 }
 
