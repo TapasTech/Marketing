@@ -1,39 +1,47 @@
 import gameTpl from '../templates/game.html'
 
-export default {
-  GameTemplate: $(gameTpl).html(),
+export default class Game {
+
+  constructor() {
+    this.getDefaultProps();
+    this.init();
+  }
+
+  getDefaultProps() {
+    this.LimitTime = 10;
+    this.ScoreTotal = 0;
+    this.TimerQueue = [];
+    this.InGame = false;
+  }
+
   init() {
-    this.insertTpl();
+    // insert game template
+    $('.page-container .page2').html(gameTpl);
+
     this.cacheElements();
     this.bindEvents();
-    this.resetCount();
     this.gameStart();
-  },
+  }
+
   cacheElements() {
     this.$page2 = $('.page-container .page2');
     this.$game = this.$page2.find('.game');
     this.$littleD = this.$game.find('[data-role="littleD"]');
     this.$timeCount = this.$page2.find('.time-count');
     this.$scoreCount = this.$page2.find('.score-count');
-  },
+  }
+
   bindEvents() {
     this.$littleD.on('click', this.switchNextGame.bind(this));
-  },
-  insertTpl() {
-    $('.page-container .page2').html(this.GameTemplate)
-  },
-  resetCount() {
-    this.LimitTime = 10;
-    this.ScoreTotal = 0;
-    this.TimerQueue = [];
-    this.InGame = false;
-  },
+  }
+
   gameStart() {
     this.InGame = true;
     this.$scoreCount.text(this.ScoreTotal);
     this.$timeCount.text(this.LimitTime);
     this.TimerQueue.push(window.setTimeout(this.countTime.bind(this), 1000));
-  },
+  }
+
   countTime() {
     this.$timeCount.text(this.LimitTime--);
     if (this.LimitTime > 0 && this.InGame) {
@@ -43,7 +51,8 @@ export default {
       this.$page2.trigger('gameover', [this.ScoreTotal]);
       this.destory();
     }
-  },
+  }
+
   switchNextGame(e) {
     e.preventDefault();
     // add score
@@ -60,11 +69,13 @@ export default {
         this.destory()
       }, 5000);
     }
-  },
+  }
+
   switchToGame(next) {
     $('.game-show').removeClass('game-show');
     this.$game.eq(next).addClass('game-show');
-  },
+  }
+
   destory() {
     this.TimerQueue.forEach(item => window.clearTimeout(item));
     this.$page2.empty();

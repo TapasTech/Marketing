@@ -1,4 +1,4 @@
-import game from './game';
+import Game from './game';
 
 export default {
   init() {
@@ -21,10 +21,11 @@ export default {
   },
   hanldStartClick(e) {
     this.switchNextPage(e);
-    game.init();
+    new Game();
   },
   handleGameOver(e, score) {
     e.preventDefault();
+    // show game result
     this.$scoreTotal.text(score);
     if (score > 500) {
       this.$restartGame.hide();
@@ -33,6 +34,7 @@ export default {
       this.$restartGame.show();
       this.$showSchedule.hide();
     }
+    // switch to next page
     const index = this.$page.index($('.page-show'));
     this.switchToPage(index + 1);
   },
