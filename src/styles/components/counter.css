@@ -1,11 +1,38 @@
 .counter {
+  display: inline-block;
+  margin-top: 1.31rem;
   z-index: 2;
 
-  .score {
+  @media (max-height: 480px) {
+    margin-top: 0.8rem;
+  }
+
+  .time-tip {
     float: left;
+    font-size: 0.3rem;
+    line-height: 0.4rem;
+    margin-right: 0.12rem;
   }
 
   .time {
-    float: right;
+    float: left;
+    width: 4.07rem;
+    height: 0.4rem;
+    overflow: hidden;
+    background-color: #000;
+    box-sizing: border-box;
+    border: 1px solid var(--brand-color);
+  }
+
+  .time.start .slider {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .slider {
+    width: 100%;
+    height: 100%;
+    background-color: var(--brand-color);
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 10s linear;
   }
 }

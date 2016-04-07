@@ -28,7 +28,17 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new (require('browser-sync-webpack-plugin'))(
+      {
+        host: 'localhost',
+        port: 9090,
+        proxy: 'http://localhost:8080/'
+      },
+      {
+        reload: false
+      }
+    )
   ],
   module: {
     loaders: [{

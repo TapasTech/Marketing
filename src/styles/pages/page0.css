@@ -1,8 +1,44 @@
 .page0 {
+  text-align: center;
+  background-image: url('../assets/page0/bg.png');
+
+  .jumbotron {
+    height: 6.57rem;
+    background-image: url('../assets/page0/jumbotron.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100%;
+  }
+
   .fingerprint {
-    width: 2rem;
-    height: 2rem;
-    margin: 0 auto;
-    background: url('../assets/scan.png') no-repeat center/contain;
+    display: inline-block;
+    width: 2.46rem;
+    height: 2.51rem;
+    background-image: url('../assets/page0/fingerprint.svg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100%;
+
+    @media (min-height: 481px) {
+      margin-top: 0.65rem;
+    }
+  }
+
+  .scan {
+    height: 0.6rem;
+    background-image: url('../assets/page0/scan.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100% auto;
+    transform: translate3d(0, -50%, 0);
+    transition: transform 4s ease-in-out;
+
+    &.move {
+      transform: translate3d(0, 2rem, 0);
+    }
+  }
+
+  .tip {
+    font-size: 0.24rem;
   }
 }

@@ -27,6 +27,8 @@ export default class Game {
     this.$page2 = $('.page-container .page2');
     this.$game = this.$page2.find('.game');
     this.$littleD = this.$game.find('[data-role="littleD"]');
+    this.$time = this.$page2.find('.time');
+
     this.$timeCount = this.$page2.find('.time-count');
     this.$scoreCount = this.$page2.find('.score-count');
   }
@@ -40,10 +42,14 @@ export default class Game {
     this.$scoreCount.text(this.ScoreTotal);
     this.$timeCount.text(this.LimitTime);
     this.TimerQueue.push(window.setTimeout(this.countTime.bind(this), 1000));
+    setTimeout(() => {
+      this.$time.addClass('start');
+    }, 1)
   }
 
   countTime() {
-    this.$timeCount.text(this.LimitTime--);
+    this.LimitTime--;
+    this.$timeCount.text(this.LimitTime);
     if (this.LimitTime > 0 && this.InGame) {
       this.TimerQueue.push(window.setTimeout(this.countTime.bind(this), 1000));
     } else {
@@ -60,8 +66,13 @@ export default class Game {
     this.$scoreCount.text(this.ScoreTotal);
     // switch to next game or fire Event[gameover]
     const next = $(e.target).data('nextgame');
+    this.switchToGame(next);
+  }
+
+  switchToGame(next) {
     if (next < this.$game.length) {
-      this.switchToGame(next);
+      $('.game-show').removeClass('game-show');
+      this.$game.eq(next).addClass('game-show');
     } else {
       this.InGame = false;
       this.$page2.trigger('gameover', [this.ScoreTotal]);
@@ -69,11 +80,6 @@ export default class Game {
         this.destory()
       }, 5000);
     }
-  }
-
-  switchToGame(next) {
-    $('.game-show').removeClass('game-show');
-    this.$game.eq(next).addClass('game-show');
   }
 
   destory() {

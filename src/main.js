@@ -1,12 +1,23 @@
 import share from './scripts/share';
 import app from './scripts/app';
+import fingerScan from './scripts/finger-scan';
+
+if (process.env.NODE_ENV !== 'production') {
+  require('./index.html'); // for reload
+}
 
 require('./styles/index.css');
 
 // imageList
-
 const imageList = [
-  require('./assets/scan.png'),
+  require('./assets/game/game0.png'),
+  require('./assets/game/game1.png'),
+  require('./assets/game/game2.png'),
+  require('./assets/game/game3.png'),
+  require('./assets/game/game4.png'),
+  require('./assets/game/game5.png'),
+  require('./assets/game/game6.png'),
+  require('./assets/game/game7.png'),
 ];
 
 share().then(res => {
@@ -69,6 +80,9 @@ window.onload = function() {
         $('#root').html($('[data-platform="mobile"]').html());
         const isEnd = new Date() >= new Date('2016-4-13');
         app.init();
+        setTimeout(() => {
+          fingerScan.init()
+        }, 300);
       }
     });
   }

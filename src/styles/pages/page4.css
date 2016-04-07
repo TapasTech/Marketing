@@ -1,0 +1,60 @@
+.page4 {
+  overflow-y: auto;
+  transform: inherit;
+
+  .jumbotron {
+    height: 3.77rem;
+    background: url('../assets/page4/jumbotron.png') no-repeat center/contain;
+  }
+
+  .content {
+    background-color: #000;
+    padding-top: 0.35rem;
+    padding-bottom: 1.13rem;
+  }
+
+  .schedule {
+    height: 6.09rem;
+    margin-bottom: 0.6rem;
+    background: url('../assets/page4/schedule.png') no-repeat center/contain;
+  }
+
+  .btn-wrapper {
+
+    .btn {
+      width: 1.96rem;
+
+      & + .btn {
+        margin-left: 0.83rem;
+      }
+    }
+  }
+
+  .share-mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+
+    .share-tip {
+      float: right;
+      margin-top: 0.5rem;
+      margin-right: 0.2rem;
+      color: #fff;
+      font-size: 0.5rem;
+      text-align: center;
+    }
+
+    svg {
+      width: 0.87rem;
+      height: 1.13rem;
+    }
+
+    &.show {
+      display: block;
+    }
+  }
+}

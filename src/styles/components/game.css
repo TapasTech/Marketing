@@ -1,0 +1,103 @@
+.game-wrapper {
+  text-align: center;
+}
+
+.game {
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 100%;
+}
+
+.littleD {
+  text-indent: -1000px;
+  position: absolute;
+  border: 2px solid #fff;
+}
+
+#game0 {
+  background-image: url('../assets/game/game0.png');
+
+  .littleD {
+    left: 0.92rem;
+    top: 3.55rem;
+    width: 2.15rem;
+    height: 0.93rem;
+  }
+}
+
+#game1 {
+  background-image: url('../assets/game/game1.png');
+
+  .littleD {
+    left: 0.55rem;
+    top: 2.1rem;
+    width: 1.18rem;
+    height: 0.8rem;
+  }
+}
+
+#game2 {
+  background-image: url('../assets/game/game2.png');
+
+  .littleD {
+    left: 2.48rem;
+    top: 5rem;
+    width: 1.99rem;
+    height: 0.79rem;
+  }
+}
+
+#game3 {
+  background-image: url('../assets/game/game3.png');
+
+  .littleD {
+    left: 3.58rem;
+    top: 2.55rem;
+    width: 1.32rem;
+    height: 0.96rem;
+  }
+}
+
+#game4 {
+  background-image: url('../assets/game/game4.png');
+
+  .littleD {
+    left: 1.64rem;
+    top: 2.46rem;
+    width: 1.9rem;
+    height: 0.96rem;
+  }
+}
+
+#game5 {
+  background-image: url('../assets/game/game5.png');
+
+  .littleD {
+    left: 4.5rem;
+    top: 2.5rem;
+    width: 1.24rem;
+    height: 1.04rem;
+  }
+}
+
+#game6 {
+  background-image: url('../assets/game/game6.png');
+
+  .littleD {
+    left: 1.64rem;
+    top: 4.4rem;
+    width: 1.26rem;
+    height: 0.36rem;
+  }
+}
+
+#game7 {
+  background-image: url('../assets/game/game7.png');
+
+  .littleD {
+    left: 4.67rem;
+    top: 4.4rem;
+    width: 0.93rem;
+    height: 0.82rem;
+  }
+}

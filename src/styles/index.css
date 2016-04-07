@@ -1,12 +1,19 @@
+@import "./variables.css";
 @import "./base.css";
 @import "./utilities.css";
+
+@import "./effects/animation.css";
 
 /* component */
 @import "./components/counter.css";
 @import "./components/loading.css";
 @import "./components/qrcode.css";
+@import "./components/game.css";
 
 /* pages styles */
 @import "./pages/index.css";
 @import "./pages/page0.css";
+@import "./pages/page1.css";
 @import "./pages/page2.css";
+@import "./pages/page3.css";
+@import "./pages/page4.css";

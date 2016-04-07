@@ -1,0 +1,161 @@
+.page3 {
+
+  .gameover-tip {
+    margin-top: 0.38rem;
+    font-size: 0.4rem;
+
+    .btn {
+      margin-top: 1.04rem;
+    }
+  }
+
+  .bg-addon {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    z-index: -1;
+  }
+
+  .planet {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -2.922rem;
+    margin-top: -0.955rem;
+    /*transform: translate3d(-50%, -50%, 0);*/
+    width: 5.85rem;
+    height: 1.91rem;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: right center;
+    background-image: url('../assets/page3/star3.png');
+  }
+
+  #addon1 {
+    top: 1.4rem;
+    height: 0.56rem;
+    background-position: right center;
+    background-image: url('../assets/page3/bg-addon1.png');
+  }
+
+  #addon2 {
+    bottom: 1.6rem;
+    height: 0.87rem;
+    background-position: left center;
+    background-image: url('../assets/page3/bg-addon2.png');
+
+    @media (max-height: 481px) {
+      bottom: 0.3rem;
+    }
+  }
+
+  .jumbotron {
+    position: relative;
+    height: 2.49rem;
+    margin-top: 0.7rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+    background-image: url('../assets/page3/jumbotron-fail.png');
+
+    .star {
+      display: none;
+      position: absolute;
+      width: 1.6rem;
+      height: 1.42rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    #star1 {
+      left: 3.39rem;
+      top: -0.6rem;
+      background-image: url('../assets/page3/star1.png');
+    }
+
+    #star2 {
+      left: 0.3rem;
+      top: 1.44rem;
+      background-image: url('../assets/page3/star2.png');
+    }
+  }
+
+  .show-schedule {
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0.8rem auto;
+    color: var(--brand-color);
+    background-color: var(--brand-color);
+    border-radius: 50%;
+    animation: 1.5s linear 0s infinite normal ripple;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      animation: 1.5s linear .5s infinite normal ripple;
+    }
+
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  #success {
+    display: none;
+  }
+
+  .result.passed {
+
+    .jumbotron {
+      background-image: url('../assets/page3/jumbotron-dark.png');
+    }
+
+    &.lighten {
+
+      .jumbotron {
+        background-image: url('../assets/page3/jumbotron.png');
+      }
+
+      .star {
+        display: block;
+        animation: 1.5s linear 0s normal rubberBand;
+      }
+
+      .planet {
+        display: block;
+        animation: 1.5s linear 0.1s normal rubberBand;
+      }
+
+      .show-schedule,
+      .show-schedule:before {
+        animation: 0;
+        color: var(--gray-color);
+        background-color: var(--gray-color);
+      }
+    }
+
+    #success {
+      display: block;
+    }
+
+    #fail {
+      display: none;
+    }
+  }
+}
+
+
+

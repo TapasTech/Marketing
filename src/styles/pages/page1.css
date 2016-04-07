@@ -1,0 +1,38 @@
+.page1 {
+
+  .jumbotron {
+    height: 3.04rem;
+    padding: 1.25rem 0.5rem 0;
+    font-size: 0.36rem;
+    background-image: url('../assets/page1/jumbotron.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100%;
+  }
+
+  .tip {
+    font-size: 0.33rem;
+  }
+
+  .logo {
+    margin: 0.1rem 0;
+
+    svg {
+      width: 2.13rem;
+      height: 0.83rem;
+    }
+  }
+
+  .btn-wrapper {
+    margin-top: 1.37rem;
+
+    @media (max-height: 480px) {
+      margin-top: 0.37rem;
+    }
+  }
+
+  .userId {
+    display: inline-block;
+    margin: 0 0.1rem;
+  }
+}
