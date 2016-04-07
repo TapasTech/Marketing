@@ -50,12 +50,13 @@ export default class Game {
   countTime() {
     this.LimitTime--;
     this.$timeCount.text(this.LimitTime);
-    if (this.LimitTime > 0 && this.InGame) {
-      this.TimerQueue.push(window.setTimeout(this.countTime.bind(this), 1000));
-    } else {
-      // fire Event[gameover]
-      this.$page2.trigger('gameover', [this.ScoreTotal]);
-      this.destory();
+    if (this.InGame) {
+      if (this.LimitTime > 0) {
+        this.TimerQueue.push(window.setTimeout(this.countTime.bind(this), 1000));
+      } else {
+        this.$page2.trigger('gameover', [this.ScoreTotal]);
+        this.destory();
+      }
     }
   }
 
@@ -76,9 +77,7 @@ export default class Game {
     } else {
       this.InGame = false;
       this.$page2.trigger('gameover', [this.ScoreTotal]);
-      setTimeout(()=> {
-        this.destory()
-      }, 5000);
+      this.destory();
     }
   }
 

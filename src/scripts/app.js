@@ -61,8 +61,6 @@ export default {
     this.$scoreTotal.text(score);
     if (score >= 800) {
       this.$resultPage.addClass('passed');
-    } else {
-      this.$resultPage.removeClass('passed');
     }
     const index = this.$page.index($('.page-show'));
     this.switchToPage(index + 1);
