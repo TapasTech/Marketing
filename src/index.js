@@ -25,7 +25,7 @@ share().then(res => {
     const wxData = {
       imgUrl: 'http://z.dtcj.com/dt/data-imagination/summit/2016/cover.png',
       link: location.href,
-      desc: '百位大咖云集上海，共议大数据时代的媒体变革',
+      desc: '百位大咖云集上海，共议大数据时代的媒体变革。',
       title: '数据想象力·2016新媒体创新峰会'
     }
 
