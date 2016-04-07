@@ -2,40 +2,49 @@ import resultTpl from '../templates/result.html'
 
 export default class Result {
 
-  constructor() {
-    // this.getDefaultProps();
+  constructor(props) {
+    this.insertTpl(props);
     this.init();
   }
 
-  getDefaultProps() {
-  }
-
   init() {
-    // insert result template
-    $('.page-container .page3').html(resultTpl);
     this.cacheElements();
     this.bindEvents();
   }
 
-  cacheElements() {
+  insertTpl(status = false) {
+    // insert result template
     this.$page3 = $('.page-container .page3');
-    this.$showSchedule = this.$page.find('.show-schedule');
-    this.$restartGame = this.$page.find('.restart-game');
-    this.$restartGame.on('click', this.hanldStartClick.bind(this));
+    this.$page3.html(resultTpl);
+    this.$resultContent = this.$page3.find('.result');
+    if (status) {
+      this.$resultContent.addClass('passed');
+    }
+  }
+
+  cacheElements() {
+    this.$page = $('.page-container .page');
+    this.$showSchedule = this.$page3.find('.show-schedule');
+    this.$restartGame = this.$page3.find('.restart-game');
   }
 
   bindEvents() {
+    this.$restartGame.on('click', this.hanldStartClick.bind(this));
     this.$showSchedule.on('click', this.handleShowSchedule.bind(this));
   }
 
   handleShowSchedule(e) {
     e.preventDefault();
-    this.$resultPage.addClass('lighten');
+    this.$resultContent.addClass('lighten');
+    this.$page3.trigger('lighten');
+    setTimeout(() => {
+      this.destory() //some hack
+    }, 3000);
   }
 
   hanldStartClick(e) {
-    this.switchNextPage(e);
-    this.game = new Game();
+    e.preventDefault();
+    this.$page3.trigger('restart');
   }
 
   destory() {

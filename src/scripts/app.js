@@ -1,4 +1,5 @@
 import Game from './game';
+import Result from './result';
 
 export default {
   init() {
@@ -17,17 +18,15 @@ export default {
 
     this.$shareBtn = this.$page.find('.share');
     this.$shareMask = this.$page.find('.share-mask');
-    this.$restartGame = this.$page.find('.restart-game');
-    this.$showSchedule = this.$page.find('.show-schedule');
   },
   bindEvents() {
-    this.$showSchedule.on('click', this.handleShowSchedule.bind(this));
     this.$shareBtn.on('click', this.handleShareShow.bind(this));
     this.$shareMask.on('click', this.handleShareClose.bind(this));
     this.$switchBtns.on('click', this.switchNextPage.bind(this));
-    this.$startGame.on('click', this.hanldStartClick.bind(this));
-    this.$restartGame.on('click', this.hanldStartClick.bind(this));
+    this.$startGame.on('click', this.hanldStart.bind(this));
     this.$page.on('gameover', this.handleGameOver.bind(this));
+    this.$page.on('lighten', this.handleLighten.bind(this));
+    this.$page.on('restart', this.handleRestart.bind(this));
   },
   generateId() {
     const userId = Math.round(Math.random()*100000);
@@ -41,27 +40,30 @@ export default {
     e.preventDefault();
     this.$shareMask.removeClass('show');
   },
-  handleShowSchedule(e) {
+  hanldStart(e) {
+    this.game = new Game();
+    this.switchNextPage(e);
+  },
+  handleRestart() {
+    this.game = new Game();
+    this.switchToPage(2); // some hack
+  },
+  handleLighten(e) {
     e.preventDefault();
-    this.$resultPage.addClass('lighten');
     // switch to next page
     const index = this.$page.index($('.page-show'));
     setTimeout(() => {
       this.switchToPage(index + 1)
     }, 3000);
-  },
-  hanldStartClick(e) {
-    this.switchNextPage(e);
-    this.game = new Game();
+    this.result = null;
   },
   handleGameOver(e, score) {
     e.preventDefault();
     this.game = null;
+    const success = score >= 800 ? true : false;
+    this.result = new Result(success);
     // show game result
     this.$scoreTotal.text(score);
-    if (score >= 800) {
-      this.$resultPage.addClass('passed');
-    }
     const index = this.$page.index($('.page-show'));
     this.switchToPage(index + 1);
   },
