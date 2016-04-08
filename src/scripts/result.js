@@ -36,18 +36,17 @@ export default class Result {
   handleShowSchedule(e) {
     e.preventDefault();
     this.$resultContent.addClass('lighten');
-    this.$page3.trigger('lighten');
-    setTimeout(() => {
-      this.destory() //some hack
-    }, 3000);
+    // bubble method `destroy` to app.js because there is a 3s timeout
+    this.$page3.trigger('lighten', this.destroy.bind(this));
   }
 
   hanldStartClick(e) {
     e.preventDefault();
     this.$page3.trigger('restart');
+    this.destroy();
   }
 
-  destory() {
+  destroy() {
     this.$page3.empty();
   }
 }
