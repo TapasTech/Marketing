@@ -35,6 +35,11 @@ const imageList = [
   require('./assets/game/game7.png'),
 ];
 
+// generate IDs
+const userId = Math.round(Math.random()*100000);
+const shareDesc = `ID${userId},接受挑战赢得入场券吧！`;
+$('[name="description"]').attr('content', shareDesc);
+
 share().then(res => {
   wx.config({
     debug: false,
@@ -54,7 +59,7 @@ share().then(res => {
     const wxData = {
       imgUrl: 'http://z.dtcj.com/dt/data-imagination/game/2016/cover.png',
       link: location.href,
-      desc: '获取ID,接受挑战赢得入场券吧！',
+      desc: shareDesc,
       title: '一封来自DT时代的神秘邀请函'
     }
     wx.onMenuShareTimeline(wxData);
@@ -92,6 +97,7 @@ window.onload = function() {
       if (loaded >= imageList.length) {
         $('#root').html($('[data-platform="mobile"]').html());
         const isEnd = new Date() >= new Date('2016-4-13');
+        app.userId = userId; // get it from global
         app.init();
         setTimeout(() => {
           fingerScan.init();
