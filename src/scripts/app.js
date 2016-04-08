@@ -5,7 +5,7 @@ export default {
   init() {
     this.cacheElements();
     this.bindEvents();
-    this.drawId();
+    this.generateId();
   },
   cacheElements() {
     this.$page = $('.page-container .page');
@@ -85,8 +85,8 @@ export default {
     $('.page-show').removeClass('page-show');
     this.$page.eq(next).addClass('page-show');
   },
-  drawId() {
-    const userId = this.userId;
+  generateId() {
+    const userId = Math.round(Math.random()*100000);
     this.$userId.text(userId);
   },
   getCurrentIndex() {
