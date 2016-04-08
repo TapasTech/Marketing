@@ -52,10 +52,10 @@ share().then(res => {
   });
   wx.ready(()=>{
     const wxData = {
-      imgUrl: '',
+      imgUrl: 'http://z.dtcj.com/dt/data-imagination/game/2016/cover.png',
       link: location.href,
-      desc: '',
-      title: ''
+      desc: '获取ID,接受挑战赢得入场券吧！',
+      title: '一封来自DT时代的神秘邀请函'
     }
     wx.onMenuShareTimeline(wxData);
     wx.onMenuShareAppMessage(wxData);
