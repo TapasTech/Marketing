@@ -19,9 +19,6 @@ export default {
 
     this.$shareBtn = this.$page.find('.share');
     this.$shareMask = this.$page.find('.share-mask');
-
-    // to remove
-    this.$scoreTotal = this.$page.find('.score-total');
   },
   bindEvents() {
     this.$switchBtns.on('click', this.switchNextPage.bind(this));
@@ -54,7 +51,7 @@ export default {
     const index = this.getCurrentIndex();
     setTimeout(() => {
       this.switchToPage(index + 1);
-    }, 4000); // for scan animation done
+    }, 2500); // for scan animation done
   },
   handleRestart() {
     this.game = new Game();
@@ -67,9 +64,6 @@ export default {
     this.result = new Result(success);
     const index = this.getCurrentIndex();
     this.switchToPage(index + 1);
-    // show game result
-    // to remove
-    this.$scoreTotal.text(score);
   },
   handleLighten(e, cb) {
     e.preventDefault();

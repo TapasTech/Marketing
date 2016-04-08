@@ -18,20 +18,27 @@
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 100%;
+  }
+
+  .tip {
+    font-size: 0.24rem;
+    margin-bottom: 0.1rem;
 
     @media (min-height: 481px) {
-      margin-top: 0.65rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.2rem;
     }
   }
 
   .scan {
+    display: none;
     height: 0.7rem;
     background-image: url('../assets/decorator/fix-star.png');
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 100% auto;
     animation-name: scanning;
-    animation-duration: 5s;  /* hack css for switchover transition */
+    animation-duration: 3s;  /* hack css for switchover transition */
     animation-timing-function: ease-in-out;
     animation-delay: 0s;
     animation-play-state: paused;
@@ -39,12 +46,9 @@
     transform: translate3d(0, -0.3rem, 0);
 
     &.move {
+      display: block;
       animation-play-state: running;
     }
-  }
-
-  .tip {
-    font-size: 0.24rem;
   }
 }
 

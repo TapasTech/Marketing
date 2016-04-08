@@ -1,4 +1,4 @@
-import gameTpl from '../templates/game.html'
+import gameTpl from '../templates/game'
 
 export default class Game {
 
@@ -28,9 +28,6 @@ export default class Game {
     this.$game = this.$page2.find('.game');
     this.$littleD = this.$game.find('[data-role="littleD"]');
     this.$time = this.$page2.find('.time');
-
-    this.$timeCount = this.$page2.find('.time-count');
-    this.$scoreCount = this.$page2.find('.score-count');
   }
 
   bindEvents() {
@@ -39,8 +36,6 @@ export default class Game {
 
   gameStart() {
     this.InGame = true;
-    this.$scoreCount.text(this.ScoreTotal);
-    this.$timeCount.text(this.LimitTime);
     this.TimerQueue.push(window.setTimeout(this.countTime.bind(this), 1000));
     setTimeout(() => {
       this.$time.addClass('start');
@@ -49,7 +44,6 @@ export default class Game {
 
   countTime() {
     this.LimitTime--;
-    this.$timeCount.text(this.LimitTime);
     if (this.InGame) {
       if (this.LimitTime > 0) {
         this.TimerQueue.push(window.setTimeout(this.countTime.bind(this), 1000));
@@ -64,7 +58,6 @@ export default class Game {
     e.preventDefault();
     // add score
     this.ScoreTotal += 100;
-    this.$scoreCount.text(this.ScoreTotal);
     // switch to next game or fire Event[gameover]
     const next = $(e.target).data('nextgame');
     this.switchToGame(next);

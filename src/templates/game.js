@@ -1,13 +1,9 @@
-<div class="game-wrapper">
+const template = `<div class="game-wrapper">
   <div class="counter clearfix">
     <div class="time-tip">剩余时间</div>
     <div class="time">
       <div class="slider"></div>
     </div>
-  </div>
-  <div class="score">
-    时间:<span class="time-count">10</span>
-    得分:<span class="score-count">0</span>
   </div>
   <div class="game game-show" id="game0">
     <div class="littleD" data-role="littleD" data-nextgame="1">littleD</div>
@@ -34,3 +30,6 @@
     <div class="littleD" data-role="littleD" data-nextgame="8">littleD</div>
   </div>
 </div>
+`;
+
+export default template

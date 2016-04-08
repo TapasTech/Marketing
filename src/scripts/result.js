@@ -1,4 +1,4 @@
-import resultTpl from '../templates/result.html'
+import resultTpl from '../templates/result'
 
 export default class Result {
 

@@ -4,18 +4,20 @@
     height: 3.04rem;
     padding: 1.25rem 0.5rem 0;
     font-size: 0.36rem;
+    line-height: 1.5;
     background-image: url('../assets/page1/jumbotron.png');
     background-repeat: no-repeat;
-    background-position: left top;
+    background-position: left center;
     background-size: 100%;
   }
 
   .tip {
-    font-size: 0.33rem;
+    font-size: 0.3rem;
+    line-height: 1.5;
   }
 
   .logo {
-    margin: 0.1rem 0;
+    margin-top: 0.1rem;
 
     svg {
       width: 2.13rem;
@@ -24,7 +26,7 @@
   }
 
   .btn-wrapper {
-    margin-top: 1.37rem;
+    margin-top: 1rem;
 
     @media (max-height: 480px) {
       margin-top: 0.37rem;
