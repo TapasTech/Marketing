@@ -68,7 +68,7 @@ share().then(res => {
   console.log(err)
 })
 
-window.onload = function() {
+$(document).ready(function() {
   calcREM();
 
   window.addEventListener('resize', calcREM, false);
@@ -99,4 +99,4 @@ window.onload = function() {
       }
     });
   }
-}
+});
