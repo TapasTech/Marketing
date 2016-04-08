@@ -44,7 +44,7 @@ export default class Game {
     this.TimerQueue.push(window.setTimeout(this.countTime.bind(this), 1000));
     setTimeout(() => {
       this.$time.addClass('start');
-    }, 1)
+    });
   }
 
   countTime() {

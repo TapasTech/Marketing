@@ -94,8 +94,8 @@ window.onload = function() {
         const isEnd = new Date() >= new Date('2016-4-13');
         app.init();
         setTimeout(() => {
-          fingerScan.init()
-        }, 300);
+          fingerScan.init();
+        });
       }
     });
   }

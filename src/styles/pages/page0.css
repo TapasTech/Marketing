@@ -25,20 +25,35 @@
   }
 
   .scan {
-    height: 0.6rem;
+    height: 0.7rem;
     background-image: url('../assets/decorator/fix-star.png');
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 100% auto;
-    transform: translate3d(0, -50%, 0);
-    transition: transform 4s ease-in-out;
+    animation-name: scanning;
+    animation-duration: 5s;  /* hack css for switchover transition */
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+    transform: translate3d(0, -0.3rem, 0);
 
     &.move {
-      transform: translate3d(0, 2rem, 0);
+      animation-play-state: running;
     }
   }
 
   .tip {
     font-size: 0.24rem;
+  }
+}
+
+@keyframes scanning {
+  0 {
+    transform: translate3d(0, -0.3rem, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 2rem, 0);
   }
 }

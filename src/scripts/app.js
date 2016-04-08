@@ -30,6 +30,7 @@ export default {
     this.$shareBtn.on('click', this.handleShareShow.bind(this));
     this.$shareMask.on('click', this.handleShareClose.bind(this));
     // custom event
+    this.$page.on('scanover', this.handleScanOver.bind(this));
     this.$page.on('gameover', this.handleGameOver.bind(this));
     this.$page.on('lighten', this.handleLighten.bind(this));
     this.$page.on('restart', this.handleRestart.bind(this));
@@ -44,9 +45,17 @@ export default {
   },
   hanldStart(e) {
     this.game = new Game();
-    this.switchNextPage(e);
+    setTimeout(() => {
+      this.switchNextPage(e);
+    });
   },
   // custom evenet handler
+  handleScanOver() {
+    const index = this.getCurrentIndex();
+    setTimeout(() => {
+      this.switchToPage(index + 1);
+    }, 4000); // for scan animation done
+  },
   handleRestart() {
     this.game = new Game();
     this.switchToPage(2); // some hack for the page number

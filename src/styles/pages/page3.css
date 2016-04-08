@@ -80,8 +80,7 @@
     #star2 {
       left: 0.3rem;
       top: 1.44rem;
-      transform: rotate(180deg);
-      background-image: url('../assets/decorator/meteor.png');
+      background-image: url('../assets/decorator/meteor1.png');
     }
   }
 
@@ -157,6 +156,3 @@
     }
   }
 }
-
-
-

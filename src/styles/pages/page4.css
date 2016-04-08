@@ -15,7 +15,7 @@
 
   .schedule {
     height: 6.09rem;
-    margin-bottom: 0.6rem;
+    margin: 0 0.1rem 0.6rem;
     background: url('../assets/page4/schedule.png') no-repeat center/contain;
   }
 
