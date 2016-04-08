@@ -9,9 +9,10 @@ export default {
     this.$scan = this.$page0.find('.scan');
   },
   bindEvents() {
-    this.$fingerPrinter.on('click', this.handleFingerScan.bind(this));
+    this.$fingerPrinter.on('touchstart', this.handleFingerScan.bind(this));
   },
-  handleFingerScan() {
+  handleFingerScan(e) {
+    e.preventDefault();
     this.$scan.addClass('move');
     this.$page0.trigger('scanover');
   }

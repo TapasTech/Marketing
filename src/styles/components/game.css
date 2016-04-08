@@ -11,7 +11,7 @@
 .littleD {
   text-indent: -1000px;
   position: absolute;
-  border: 2px solid #fff;
+  /*border: 2px solid #fff;*/
 }
 
 #game0 {

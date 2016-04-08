@@ -22,9 +22,9 @@
 
   .tip {
     font-size: 0.24rem;
-    margin-bottom: 0.1rem;
+    /*margin-bottom: 0.1rem;*/
 
-    @media (min-height: 481px) {
+    @media (max-aspect-ratio: 319/480) {
       margin-top: 0.25rem;
       margin-bottom: 0.2rem;
     }
