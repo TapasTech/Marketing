@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --history-api-fallback --hot --inline --progress --colors",
+    "debug": "NODE_ENV=debug ./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --history-api-fallback --hot --inline --progress --colors",
     "build": "sh ./bin/build.sh"
   },
   "repository": {

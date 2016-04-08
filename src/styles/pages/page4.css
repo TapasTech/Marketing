@@ -1,6 +1,6 @@
 .page4 {
   overflow-y: auto;
-  transform: inherit;
+  transform: initial;
 
   .jumbotron {
     height: 3.77rem;

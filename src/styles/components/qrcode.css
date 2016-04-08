@@ -32,4 +32,8 @@
   padding: 22px;
   margin: 0 auto;
   background-color: #fff;
+
+  img {
+    max-width: 100%;
+  }
 }

@@ -41,3 +41,17 @@
     box-shadow: 0 0 0 0.4rem rgba(107, 104, 100, 0);
   }
 }
+
+@keyframes loading {
+  0 {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 15px, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

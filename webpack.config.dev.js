@@ -10,7 +10,7 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
-module.exports = {
+var config = {
   devtool: 'cheap-eval-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
@@ -28,17 +28,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    new (require('browser-sync-webpack-plugin'))(
-      {
-        host: 'localhost',
-        port: 9090,
-        proxy: 'http://localhost:8080/'
-      },
-      {
-        reload: false
-      }
-    )
+    })
   ],
   module: {
     loaders: [{
@@ -69,3 +59,20 @@ module.exports = {
     hot: true
   }
 }
+
+if (process.env.NODE_ENV === 'debug') {
+  config.plugins.push(
+    new (require('browser-sync-webpack-plugin'))(
+      {
+        host: 'localhost',
+        port: 9090,
+        proxy: 'http://localhost:8080/'
+      },
+      {
+        reload: false
+      }
+    )
+  );
+}
+
+module.exports = config;

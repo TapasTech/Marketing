@@ -10,6 +10,21 @@ require('./styles/index.css');
 
 // imageList
 const imageList = [
+  require('./assets/decorator/page-bg.png'),
+  require('./assets/decorator/fix-star.png'),
+  require('./assets/decorator/meteor.png'),
+  require('./assets/page0/bg.png'),
+  require('./assets/page0/fingerprint.png'),
+  require('./assets/page0/jumbotron.png'),
+  require('./assets/page1/jumbotron.png'),
+  require('./assets/page3/bg.png'),
+  require('./assets/page3/bg-addon1.png'),
+  require('./assets/page3/bg-addon2.png'),
+  require('./assets/page3/jumbotron-dark.png'),
+  require('./assets/page3/jumbotron-fail.png'),
+  require('./assets/page3/jumbotron.png'),
+  require('./assets/page4/jumbotron.png'),
+  require('./assets/page4/schedule.png'),
   require('./assets/game/game0.png'),
   require('./assets/game/game1.png'),
   require('./assets/game/game2.png'),
@@ -67,16 +82,14 @@ window.onload = function() {
 
   if (is.desktop()) {
     $('#root').html($('[data-platform="pc"]').html());
-    $('#qrcode').qrcode(location.href);
+    // qrcode url http://z.dtcj.com/dt/data-imagination/game/2016
   } else {
     var queue = new createjs.LoadQueue(true);
     var loaded = 0;
     queue.loadManifest(imageList);
     queue.on("fileload", function(event) {
       loaded++;
-      if (loaded < imageList.length) {
-        $('.process').text(Math.round(loaded / imageList.length * 100)+'%');
-      } else {
+      if (loaded >= imageList.length) {
         $('#root').html($('[data-platform="mobile"]').html());
         const isEnd = new Date() >= new Date('2016-4-13');
         app.init();

@@ -31,7 +31,7 @@
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: right center;
-    background-image: url('../assets/page3/star3.png');
+    background-image: url('../assets/decorator/fix-star.png');
   }
 
   #addon1 {
@@ -74,13 +74,14 @@
     #star1 {
       left: 3.39rem;
       top: -0.6rem;
-      background-image: url('../assets/page3/star1.png');
+      background-image: url('../assets/decorator/meteor.png');
     }
 
     #star2 {
       left: 0.3rem;
       top: 1.44rem;
-      background-image: url('../assets/page3/star2.png');
+      transform: rotate(180deg);
+      background-image: url('../assets/decorator/meteor.png');
     }
   }
 

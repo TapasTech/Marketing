@@ -14,7 +14,7 @@
   height: 100%;
   opacity: 0;
   transition: opacity .1s ease-in-out;
-  background-image: url('../assets/page-bg.png');
+  background-image: url('../assets/decorator/page-bg.png');
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100%;
