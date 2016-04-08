@@ -3,11 +3,14 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var AUTOPREFIXER_BROWSERS = [
-  'ie >= 10', 'ie_mob >= 10',
-  'ff >= 30', 'chrome >= 34',
-  'safari >= 7', 'opera >= 23',
-  'ios >= 7', 'android >= 4.4',
-  'bb >= 10'
+  'Android 2.3',
+  'Android >= 4',
+  'Chrome >= 35',
+  'Firefox >= 31',
+  'Explorer >= 9',
+  'iOS >= 7',
+  'Opera >= 12',
+  'Safari >= 7.1',
 ];
 
 var config = {

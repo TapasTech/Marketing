@@ -73,7 +73,7 @@ export default {
     setTimeout(() => {
       this.switchToPage(index + 1);
       cb && cb(); // cal `destroy` method to result content
-    }, 3000);
+    }, 1000);
     this.result = null;
   },
   switchNextPage(e) {
