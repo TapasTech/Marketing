@@ -36,6 +36,7 @@
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.4",
     "node-sass": "^3.10.1",
+    "qiniu": "^6.1.13",
     "run-sequence": "^1.2.2",
     "streamqueue": "^1.1.1",
     "webpack": "^1.13.2"
