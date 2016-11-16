@@ -1,0 +1,70 @@
+@import 'variables';
+@import "mixins";
+
+body{
+  margin: 0;
+}
+
+.nav-bar {
+  @media #{$PC} {
+    @include div-with-bgImage('../images/nav-bg.png');
+    min-height: 120px;
+
+  }
+  @include my-flex();
+  width: 100%;
+
+  .nav-wrapper {
+    @include my-flex($justify: space-between);
+    width: 100%;
+    max-width: 840px;
+
+    .nav-item {
+      @include my-flex();
+      position: relative;
+
+      @media #{$PC} {
+        margin: 0 0.75rem;
+
+        &:hover {
+          a span {
+            color: #c3f2ff;
+            text-shadow: 0 0 4px rgba(13, 71, 203, 0.57), 0 0 13px rgba(0, 112, 202, 0.75);
+          }
+          &:nth-child(n+3):after {
+            opacity: 1;
+          }
+        }
+
+        &:nth-child(n+3):after {
+          opacity: 0;
+          transition-duration: 0.3s;
+          perspective: 1000;
+          top: 7px;
+          left: -20px;
+          height: 20px;
+          width: 4px;
+          background-color: #daf8ff;
+          box-shadow: 7px 0 21px 2px rgba(7, 82, 234, 0.75), 6px 0 18px 2px rgba(16, 139, 238, 0.64), 15px 0 55px 5px rgba(0, 112, 202, 0.8), 0 0 8px 1px rgba(16, 139, 238, 0.64);
+
+          content: '';
+          display: block;
+          position: absolute;
+          transform: skew(-45deg);
+        }
+
+      }
+
+
+      @media #{$mobile} {
+        margin: 0;
+      }
+
+      font-size: 14px;
+
+
+    }
+
+  }
+
+}

@@ -1,0 +1,53 @@
+@import "variables";
+@import "mixins";
+
+.allies-logo-container {
+  @include my-flex($direction: column);
+
+  .row-block {
+    @include my-flex($direction: column, $justify: flex-start, $align: flex-start);
+    @media #{$PC} {
+      width: 820px;
+    }
+
+    .title-bar {
+      width: 100%;
+
+      .allies-title {
+        display: inline-block;
+        width: 25%;
+        margin: 1rem 0;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #137CFF;
+      }
+
+    }
+
+    .logos-row {
+      @include my-flex($direction: row, $wrap:wrap, $justify: flex-start);
+
+      .logo-unit {
+        width: 205px;
+        height: 72px;
+        //@include div-with-bgImage('../images/logo-frame.png');
+        background: url(../images/logo-frame.png);
+        background-size: 100%;
+        margin: 0 0 1.5rem 0;
+
+        @include my-flex();
+
+        .logo-img {
+          width: 80%;
+
+        }
+
+      }
+
+    }
+
+
+  }
+
+
+}

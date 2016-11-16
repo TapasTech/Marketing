@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'mixins';
+
+.footer {
+
+  @include div-with-bgImage('../images/nav-bg.png');
+  transform: scaleY(-1);
+  @include my-flex();
+  width: 100%;
+  min-height: 120px;
+
+  margin: 0 0 3rem 0;
+
+  .footer-content {
+    transform: scaleY(-1);
+    @include my-flex($direction: column, $align:flex-start);
+    color: blue;
+
+    .rows {
+      @include my-flex($justify:flex-start);
+    }
+
+    .info {
+      margin-right: 2rem;
+      color: #fff;
+    }
+
+  }
+
+}

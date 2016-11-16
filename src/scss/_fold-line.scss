@@ -1,0 +1,57 @@
+@import "variables";
+@import "functions";
+
+$fold-height: 10px;
+$line-color: #0C74F7;
+$fold-angle: 30deg;
+$bottom-width: 180px;
+$chevron-width: 4px;
+$line-width: 1px;
+
+.chevron-line {
+  position: absolute;
+  width: 100%;
+  height: $fold-height;
+  bottom: -$fold-height;
+  margin: 0 auto;
+  display: flex;
+  top: 0;
+  left: 0;
+
+  .line-left, .line-right {
+    border-bottom: $line-width $line-color solid;
+    height: $fold-height - $line-width;
+    bottom: -$line-width;
+    -webkit-flex: 1;
+    flex: 1;
+  }
+  .line-center {
+    position: relative;
+    width: $bottom-width;
+    height: $fold-height;
+    margin: 0 auto;
+    &:before {
+      content: '';
+      position: absolute;
+      width: $bottom-width - 2 * $fold-height / tan($fold-angle) + $chevron-width*2;
+      height: $line-width;
+      background: $line-color;
+      left: $fold-height / tan($fold-angle) - $chevron-width;
+    }
+    .chevron {
+      position: absolute;
+      height: $fold-height - 1px;
+      width: $chevron-width;
+      background: $line-color;
+      &.left {
+        right: $fold-height * cos($fold-angle) - $chevron-width;
+        transform: skew(90deg - $fold-angle);
+      }
+      &.right {
+        left: $fold-height * cos($fold-angle) - $chevron-width;
+        transform: skew(90deg + $fold-angle);
+      }
+    }
+  }
+
+}

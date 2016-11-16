@@ -1,0 +1,279 @@
+@import "mixins";
+@import "variables";
+@import "navigation";
+@import "footer";
+@import "fold-line";
+@import "leaders";
+@import "allies";
+@import "news";
+@import "about-cbndata";
+@import "mobile";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: url(../images/gridbg_glow.png),url(../images/noisebg.gif) repeat center top;
+}
+
+body {
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: $theme-color;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: $theme-color;
+}
+
+img, .image {
+  max-width: 100%;
+  margin: auto;
+}
+
+.video-wrapper {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  z-index:-1;
+}
+
+.video-img-mobile {
+  width: 100vw;
+  height: 100vh;
+  @include div-with-bgImage($url: '../images/banner_mobile.png');
+
+}
+
+.btn-scroll-down {
+  @include div-with-bgImage($url: '../images/hex-single.png');
+  position: absolute;
+  margin: auto;
+
+  $size: 8%;
+  width: $size;
+  height: $size * 1.6;
+  left: 50% - $size/2;
+  top: 80%;
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media #{$mobile} {
+    $size: 16%;
+    width: $size;
+    height: $size * 0.6;
+    left: 50% - $size/2;
+    top: 75%;
+  }
+
+  .arrows-button {
+    @include my-flex($direction: column, $wrap: no-wrap);
+    width: 100%;
+    height: 100%;
+
+    .arrow {
+      backface-visibility: hidden;
+      background: url(../images/arrow_single.png) no-repeat center;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+
+      $distance: 10%;
+      $top-first: -10%;
+      &.arrow0 {
+        top: $top-first
+      }
+      &.arrow1 {
+        top: $top-first + $distance;
+      }
+      &.arrow2 {
+        top: $top-first + $distance * 2;
+      }
+
+    }
+
+  }
+
+}
+
+.pages {
+  position: relative;
+  width: 100vw;
+  min-width: 100%;
+  @media #{$PC} {
+    min-height: 100vw * 9/16;
+  }
+}
+
+#page2 {
+  @include my-flex($direction: column, $justify: space-around)
+}
+
+.flex-center {
+  @include my-flex();
+}
+
+.title {
+  margin: auto;
+  width: 280px;
+  height: 127px;
+}
+.title-about-fiesta {
+  @include div-title-img($url:'../images/title-about-fiesta.png');
+}
+.title-agenda {
+  @include div-title-img($url:'../images/title-agenda.png');
+}
+.title-leaders {
+  @include div-title-img($url:'../images/title-leaders.png');
+}
+.title-allies {
+  @include div-title-img($url:'../images/title-allies.png');
+}
+.title-news {
+  @include div-title-img($url:'../images/title-news.png');
+}
+.title-about-cbndata {
+  @include div-title-img($url:'../images/title-about-cbndata.png', $width: 326px, $height: 127px);
+}
+
+.content-wrapper {
+  @media #{$PC} {
+    margin: 2rem 0;
+  }
+  @media #{$mobile} {
+    margin: 0.5rem 0;
+  }
+}
+
+.title-img-wrapper {
+  width: 100%;
+  position: relative;
+  top: -4vw;
+}
+.figure-top-right-wrapper {
+  position: relative;
+  top: 3vw;
+  right: 0;
+  @include my-flex($justify:flex-end);
+}
+
+.figure-top-left-wrapper {
+  position: relative;
+  top: 2vw;
+  left: 0;
+  @include my-flex($justify:flex-end);
+  transform: scaleX(-1);
+}
+
+.img-above-title {
+  $width: 723px;
+  $height: 146px;
+  $size-factor: 0.55;
+  width: 100vw * $size-factor;
+  height: 100vw * $size-factor * $height/$width;
+  max-width: 60vw;
+  max-height: 60vw * $height/$width;
+  @include div-with-bgImage('../images/polyline-figure.svg');
+}
+
+.about-fiesta {
+
+  @media #{$PC} {
+    @include img-responsive($width: 828px, $height: 335px);
+    @include div-with-bgImage('../images/about-fiesta.png');
+    @include my-flex($direction: column, $justify:space-around, $align: flex-start);
+    padding: 1rem 1rem 1rem 3rem;
+  }
+  @media #{$mobile} {
+    padding: 1rem;
+    width: 100%;
+  }
+}
+.img-agenda-fiesta {
+  margin: auto;
+  @media #{$PC} {
+    @include img-responsive($width: 1136px, $height: 640px);
+    @include div-with-bgImage('../images/fiesta-agenda.png');
+  }
+}
+.agenda-mobile {
+  text-align: right;
+}
+.img-leaders-fiesta {
+  @include img-responsive($width: 1531px, $height: 743px);
+  @include div-with-bgImage('../images/fiesta-leaders.png');
+}
+.img-allies-fiesta {
+  @include img-responsive($width: 831px, $height: 1143px);
+  @include div-with-bgImage('../images/fiesta-allies.png');
+}
+.img-news-fiesta {
+  @include img-responsive($width: 698px, $height: 371px);
+  @include div-with-bgImage('../images/fiesta-news.png');
+}
+.img-about-cbndata {
+  @include img-responsive($width: 698px, $height: 537px);
+  @include div-with-bgImage('../images/about-cbndata.png');
+}
+
+.video2-wrapper {
+  @media #{$PC} {
+    margin: 0 auto 4rem auto;
+    width: 828px;
+  }
+  @media #{$mobile} {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+}
+
+
+.btn-to-top {
+  position: fixed !important;
+  display: inline-block;
+  right: 3rem;
+  bottom: 10%;
+  $btn-size: 50px;
+  width: $btn-size;
+  height: $btn-size;
+  @include div-with-bgImage('../images/btn-goto-top.png');
+  z-index: 20;
+  &:hover {
+    cursor: pointer;
+  }
+  transition-duration: 0.8s;
+}
+
+
+.layer-3d-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 100vw * 9/16 * 0.9;
+  z-index: -100;
+}
+
+.bg-planet-wrapper {
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  background-image: url('../images/bg-planet.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500vh;
+  top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+
+

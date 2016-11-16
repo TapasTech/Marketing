@@ -14,9 +14,9 @@ if (/^dev\//.test(name)) {
 var config = {
   accessKey: process.env.QINIU_ACCESS_KEY,
   secretKey: process.env.QINIU_SECRET_KEY,
-  rewrite: ['build/', ''],
+  rewrite: ['dist/', ''],
   log: 'qiniu.log',
   prefix: name
 };
 
-upload(config, 'build')
+upload(config, 'dist')

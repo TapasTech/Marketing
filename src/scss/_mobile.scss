@@ -1,0 +1,64 @@
+@import 'variables';
+@import "mixins";
+
+@media #{$PC} {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media #{$mobile} {
+  .PC-only {
+    display: none !important;
+  }
+
+  // navigation bar
+  .nav-bar {
+    @include div-with-bgImage('../images/nav-bg-mobile.png');
+
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+
+    .nav-wrapper {
+
+      padding: 0 2%;
+
+      .nav-item {
+        width: 14%;
+
+        @media #{$iphone5} {
+          font-size: 10px;
+        }
+
+        .text-bottom {
+          display: none;
+        }
+
+        font-size: 12px;
+        white-space: nowrap;
+
+        &:last-of-type {
+          width: 20%;
+        }
+      }
+    }
+
+  }
+
+
+  // layer-3d-wrapper
+  #layer3dWrapper {
+    top: 90vh;
+  }
+
+  .pages-wrapper {
+
+
+  }
+
+
+
+
+
+}

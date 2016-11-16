@@ -1,0 +1,46 @@
+@import "variables";
+
+@mixin div-with-bgImage($url) {
+  background-image: url($url);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@mixin vendor-prefix($name, $value) {
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$vendor}#{$name}: #{$value};
+  }
+}
+
+@mixin my-flex($direction:row, $wrap:nowrap, $justify:center, $align:center ) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin img-responsive($width, $height) {
+  width: $width;
+  height: $height;
+  max-width: 100vw;
+  max-height: 100vw * $height/$width;
+}
+
+@mixin div-img-responsive($width, $height, $url) {
+  @include img-responsive($width, $height);
+  @include div-with-bgImage($url);
+}
+
+@mixin div-title-img($url, $width:280px, $height:127px) {
+  @media #{$PC} {
+    $width:280px;
+    $height:127px;
+  }
+  @media #{$mobile} {
+    width: 33vw;
+    height: 10vh;
+  }
+  @include div-with-bgImage($url);
+}
