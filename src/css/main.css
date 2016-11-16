@@ -129,15 +129,7 @@ body {
 }
 
 .footer {
-  background-image: url("../images/nav-bg.png");
-  -webkit-background-size: 100% 100%;
-          background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-transform: scaleY(-1);
-      -ms-transform: scaleY(-1);
-       -o-transform: scaleY(-1);
-          transform: scaleY(-1);
+  margin: 0 0 3rem 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -158,16 +150,56 @@ body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
-  min-height: 120px;
-  margin: 0 0 3rem 0;
+}
+
+@media (min-width: 720px) {
+  .footer {
+    background-image: url("../images/nav-bg.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transform: scaleY(-1);
+        -ms-transform: scaleY(-1);
+         -o-transform: scaleY(-1);
+            transform: scaleY(-1);
+    width: 100%;
+    min-height: 120px;
+    font-size: 16px;
+  }
+  .footer .footer-content {
+    -webkit-transform: scaleY(-1);
+        -ms-transform: scaleY(-1);
+         -o-transform: scaleY(-1);
+            transform: scaleY(-1);
+    /*@include my-flex($direction: column, $align:flex-start);
+      color: #137CFF;*/
+  }
+  .footer .footer-content .rows {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .footer .footer-content {
-  -webkit-transform: scaleY(-1);
-      -ms-transform: scaleY(-1);
-       -o-transform: scaleY(-1);
-          transform: scaleY(-1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -188,35 +220,28 @@ body {
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
-  color: blue;
+  color: #137CFF;
 }
 
-.footer .footer-content .rows {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.footer .footer-content .info {
+.footer .info {
   margin-right: 2rem;
   color: #fff;
+}
+
+@media (max-width: 720px) {
+  .footer {
+    background-image: url("../images/mobile/footer-frame.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100px;
+    font-size: 12px;
+  }
+  .footer .footer-content {
+    position: relative;
+    top: 6px;
+  }
 }
 
 .chevron-line {
@@ -280,31 +305,6 @@ body {
       -ms-transform: skew(120deg);
        -o-transform: skew(120deg);
           transform: skew(120deg);
-}
-
-@media (max-width: 720px) {
-  .leaders-wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
 }
 
 @media (min-width: 720px) {
@@ -437,6 +437,7 @@ body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  font-family: PingFangSC-Regular;
 }
 
 .allies-logo-container .row-block {
@@ -466,22 +467,37 @@ body {
   .allies-logo-container .row-block {
     width: 820px;
   }
+  .allies-logo-container .row-block .allies-title {
+    display: inline-block;
+    width: 25%;
+    margin: 1rem 0;
+    font-size: 14px;
+    color: #137CFF;
+  }
+}
+
+@media (max-width: 720px) {
+  .allies-logo-container .row-block {
+    width: 100%;
+  }
+  .allies-logo-container .row-block .allies-title {
+    display: inline-block;
+    width: 25%;
+    margin: 8px 0;
+    font-size: 14px;
+    color: #137CFF;
+  }
+  .allies-logo-container .row-block .title-bar {
+    padding-left: 8px;
+  }
 }
 
 .allies-logo-container .row-block .title-bar {
   width: 100%;
 }
 
-.allies-logo-container .row-block .title-bar .allies-title {
-  display: inline-block;
-  width: 25%;
-  margin: 1rem 0;
-  font-family: PingFangSC-Regular;
-  font-size: 14px;
-  color: #137CFF;
-}
-
 .allies-logo-container .row-block .logos-row {
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -505,36 +521,32 @@ body {
 }
 
 .allies-logo-container .row-block .logos-row .logo-unit {
-  width: 205px;
-  height: 72px;
-  background: url(../images/logo-frame.png);
+  background: url(../images/logo-frame.png) no-repeat;
   -webkit-background-size: 100% 100%;
           background-size: 100%;
-  margin: 0 0 1.5rem 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-.allies-logo-container .row-block .logos-row .logo-unit .logo-img {
-  width: 80%;
+@media (min-width: 720px) {
+  .allies-logo-container .row-block .logos-row .logo-unit {
+    width: 205px;
+    height: 72px;
+    margin: 0 0 1.5rem 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .allies-logo-container .row-block .logos-row .logo-unit {
+    width: 25vw;
+    height: 8.77193vw;
+    margin: 0 0 2vw 0;
+    text-align: center;
+  }
+  .allies-logo-container .row-block .logos-row .logo-unit .logo-img {
+    position: relative;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+  }
 }
 
 .news-border-wrapper {
@@ -810,10 +822,12 @@ body {
 }
 
 html {
-  background: url(../images/gridbg_glow.png), url(../images/noisebg.gif) repeat center top;
+  background: url(../images/bg-sky.png) repeat center top;
 }
 
 body {
+  width: 100%;
+  height: auto;
   font-family: PingFangSC-Regular;
   font-size: 16px;
   color: #52CBFF;
@@ -1224,6 +1238,10 @@ img, .image {
   text-align: right;
 }
 
+.agenda-mobile img {
+  width: 100%;
+}
+
 .img-leaders-fiesta {
   width: 1531px;
   height: 743px;
@@ -1272,6 +1290,11 @@ img, .image {
   background-position: center center;
 }
 
+.about-cbndata-mobile {
+  padding: 0 2%;
+  margin: 0 auto 24px auto;
+}
+
 @media (min-width: 720px) {
   .video2-wrapper {
     margin: 0 auto 4rem auto;
@@ -1311,6 +1334,7 @@ img, .image {
 .layer-3d-wrapper {
   position: absolute;
   width: 100%;
+  height: auto;
   top: 50.625vw;
   z-index: -100;
 }
@@ -1327,7 +1351,7 @@ img, .image {
           background-size: 100% auto;
   background-repeat: no-repeat;
   width: 100%;
-  height: 500vh;
+  height: 1229px;
   top: 0;
 }
 

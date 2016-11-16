@@ -3,15 +3,8 @@
 
 .leaders-wrapper {
 
-  @media #{$mobile} {
-    @include my-flex($direction: row, $wrap:wrap, $justify: center, $align:flex-start);
-
-  }
-
-
-
   @media #{$PC} {
-    @include my-flex($direction: row, $wrap:no-wrap, $justify: flex-start, $align:flex-start);
+    @include my-flex($direction: row, $wrap: no-wrap, $justify: flex-start, $align: flex-start);
     width: 1140px;
     margin: auto;
     padding: 0 0 96px 0;
@@ -77,18 +70,14 @@
 
         font-size: 15px;
         color: #52CBFF;
-        text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.50);
 
         opacity: 0;
         transform-origin: center center;
       }
 
+    }
 
   }
-
-
-
-  }
-
 
 }
