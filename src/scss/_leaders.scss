@@ -4,7 +4,13 @@
 .leaders-wrapper {
 
   @media #{$PC} {
-    @include my-flex($direction: row, $wrap: no-wrap, $justify: flex-start, $align: flex-start);
+    // screen width between 720px and 1140px
+    @media screen and (max-width:1140px) {
+      @include my-flex($direction: row, $wrap: no-wrap, $justify: flex-start, $align: flex-start);
+      width: 100%;
+      overflow: scroll;
+    }
+    @include my-flex($direction: row, $wrap: no-wrap, $justify: center, $align: flex-start);
     width: 1140px;
     margin: auto;
     padding: 0 0 96px 0;

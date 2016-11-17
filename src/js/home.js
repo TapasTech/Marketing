@@ -8,31 +8,34 @@ $(function(){
     var docHeight = $(document).height();
     var WINDTH = window.innerWidth || document.documentElement.clientWidth;
     var HEIGHT = window.innerHeight || document.documentElement.clientHeight;
-    var isMobile;
+    var ISMOBILE;
     if (WINDTH > 720 ) {
-        isMobile = false;
+        ISMOBILE = false;
     } else {
-        isMobile = true;
+        ISMOBILE = true;
     }
 
     init();
+
+    // add share-logo for Wechat and Dingding
+    if (navigator.userAgent.match(/MicroMessenger|DingTalk/i)) {
+        var shareLogo = './images/share-logo.jpg';
+        $('body').prepend('<div style=" overflow:hidden; width:0px; height:0; margin:0 auto; position:absolute; top:-800px;"><img src="' + shareLogo + '"></div>')
+    }
 
 
     function init() {
         registerEventListeners();
         renderInitialDOM();
-
     }
 
-
     function renderInitialDOM() {
-
-        if (!isMobile) {
+        if (!ISMOBILE) {
             var leaderInfo;
-            $.getJSON('../json/leaders-info.json', '', function (data) {
+            $.getJSON('./json/leaders-info.json', '', function (data) {
                 leaderInfo = data.data;
                 var domLeaders = '';
-                var numPeople = 18;
+                var numPeople = 20;
                 var numColumns = 6;
                 var numRows = 3;
                 var counter = 0;
@@ -71,19 +74,17 @@ $(function(){
         renderMedia('#strategicPartner', 14);
         renderMedia('#specialMedia', 13);
         renderMedia('#partnerMedia', 25);
-
     }
 
 
     function registerEventListeners() {
-
-        $('a[href!=""]').click(function(e) {
+        $('a.scroll').click(function(e) {
             e.preventDefault();
             $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 500);
         });
 
         // only for PC device
-        if ( window.innerWidth > 720 ) {
+        if ( !ISMOBILE ) {
             var scrollTriggered = false;
             var currentY = window.scrollY;
             var nextY = currentY;
@@ -117,9 +118,7 @@ $(function(){
 
             });
         }
-
     }
-
 });
 
 $.fn.isVisible = function (offset) {

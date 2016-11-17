@@ -25,6 +25,12 @@ body{
 
       @media #{$PC} {
         margin: 0 0.75rem;
+        img {
+          position: relative;
+          top: 6px;
+          width: 120px;
+          height: 48px;
+        }
 
         &:hover {
           a span {
@@ -58,6 +64,12 @@ body{
 
       @media #{$mobile} {
         margin: 0;
+
+        &.logo-top {
+          position: absolute;
+          top: 0;
+        }
+
       }
 
       font-size: 14px;

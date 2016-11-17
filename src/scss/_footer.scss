@@ -16,8 +16,6 @@
 
     .footer-content {
       transform: scaleY(-1);
-      /*@include my-flex($direction: column, $align:flex-start);
-      color: #137CFF;*/
 
       .rows {
         @include my-flex($justify:flex-start);
