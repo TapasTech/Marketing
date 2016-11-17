@@ -9,7 +9,6 @@ body{
   @media #{$PC} {
     @include div-with-bgImage('../images/nav-bg.png');
     min-height: 120px;
-
   }
   @include my-flex();
   width: 100%;
@@ -33,7 +32,7 @@ body{
               top: -16px;
               content:'';
               font-size: 20px;
-              border-right: 1px solid rgba(255,255,255,0.5);
+              border-right: 1px solid rgba(255,255,255,0.2);
             }
           }
         }
@@ -50,12 +49,12 @@ body{
             color: #c3f2ff;
             text-shadow: 0 0 4px rgba(13, 71, 203, 0.57), 0 0 13px rgba(0, 112, 202, 0.75);
           }
-          &:nth-child(n+3):after {
+          &:nth-child(n+2):after {
             opacity: 1;
           }
         }
 
-        &:nth-child(n+3):after {
+        &:nth-child(n+2):after {
           opacity: 0;
           transition-duration: 0.3s;
           perspective: 1000;
@@ -77,6 +76,7 @@ body{
 
       @media #{$mobile} {
         margin: 0;
+        top: 0;
 
         &.logo-top {
           position: absolute;

@@ -132,11 +132,11 @@ $(function(){
                         }
                     } else {
                         // mobile, fix navigation bar from page 2
-                        if (nextY > HEIGHT) {
+/*                        if (nextY > HEIGHT) {
                             $('.nav-bar').addClass('fix-top');
                         } else {
                             $('.nav-bar').removeClass('fix-top');
-                        }
+                        }*/
 
                     }
                     currentY = nextY;

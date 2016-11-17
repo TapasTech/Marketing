@@ -96,7 +96,7 @@ body {
     top: -16px;
     content: '';
     font-size: 20px;
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
   }
   .nav-bar .nav-wrapper .nav-item img {
     position: relative;
@@ -108,10 +108,10 @@ body {
     color: #c3f2ff;
     text-shadow: 0 0 4px rgba(13, 71, 203, 0.57), 0 0 13px rgba(0, 112, 202, 0.75);
   }
-  .nav-bar .nav-wrapper .nav-item:hover:nth-child(n+3):after {
+  .nav-bar .nav-wrapper .nav-item:hover:nth-child(n+2):after {
     opacity: 1;
   }
-  .nav-bar .nav-wrapper .nav-item:nth-child(n+3):after {
+  .nav-bar .nav-wrapper .nav-item:nth-child(n+2):after {
     opacity: 0;
     -webkit-transition-duration: 0.3s;
          -o-transition-duration: 0.3s;
@@ -138,6 +138,7 @@ body {
 @media (max-width: 720px) {
   .nav-bar .nav-wrapper .nav-item {
     margin: 0;
+    top: 0;
   }
   .nav-bar .nav-wrapper .nav-item.logo-top {
     position: absolute;
@@ -146,7 +147,7 @@ body {
 }
 
 .footer {
-  margin: 0 0 3rem 0;
+  margin: 0 0 0 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -385,6 +386,12 @@ body {
   .leaders-wrapper .hex-column:nth-of-type(2n) {
     top: 104.5px;
   }
+  .leaders-wrapper .leader-name {
+    font-size: 20px;
+  }
+  .leaders-wrapper .leader-info {
+    font-size: 16px;
+  }
   .leaders-wrapper .hex-unit {
     position: relative;
     width: 220px;
@@ -450,7 +457,6 @@ body {
     -webkit-transition-duration: 0.25s;
          -o-transition-duration: 0.25s;
             transition-duration: 0.25s;
-    font-size: 15px;
     color: #52CBFF;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
     opacity: 0;
@@ -829,8 +835,9 @@ body {
             background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
-    position: absolute;
-    bottom: 12px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
     height: 80px;
   }
   .nav-bar .nav-wrapper {
@@ -914,7 +921,7 @@ img, .image {
 .video-img-mobile {
   width: 100vw;
   height: 100vh;
-  background-image: url("../images/banner_mobile.png");
+  background-image: url("../images/banner_mobile.jpg");
   -webkit-background-size: 100% 100%;
           background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -925,7 +932,7 @@ img, .image {
   width: 100%;
   height: 40px;
   position: absolute;
-  top: 16px;
+  top: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -938,10 +945,10 @@ img, .image {
   -webkit-flex-wrap: nowrap;
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -1010,9 +1017,9 @@ img, .image {
 @media (max-width: 720px) {
   .btn-scroll-down {
     width: 16%;
-    height: 8%;
+    height: 8.96%;
     left: 42%;
-    top: 70%;
+    top: 80%;
   }
 }
 
@@ -1052,15 +1059,15 @@ img, .image {
 }
 
 .btn-scroll-down .arrows-button .arrow.arrow0 {
-  top: -10%;
+  top: -5%;
 }
 
 .btn-scroll-down .arrows-button .arrow.arrow1 {
-  top: 0%;
+  top: 5%;
 }
 
 .btn-scroll-down .arrows-button .arrow.arrow2 {
-  top: 10%;
+  top: 15%;
 }
 
 .pages {
@@ -1334,6 +1341,11 @@ img, .image {
             align-items: flex-start;
     padding: 1rem 1rem 1rem 3rem;
   }
+  .about-fiesta p {
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 400;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1363,6 +1375,7 @@ img, .image {
 
 .agenda-mobile {
   text-align: right;
+  padding-left: 12px;
 }
 
 .agenda-mobile img {
@@ -1440,7 +1453,7 @@ img, .image {
   position: fixed !important;
   display: inline-block;
   right: 3rem;
-  bottom: 10%;
+  bottom: 14%;
   width: 50px;
   height: 50px;
   background-image: url("../images/btn-goto-top.png");
