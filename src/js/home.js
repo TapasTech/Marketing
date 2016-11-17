@@ -111,8 +111,8 @@ $(function(){
                 setTimeout(function () {
                     scrollTriggered = false;
                     nextY = window.scrollY;
-                    console.log('body height: ',$('body').height());
-                    console.log(window.scrollY + HEIGHT);
+                    /*console.log('body height: ',$('body').height());
+                    console.log(window.scrollY + HEIGHT);*/
 
                     // add parallax scroll only for PC device
                     if ( !ISMOBILE ) {
