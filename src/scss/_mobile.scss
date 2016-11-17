@@ -15,6 +15,7 @@
   // navigation bar
   .nav-bar {
     @include div-with-bgImage('../images/nav-bg-mobile.png');
+    //@include div-with-bgImage('../images/nav-bg.png');
 
     position: absolute;
     bottom: 12px;

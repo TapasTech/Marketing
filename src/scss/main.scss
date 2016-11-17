@@ -19,7 +19,8 @@ html {
 }
 
 body {
-  background: url(../images/bg-sky.png) repeat center top;
+  //background: url(../images/bg-sky.png) repeat center top;
+  background: url(../images/bg.png) repeat center top;
   background-repeat: repeat-y;
   background-size: 100%;
   width: 100%;
@@ -93,13 +94,14 @@ img, .image {
     width: $size;
     height: $size * 0.6;
     left: 50% - $size/2;
-    top: 75%;
+    top: 70%;
   }
 
   .arrows-button {
     @include my-flex($direction: column, $wrap: no-wrap);
     width: 100%;
     height: 100%;
+    //transition-duration: 0.8s;
 
     .arrow {
       backface-visibility: hidden;
@@ -287,21 +289,25 @@ img, .image {
 
 
 .layer-3d-wrapper {
+  float: left;
   position: absolute;
   width: 100%;
+  //height: 100%;
   height: auto;
+  overflow: visible;
   top: 100vw * 9/16 * 0.9;
   z-index: -100;
 }
 
 .bg-planet-wrapper {
-  transform-style: preserve-3d;
-  transform-origin: 50% 50%;
+  float: left;
   background-image: url('../images/bg-planet.png');
+  //background-image: url('../images/bg.png');
   background-size: 100% auto;
+  //background-repeat: repeat-y;
   background-repeat: no-repeat;
   width: 100%;
-  height: 1229px;
+  height: 1200px;
   top: 0;
 }
 

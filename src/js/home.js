@@ -101,23 +101,29 @@ $(function(){
 
             var baseScrollY = $('#page2').offset().top;
             var $btnTop = $('#btnTop');
-            var layer3dWrapper = $('#layer3dWrapper')[0];
+            // var layer3dWrapper = $('#layer3dWrapper')[0];
+            var layer3dWrapper = $('#bgPlanetWrapper')[0];
+
+            var bodyHeight = $('body').height();
             $(window).on('scroll', function () {
                 if (scrollTriggered) return;
                 scrollTriggered = true;
                 setTimeout(function () {
                     scrollTriggered = false;
                     nextY = window.scrollY;
+                    console.log('body height: ',$('body').height());
+                    console.log(window.scrollY + HEIGHT);
 
                     // add parallax scroll only for PC device
                     if ( !ISMOBILE ) {
                         // parallax scroll for background planet image
-                        if (nextY > baseScrollY && nextY < docHeight - HEIGHT) {
+                        // if (nextY > baseScrollY && nextY < docHeight - HEIGHT) {
+                        /*if ( window.scrollY + HEIGHT - $('body').height() < 100 ) {
                             // scrolling both up and down
                             var gapY = currentY - baseScrollY;
                             var layer3dTop = gapY / 2;
                             layer3dWrapper.style.transform = 'translate3d(0, ' + layer3dTop + 'px, 0)';
-                        }
+                        }*/
                         // decide whether to show 'go-to-top button' or not
                         if (currentY > window.innerHeight * 0.8) {
                             $btnTop.fadeIn(1200);
