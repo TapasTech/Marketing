@@ -874,8 +874,8 @@ html {
 }
 
 body {
-  background: url(../images/bg.png) repeat center top;
-  background-repeat: repeat-y;
+  background: url(../images/bg.jpg), #0c1019 repeat center top;
+  background-repeat: no-repeat;
   -webkit-background-size: 100% 100%;
           background-size: 100%;
   width: 100%;
