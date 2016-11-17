@@ -30,7 +30,13 @@ $(function(){
     }
 
     function renderInitialDOM() {
+
+        // for PC only
         if (!ISMOBILE) {
+
+            // append video to initial view
+            $('#videoWrapper').append('<video autoplay loop width="100%"><source src="videos/video.mp4" type="video/mp4">您的浏览器不支持mp4视频播放</video>');
+
             var leaderInfo;
             $.getJSON('./json/leaders-info.json', '', function (data) {
                 leaderInfo = data.data;
