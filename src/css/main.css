@@ -953,7 +953,6 @@ img, .image {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 18px;
 }
 
 .logo-top-mobile a:first-of-type:after {
