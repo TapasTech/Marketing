@@ -41,16 +41,22 @@ $(function(){
                 var counter = 0;
                 var order;
                 for (var i = 0; i < numColumns; i++) {
-                    domLeaders += `<div class="hex-column">`;
+                    domLeaders += `<div class="hex-column" id="col-${i+1}">`;
                     for (var j = 0; j < numRows; j++) {
                         counter++;
+                        /*if (i==0 && j==3) {
+                            order = 19;
+                        } else if ( i==2 && j==3 ) {
+                            order = 20;
+                        }*/
                         order = i + 1 + j * numColumns;
                         domLeaders +=
-                            `<div class="hex-unit"><div class="image-wrapper" style="background-image:url(../images/leaders/person${order}.png)">
-                            <div class="leader-name description">${leaderInfo[counter - 1].name}</div>
-                            <div class="leader-info description">${leaderInfo[counter - 1].brief}</div>
-                        </div>
-                    </div>`;
+                            `<div class="hex-unit">
+                                <div class="image-wrapper" style="background-image:url(./images/leaders/person${order}.png)">
+                                    <div class="leader-name description">${leaderInfo[counter - 1].name}</div>
+                                    <div class="leader-info description">${leaderInfo[counter - 1].brief}</div>
+                                </div>
+                            </div>`;
                     }
                     domLeaders += `</div>`;
                 }
