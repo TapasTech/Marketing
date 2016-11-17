@@ -32,7 +32,6 @@ $(function(){
 
         // for PC only
         if (!ISMOBILE) {
-
             // append video to initial view
             $('#videoWrapper').append('<video autoplay loop width="100%"><source src="videos/video.mp4" type="video/mp4">您的浏览器不支持mp4视频播放</video>');
 
@@ -94,12 +93,12 @@ $(function(){
             $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 500);
         });
 
-        // only for PC device
-        if ( !ISMOBILE ) {
+
             var scrollTriggered = false;
             var currentY = window.scrollY;
             var nextY = currentY;
             var $footer = $('#footer');
+
             var baseScrollY = $('#page2').offset().top;
             var $btnTop = $('#btnTop');
             var layer3dWrapper = $('#layer3dWrapper')[0];
@@ -109,26 +108,36 @@ $(function(){
                 setTimeout(function () {
                     scrollTriggered = false;
                     nextY = window.scrollY;
-                    // parallax scroll for background planet image
-                    if (nextY > baseScrollY && nextY < docHeight - HEIGHT) {
-                        // scrolling both up and down
-                        var gapY = currentY - baseScrollY;
-                        var layer3dTop =  gapY/2;
-                        layer3dWrapper.style.transform = 'translate3d(0, ' + layer3dTop + 'px, 0)';
-                    }
 
-                    // decide whether to show 'go-to-top button' or not
-                    if (currentY > window.innerHeight * 0.8) {
-                        $btnTop.fadeIn(1200);
+                    // add parallax scroll only for PC device
+                    if ( !ISMOBILE ) {
+                        // parallax scroll for background planet image
+                        if (nextY > baseScrollY && nextY < docHeight - HEIGHT) {
+                            // scrolling both up and down
+                            var gapY = currentY - baseScrollY;
+                            var layer3dTop = gapY / 2;
+                            layer3dWrapper.style.transform = 'translate3d(0, ' + layer3dTop + 'px, 0)';
+                        }
+                        // decide whether to show 'go-to-top button' or not
+                        if (currentY > window.innerHeight * 0.8) {
+                            $btnTop.fadeIn(1200);
+                        } else {
+                            $btnTop.fadeOut(600);
+                        }
                     } else {
-                        $btnTop.fadeOut(600);
-                    }
+                        // mobile, fix navigation bar from page 2
+                        if (nextY > HEIGHT) {
+                            $('.nav-bar').addClass('fix-top');
+                        } else {
+                            $('.nav-bar').removeClass('fix-top');
+                        }
 
+                    }
                     currentY = nextY;
                 }, 0.02 * 1000);
 
             });
-        }
+
     }
 });
 

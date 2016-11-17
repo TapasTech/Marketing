@@ -8,6 +8,7 @@
 @import "news";
 @import "about-cbndata";
 @import "mobile";
+@import "common";
 
 * {
   box-sizing: border-box;
@@ -19,6 +20,8 @@ html {
 
 body {
   background: url(../images/bg-sky.png) repeat center top;
+  background-repeat: repeat-y;
+  background-size: 100%;
   width: 100%;
 
   @media #{$PC} {
@@ -302,9 +305,7 @@ img, .image {
   top: 0;
 }
 
-.hidden {
-  display: none;
-}
+
 
 
 
