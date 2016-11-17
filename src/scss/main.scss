@@ -91,7 +91,7 @@ img, .image {
   @media #{$mobile} {
     $size: 16%;
     width: $size;
-    height: $size * 0.6;
+    height: $size * 0.5;
     left: 50% - $size/2;
     top: 70%;
   }
