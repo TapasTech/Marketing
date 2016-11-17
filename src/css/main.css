@@ -91,6 +91,13 @@ body {
   .nav-bar .nav-wrapper .nav-item {
     margin: 0 0.75rem;
   }
+  .nav-bar .nav-wrapper .nav-item.nav-logos a:first-of-type:after {
+    position: relative;
+    top: -16px;
+    content: '';
+    font-size: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+  }
   .nav-bar .nav-wrapper .nav-item img {
     position: relative;
     top: 6px;
@@ -940,6 +947,41 @@ img, .image {
       -ms-flex-align: center;
           align-items: center;
   padding-left: 18px;
+}
+
+.logo-top-mobile a:first-of-type:after {
+  position: relative;
+  top: -4px;
+  content: '';
+  height: 26px;
+  display: inline-block;
+  font-size: 20px;
+  width: 0;
+  border-right: 1px solid #fff;
+}
+
+.logo-top-mobile a {
+  display: inline-block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .logo-top-mobile a img {
