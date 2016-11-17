@@ -4,7 +4,6 @@
 
 $(function(){
 
-
     var docHeight = $(document).height();
     var WINDTH = window.innerWidth || document.documentElement.clientWidth;
     var HEIGHT = window.innerHeight || document.documentElement.clientHeight;
