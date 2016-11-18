@@ -18,10 +18,17 @@ html {
   /*background: url(../images/bg-sky.png) repeat center top;*/
 }
 
-body {
+.pages-wrapper {
   background: url(../images/bg.jpg),#0c1019 repeat center top;
   background-repeat: no-repeat;
   background-size: 100%;
+  width: 100%;
+}
+
+body {
+  /*background: url(../images/bg.jpg),#0c1019 repeat center top;
+  background-repeat: no-repeat;
+  background-size: 100%;*/
   width: 100%;
 
   height: auto;
