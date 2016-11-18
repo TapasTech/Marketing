@@ -34,6 +34,8 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 120px;
+    z-index: 10;
+    position: relative;
   }
 }
 
@@ -83,13 +85,13 @@ body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
   font-size: 14px;
 }
 
 @media (min-width: 720px) {
   .nav-bar .nav-wrapper .nav-item {
     margin: 0 0.75rem;
+    position: relative;
   }
   .nav-bar .nav-wrapper .nav-item.nav-logos a:first-of-type:after {
     position: relative;
@@ -886,21 +888,17 @@ body {
 }
 
 html {
-  background: url(../images/gridbg_glow.png), #0c1019 repeat;
+  background: #0c1019;
 }
 
 .pages-wrapper {
-  background: url(../images/bg.jpg), #0c1019 repeat center top;
-  background-repeat: no-repeat;
+  background: url(../images/bg.jpg) repeat center top;
   -webkit-background-size: 100% 100%;
           background-size: 100%;
   width: 100%;
 }
 
 body {
-  /*background: url(../images/bg.jpg),#0c1019 repeat center top;
-  background-repeat: no-repeat;
-  background-size: 100%;*/
   width: 100%;
   height: auto;
   font-family: PingFangSC-Regular;
@@ -924,7 +922,6 @@ img, .image {
   height: 100vh;
   width: 100vw;
   top: 0;
-  z-index: -1;
 }
 
 .video-img-mobile {
@@ -1079,6 +1076,7 @@ img, .image {
 }
 
 .pages {
+  background: url(../images/gridbg_glow.png) repeat;
   position: relative;
   width: 100vw;
   min-width: 100%;
@@ -1479,35 +1477,14 @@ img, .image {
   cursor: pointer;
 }
 
-.layer-3d-wrapper {
-  float: left;
-  position: absolute;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-  top: 50.625vw;
-  z-index: -100;
-}
-
-.bg-planet-wrapper {
-  float: left;
-  background-image: url("../images/bg-planet.png");
-  -webkit-background-size: 100% auto;
-          background-size: 100% auto;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 1200px;
-  top: 0;
-}
-
-#page2 {
+#pagesWrapper {
   -webkit-perspective: 100px;
           perspective: 100px;
   -webkit-perspective-origin: 50% 50%;
           perspective-origin: 50% 50%;
 }
 
-.about-fiesta {
-  -webkit-transform-style: preserve3d;
-          transform-style: preserve3d;
+#page2 {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }

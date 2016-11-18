@@ -15,22 +15,18 @@
 }
 
 html {
-  background: url(../images/gridbg_glow.png),#0c1019 repeat ;
+  background: #0c1019;
 }
 
 .pages-wrapper {
-  background: url(../images/bg.jpg),#0c1019 repeat center top;
-  background-repeat: no-repeat;
+  background: url(../images/bg.jpg)repeat center top;
+  //background-repeat: no-repeat;
   background-size: 100%;
   width: 100%;
 }
 
 body {
-  /*background: url(../images/bg.jpg),#0c1019 repeat center top;
-  background-repeat: no-repeat;
-  background-size: 100%;*/
   width: 100%;
-
   height: auto;
   font-family: PingFangSC-Regular;
   font-size: 16px;
@@ -53,7 +49,6 @@ img, .image {
   height: 100vh;
   width: 100vw;
   top: 0;
-  z-index:-1;
 }
 
 .video-img-mobile {
@@ -146,6 +141,7 @@ img, .image {
 }
 
 .pages {
+  background: url(../images/gridbg_glow.png) repeat;
   position: relative;
   width: 100vw;
   min-width: 100%;
@@ -312,37 +308,16 @@ img, .image {
 }
 
 
-.layer-3d-wrapper {
-  float: left;
-  position: absolute;
-  width: 100%;
-  //height: 100%;
-  height: auto;
-  overflow: visible;
-  top: 100vw * 9/16 * 0.9;
-  z-index: -100;
-}
-
-.bg-planet-wrapper {
-  float: left;
-  background-image: url('../images/bg-planet.png');
-  //background-image: url('../images/bg.png');
-  background-size: 100% auto;
-  //background-repeat: repeat-y;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 1200px;
-  top: 0;
-}
-
-
-#page2 {
+#pagesWrapper {
   perspective: 100px;
   perspective-origin: 50% 50%;
 }
 
-.about-fiesta {
-  transform-style: preserve3d;
+#page2 {
+  transform-style: preserve-3d;
 }
 
+#contentWrapperPage2 {
+
+}
 
