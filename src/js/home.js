@@ -79,15 +79,11 @@ $(function(){
 
                 // add parallax scroll only for PC device
                 if (!ISMOBILE) {
-                    console.log(currentY, $('body').height());
                     // parallax scroll for background planet image
                     if (currentY > HEIGHT) {
-                        console.log('not first screen');
                         // bgImg.style.top = HEIGHT + (currentY-HEIGHT)/3 + 'px';
                         bgImg.style.backgroundPosition = 'left 0 top ' + (currentY-HEIGHT)/3 + 'px';
-
                     } else {
-                        console.log('first screen')
                         bgImg.style.top = HEIGHT + 'px';
                     }
                     // decide whether to show 'go-to-top button' or not
