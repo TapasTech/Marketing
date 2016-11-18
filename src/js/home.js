@@ -17,10 +17,10 @@ $(function(){
     init();
 
     // add share-logo for Wechat and Dingding
-    if (navigator.userAgent.match(/MicroMessenger|DingTalk/i)) {
+    /*if (navigator.userAgent.match(/MicroMessenger|DingTalk/i)) {
         var shareLogo = './images/share-logo.jpg';
         $('body').prepend('<div style=" overflow:hidden; width:0px; height:0; margin:0 auto; position:absolute; top:-800px;"><img src="' + shareLogo + '"></div>')
-    }
+    }*/
 
 
     function init() {
@@ -34,38 +34,6 @@ $(function(){
         if (!ISMOBILE) {
             // append video to initial view
             $('#videoWrapper').append('<video autoplay loop width="100%"><source src="videos/video.mp4" type="video/mp4">您的浏览器不支持mp4视频播放</video>');
-
-            var leaderInfo;
-            $.getJSON('./json/leaders-info.json', '', function (data) {
-                leaderInfo = data.data;
-                var domLeaders = '';
-                var numPeople = 20;
-                var numColumns = 6;
-                var numRows = 3;
-                var counter = 0;
-                var order;
-                for (var i = 0; i < numColumns; i++) {
-                    domLeaders += `<div class="hex-column" id="col-${i+1}">`;
-                    for (var j = 0; j < numRows; j++) {
-                        counter++;
-                        /*if (i==0 && j==3) {
-                            order = 19;
-                        } else if ( i==2 && j==3 ) {
-                            order = 20;
-                        }*/
-                        order = i + 1 + j * numColumns;
-                        domLeaders +=
-                            `<div class="hex-unit">
-                                <div class="image-wrapper" style="background-image:url(./images/leaders/person${order}.png)">
-                                    <div class="leader-name description">${leaderInfo[counter - 1].name}</div>
-                                    <div class="leader-info description">${leaderInfo[counter - 1].brief}</div>
-                                </div>
-                            </div>`;
-                    }
-                    domLeaders += `</div>`;
-                }
-                $('#leadersWrapper').append(domLeaders);
-            });
         }
 
         var logoCounter = 1;

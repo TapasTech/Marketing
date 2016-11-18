@@ -386,12 +386,6 @@ body {
   .leaders-wrapper .hex-column:nth-of-type(2n) {
     top: 104.5px;
   }
-  .leaders-wrapper .leader-name {
-    font-size: 20px;
-  }
-  .leaders-wrapper .leader-info {
-    font-size: 16px;
-  }
   .leaders-wrapper .hex-unit {
     position: relative;
     width: 220px;
@@ -432,10 +426,10 @@ body {
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
@@ -443,7 +437,7 @@ body {
     text-align: center;
     position: absolute;
     margin: auto;
-    padding: 0 1rem;
+    padding: 1.6rem 1rem;
     width: 70%;
     height: 70%;
     top: 15%;
@@ -453,7 +447,15 @@ body {
     background-position: center;
     background-repeat: no-repeat;
   }
+  .leaders-wrapper .hex-unit .leader-name {
+    font-size: 20px;
+    margin-bottom: 0.4rem;
+  }
+  .leaders-wrapper .hex-unit .leader-info {
+    font-size: 14px;
+  }
   .leaders-wrapper .hex-unit .description {
+    white-space: nowrap;
     -webkit-transition-duration: 0.25s;
          -o-transition-duration: 0.25s;
             transition-duration: 0.25s;
@@ -1496,4 +1498,16 @@ img, .image {
   width: 100%;
   height: 1200px;
   top: 0;
+}
+
+#page2 {
+  -webkit-perspective: 100px;
+          perspective: 100px;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+}
+
+.about-fiesta {
+  -webkit-transform-style: preserve3d;
+          transform-style: preserve3d;
 }

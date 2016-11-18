@@ -336,6 +336,13 @@ img, .image {
 }
 
 
+#page2 {
+  perspective: 100px;
+  perspective-origin: 50% 50%;
+}
 
+.about-fiesta {
+  transform-style: preserve3d;
+}
 
 
