@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="万有引力·第一财经数据盛典">
+    <meta name="description" content="集结互联网消费领域领袖精英，探究数据商业新价值、行业新契机。星际之旅一触即发！">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <title>万有引力·第一财经数据盛典</title>
     <link rel="stylesheet" href="css/main.css">
@@ -10,6 +10,7 @@
 <body>
 
 <div style=" overflow:hidden; width:0px; height:0; margin:0 auto; position:absolute; top:-800px;"><img src="' + shareLogo + '"></div>
+<div style="overflow:hidden; width:0px; height:0; margin:0 auto; position:absolute; top:-800px;">集结互联网消费领域领袖精英，探究数据商业新价值、行业新契机。星际之旅一触即发！</div>
 
 <a href="#page1" class="scroll btn-to-top PC-only hidden" id="btnTop">
 
@@ -51,11 +52,11 @@
     </div>
 </div>
 
-<!--<div class="layer-3d-wrapper" id="layer3dWrapper">
-    <div class="bg-planet-wrapper" id="bgPlanetWrapper"></div>
-</div>-->
+<!--<div style="height:0;width:0; overflow:visible">-->
+<!--</div>-->
 
 <div class="pages-wrapper" id="pagesWrapper">
+
     <div class="pages" id="page2">
         <div class="chevron-line PC-only">
             <div class="line-left"></div>
@@ -69,10 +70,9 @@
         <div class="title-img-wrapper figure-top-right-wrapper">
             <div class="img-above-title"></div>
         </div>
-        <div class="content-wrapper" id="contentWrapperPage2">
+        <div class="content-wrapper">
             <div class="flex-center title-img-wrapper">
-                <div class="title title-about-fiesta">
-                </div>
+                <div class="title title-about-fiesta"></div>
             </div>
             <div class="flex-center title-img-wrapper">
                 <div class="about-fiesta PC-only">
@@ -98,12 +98,15 @@
         <div class="title-img-wrapper figure-top-left-wrapper">
             <div class="img-above-title"></div>
         </div>
-        <div class="content-wrapper">
-            <div class="flex-center title-img-wrapper">
-                <div class="title title-agenda">
+
+        <div class="content-wrapper parallax">
+            <div class="flex-center title-img-wrapper parallax-layer parallax-layer-back">
+                <div class="title title-agenda inner-content">
                 </div>
             </div>
-            <div class="img-agenda-fiesta PC-only"></div>
+            <div class="parallax-layer parallax-layer-base PC-only">
+                <div class="img-agenda-fiesta img-agenda-PC"></div>
+            </div>
             <div class="agenda-mobile mobile-only">
                 <img src="images/mobile/agenda-mobile.png">
             </div>
@@ -379,7 +382,6 @@
         </div>
     </div>
 
-
     <footer class="footer" id="footer">
         <div class="footer-content">
             <div class="rows">
@@ -396,8 +398,10 @@
         </div>
     </footer>
 
-</div>
+    <div id="bgImage" style="position: absolute;width:100%;height: calc(100% - 100vh); top: 0; left: 0; z-index: -1;
+    background-image: url('images/bg.jpg');background-size: cover;"></div>
 
+</div>
 
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <script src="js/home.js"></script>

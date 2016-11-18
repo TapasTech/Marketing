@@ -10,7 +10,7 @@ body{
     @include div-with-bgImage('../images/nav-bg.png');
     min-height: 120px;
     z-index: 10;
-    position: relative;
+    position: fixed;
 
   }
   @include my-flex();

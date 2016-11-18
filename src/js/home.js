@@ -16,13 +16,6 @@ $(function(){
 
     init();
 
-    // add share-logo for Wechat and Dingding
-    /*if (navigator.userAgent.match(/MicroMessenger|DingTalk/i)) {
-        var shareLogo = './images/share-logo.jpg';
-        $('body').prepend('<div style=" overflow:hidden; width:0px; height:0; margin:0 auto; position:absolute; top:-800px;"><img src="' + shareLogo + '"></div>')
-    }*/
-
-
     function init() {
         registerEventListeners();
         renderInitialDOM();
@@ -34,9 +27,16 @@ $(function(){
         if (!ISMOBILE) {
             // append video to initial view
             $('#videoWrapper').append('<video autoplay loop width="100%"><source src="videos/video.mp4" type="video/mp4">您的浏览器不支持mp4视频播放</video>');
+            var logoCounter = 1;
+            // render "allies", all media logos
+            renderMedia('#hostMedia', 3);
+            renderMedia('#officialMedia', 6);
+            renderMedia('#strategicPartner', 14);
+            renderMedia('#specialMedia', 13);
+            renderMedia('#partnerMedia', 25);
         }
 
-        var logoCounter = 1;
+
         function renderMedia(dom, number) {
             var html = '';
             for (let i = 0; i < number; i++) {
@@ -46,12 +46,7 @@ $(function(){
             logoCounter += number;
         }
 
-        // render "allies", all media logos
-        renderMedia('#hostMedia', 3);
-        renderMedia('#officialMedia', 6);
-        renderMedia('#strategicPartner', 14);
-        renderMedia('#specialMedia', 13);
-        renderMedia('#partnerMedia', 25);
+
     }
 
 
@@ -62,55 +57,53 @@ $(function(){
         });
 
 
-            var scrollTriggered = false;
-            var currentY = window.scrollY;
-            var nextY = currentY;
-            var $footer = $('#footer');
+        var bgImg = $('#bgImage')[0];
+        var scrollTriggered = false;
+        var currentY = window.scrollY;
+        var nextY = currentY;
+        var $footer = $('#footer');
 
-            var baseScrollY = $('#page2').offset().top;
-            var $btnTop = $('#btnTop');
-            // var layer3dWrapper = $('#layer3dWrapper')[0];
-            var layer3dWrapper = $('#bgPlanetWrapper')[0];
+        var baseScrollY = $('#page2').offset().top;
+        var $btnTop = $('#btnTop');
+        // var layer3dWrapper = $('#layer3dWrapper')[0];
+        var layer3dWrapper = $('#bgPlanetWrapper')[0];
 
-            var bodyHeight = $('body').height();
-            $(window).on('scroll', function () {
-                if (scrollTriggered) return;
-                scrollTriggered = true;
-                setTimeout(function () {
-                    scrollTriggered = false;
-                    nextY = window.scrollY;
-                    /*console.log('body height: ',$('body').height());
-                    console.log(window.scrollY + HEIGHT);*/
+        var bodyHeight = $('body').height();
+        var maxScrollY = bodyHeight - HEIGHT;
+        $(window).on('scroll', function () {
+            if (scrollTriggered) return;
+            scrollTriggered = true;
+            setTimeout(function () {
+                scrollTriggered = false;
+                nextY = window.scrollY;
 
-                    // add parallax scroll only for PC device
-                    if ( !ISMOBILE ) {
-                        // parallax scroll for background planet image
-                        // if (nextY > baseScrollY && nextY < docHeight - HEIGHT) {
-                        /*if ( window.scrollY + HEIGHT - $('body').height() < 100 ) {
-                            // scrolling both up and down
-                            var gapY = currentY - baseScrollY;
-                            var layer3dTop = gapY / 2;
-                            layer3dWrapper.style.transform = 'translate3d(0, ' + layer3dTop + 'px, 0)';
-                        }*/
-                        // decide whether to show 'go-to-top button' or not
-                        if (currentY > window.innerHeight * 0.8) {
-                            $btnTop.fadeIn(1200);
-                        } else {
-                            $btnTop.fadeOut(600);
-                        }
+                // add parallax scroll only for PC device
+                if (!ISMOBILE) {
+                    console.log(currentY, $('body').height());
+                    // parallax scroll for background planet image
+                    if (currentY > HEIGHT) {
+                        console.log('not first screen');
+                        // bgImg.style.top = HEIGHT + (currentY-HEIGHT)/3 + 'px';
+                        bgImg.style.backgroundPosition = 'left 0 top ' + (currentY-HEIGHT)/3 + 'px';
+
                     } else {
-                        // mobile, fix navigation bar from page 2
-/*                        if (nextY > HEIGHT) {
-                            $('.nav-bar').addClass('fix-top');
-                        } else {
-                            $('.nav-bar').removeClass('fix-top');
-                        }*/
-
+                        console.log('first screen')
+                        bgImg.style.top = HEIGHT + 'px';
                     }
-                    currentY = nextY;
-                }, 0.02 * 1000);
+                    // decide whether to show 'go-to-top button' or not
+                    if (currentY > window.innerHeight * 0.8) {
+                        $btnTop.fadeIn(1200);
+                    } else {
+                        $btnTop.fadeOut(600);
+                    }
+                } else {
 
-            });
+
+                }
+                currentY = nextY;
+            }, 0.02 * 1000);
+
+        });
 
     }
 });
