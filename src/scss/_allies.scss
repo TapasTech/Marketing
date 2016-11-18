@@ -47,7 +47,13 @@
           width: 205px;
           height: 72px;
           margin: 0 0 1.5rem 0;
-
+          .logo-img {
+            position: relative;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            //height: 90%;
+          }
         }
 
         @media #{$mobile} {
@@ -58,9 +64,9 @@
           text-align: center;
           .logo-img {
             position: relative;
-            top: 5%;
-            width: 90%;
-            height: 90%;
+            top: 7%;
+            width: 86%;
+            //height: 90%;
           }
 
         }

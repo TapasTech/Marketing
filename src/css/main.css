@@ -587,6 +587,12 @@ body {
     height: 72px;
     margin: 0 0 1.5rem 0;
   }
+  .allies-logo-container .row-block .logos-row .logo-unit .logo-img {
+    position: relative;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+  }
 }
 
 @media (max-width: 720px) {
@@ -598,9 +604,8 @@ body {
   }
   .allies-logo-container .row-block .logos-row .logo-unit .logo-img {
     position: relative;
-    top: 5%;
-    width: 90%;
-    height: 90%;
+    top: 7%;
+    width: 86%;
   }
 }
 
@@ -891,12 +896,6 @@ html {
   background: #0c1019;
 }
 
-.pages-wrapper {
-  -webkit-background-size: 100% 100%;
-          background-size: 100%;
-  width: 100%;
-}
-
 body {
   width: 100%;
   height: auto;
@@ -1074,8 +1073,12 @@ img, .image {
   top: 15%;
 }
 
+.pages-wrapper {
+  background: url(../images/bg-grid.png) repeat;
+  width: 100%;
+}
+
 .pages {
-  background: url(../images/gridbg_glow.png) repeat;
   position: relative;
   width: 100vw;
   min-width: 100%;
