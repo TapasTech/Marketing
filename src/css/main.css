@@ -636,6 +636,18 @@ body {
 }
 
 @media (min-width: 720px) {
+  .news-border-wrapper {
+    /*&:after {
+      position: absolute;
+      top: -220px;
+      left: -400px;
+      content: '';
+      display: inline-block;
+      width: 658px;
+      height: 440px;
+      @include div-img-responsive($width:658px, $height: 440px, $url: '../images/shiny-dots.png');
+    }*/
+  }
   .news-border-wrapper .news-container {
     display: -webkit-box;
     display: -webkit-flex;
@@ -699,24 +711,12 @@ body {
     background: blue;
     cursor: pointer;
   }
-  .news-border-wrapper:after {
-    position: absolute;
-    top: -220px;
-    left: -400px;
-    content: '';
-    display: inline-block;
-    width: 658px;
-    height: 440px;
-    width: 658px;
-    height: 440px;
-    max-width: 100vw;
-    max-height: 66.8693vw;
-    background-image: url("../images/shiny-dots.png");
-    -webkit-background-size: 100% 100%;
-            background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
+}
+
+.news-border-wrapper .shiny-dots {
+  right: 0;
+  left: -410px;
+  top: -210px;
 }
 
 .about-cbndata-wrapper {
@@ -908,7 +908,7 @@ body {
 }
 
 html {
-  background: #0c1019;
+  background: #0c1220;
 }
 
 body {
@@ -1097,6 +1097,7 @@ img, .image {
   position: relative;
   width: 100vw;
   min-width: 100%;
+  overflow: hidden;
 }
 
 @media (min-width: 720px) {
@@ -1177,12 +1178,55 @@ img, .image {
           background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
+  position: relative;
 }
 
 @media (max-width: 720px) {
   .title-agenda {
     width: 35vw;
     height: 10vh;
+  }
+}
+
+.title-agenda:after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+}
+
+@media (min-width: 720px) {
+  .title-agenda:after {
+    bottom: 0;
+    left: 100px;
+    width: 186px;
+    height: 52px;
+    width: 186px;
+    height: 52px;
+    max-width: 100vw;
+    max-height: 27.95699vw;
+    background-image: url("../images/line-under-title.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 720px) {
+  .title-agenda:after {
+    bottom: 0;
+    left: 50px;
+    width: 93px;
+    height: 26px;
+    width: 93px;
+    height: 26px;
+    max-width: 100vw;
+    max-height: 27.95699vw;
+    background-image: url("../images/line-under-title.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 
@@ -1222,12 +1266,55 @@ img, .image {
           background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
+  position: relative;
 }
 
 @media (max-width: 720px) {
   .title-news {
     width: 35vw;
     height: 10vh;
+  }
+}
+
+.title-news:after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+}
+
+@media (min-width: 720px) {
+  .title-news:after {
+    bottom: 0;
+    left: 100px;
+    width: 186px;
+    height: 52px;
+    width: 186px;
+    height: 52px;
+    max-width: 100vw;
+    max-height: 27.95699vw;
+    background-image: url("../images/line-under-title.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 720px) {
+  .title-news:after {
+    bottom: 0;
+    left: 50px;
+    width: 93px;
+    height: 26px;
+    width: 93px;
+    height: 26px;
+    max-width: 100vw;
+    max-height: 27.95699vw;
+    background-image: url("../images/line-under-title.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 
@@ -1385,34 +1472,43 @@ img, .image {
 @media (min-width: 720px) {
   .img-agenda-fiesta {
     position: relative;
+    overflow: hidden;
     width: 1136px;
     height: 640px;
-    max-width: 100vw;
-    max-height: 56.33803vw;
     background-image: url("../images/fiesta-agenda.png");
     -webkit-background-size: 100% 100%;
             background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
   }
-  .img-agenda-fiesta:after {
-    position: absolute;
-    top: -170px;
-    right: -200px;
-    content: '';
-    display: inline-block;
-    width: 658px;
-    height: 440px;
-    width: 658px;
-    height: 440px;
-    max-width: 100vw;
-    max-height: 66.8693vw;
-    background-image: url("../images/shiny-dots.png");
-    -webkit-background-size: 100% 100%;
-            background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
+}
+
+.img-agenda-wrapper {
+  position: relative;
+}
+
+.shiny-dots {
+  position: absolute;
+  top: -170px;
+  right: -60px;
+  overflow: hidden;
+  content: '';
+  display: inline-block;
+  width: 658px;
+  height: 440px;
+  width: 658px;
+  height: 440px;
+  max-width: 100vw;
+  max-height: 66.8693vw;
+  background-image: url("../images/shiny-dots.png");
+  -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.pages {
+  overflow: hidden;
 }
 
 .agenda-mobile {

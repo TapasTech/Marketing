@@ -103,7 +103,6 @@ $(function(){
     }
 
     function newsCarousel() {
-        return;
         var _counter = 0;
         var $newsContainer = $('.news-container');
         setInterval(function() {
@@ -111,7 +110,7 @@ $(function(){
             $('.news-item:eq(0)').addClass('hidden').appendTo($newsContainer);
             $('.news-item.hidden:eq(0)').removeClass('hidden');
             _counter++;
-        }, 1.5 * 1000)
+        }, 2.5 * 1000)
     }
 
 });

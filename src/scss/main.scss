@@ -15,7 +15,8 @@
 }
 
 html {
-  background: #0c1019;
+  //background: #0a1735;
+  background: #0c1220;
 }
 
 body {
@@ -142,6 +143,7 @@ img, .image {
   position: relative;
   width: 100vw;
   min-width: 100%;
+  overflow: hidden;
   @media #{$PC} {
     min-height: 100vw * 9/16;
   }
@@ -165,6 +167,8 @@ img, .image {
 }
 .title-agenda {
   @include div-title-img($url:'../images/title-agenda.png');
+  position: relative;
+  @include line-under-title();
 }
 .title-leaders {
   @include div-title-img($url:'../images/title-leaders.png');
@@ -174,6 +178,8 @@ img, .image {
 }
 .title-news {
   @include div-title-img($url:'../images/title-news.png');
+  position: relative;
+  @include line-under-title();
 }
 .title-about-cbndata {
   @include div-title-img($url:'../images/title-about-cbndata.png', $width: 326px, $height: 127px);
@@ -243,22 +249,31 @@ img, .image {
   margin: auto;
   @media #{$PC} {
     position: relative;
-    @include img-responsive($width: 1136px, $height: 640px);
+    overflow: hidden;
+    width: 1136px;
+    height: 640px;
     @include div-with-bgImage('../images/fiesta-agenda.png');
-
-    &:after {
-      position: absolute;
-      top: -170px;
-      right: -200px;
-      content: '';
-      display: inline-block;
-      width: 658px;
-      height: 440px;
-      @include div-img-responsive($width:658px, $height: 440px, $url: '../images/shiny-dots.png');
-    }
-
   }
 }
+
+.img-agenda-wrapper {
+  position: relative;
+}
+.shiny-dots {
+  position: absolute;
+  top: -170px;
+  right: -60px;
+  overflow: hidden;
+  content: '';
+  display: inline-block;
+  width: 658px;
+  height: 440px;
+  @include div-img-responsive($width:658px, $height: 440px, $url: '../images/shiny-dots.png');
+}
+.pages {
+  overflow: hidden;
+}
+
 .agenda-mobile {
   text-align: right;
   padding-left: 12px;

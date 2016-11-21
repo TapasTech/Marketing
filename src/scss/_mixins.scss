@@ -44,3 +44,25 @@
   }
   @include div-with-bgImage($url);
 }
+
+@mixin line-under-title() {
+  &:after{
+    position: absolute;
+    display: inline-block;
+    content: '';
+    @media #{$PC} {
+      bottom: 0;
+      left: 100px;
+      width: 186px;
+      height: 52px;
+      @include div-img-responsive($width: 186px, $height:52px, $url:'../images/line-under-title.png');
+    }
+    @media #{$mobile} {
+      bottom: 0;
+      left: 50px;
+      width: 93px;
+      height: 26px;
+      @include div-img-responsive($width: 93px, $height:26px, $url:'../images/line-under-title.png');
+    }
+  }
+}
