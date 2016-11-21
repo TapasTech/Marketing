@@ -52,6 +52,9 @@
           opacity: 1;
         }
       }
+      &.no-person:hover {
+        background: url(../images/hex-single.png) no-repeat;
+      }
 
       $animation-time: 0.5s;
 

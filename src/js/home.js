@@ -89,7 +89,7 @@ $(function(){
                         $floatObj[0].style.top = 400 - (currentY-HEIGHT)/3 + 'px';
                         $floatObj[1].style.top = 600 - (currentY-HEIGHT)/2 + 'px';
                     } else {
-                        bgImg.style.top = HEIGHT + 'px';
+                        // bgImg.style.top = HEIGHT + 'px';
                     }
                     // decide whether to show 'go-to-top button' or not
                     if (currentY > window.innerHeight * 0.8) {
