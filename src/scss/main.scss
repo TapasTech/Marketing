@@ -281,6 +281,21 @@ img, .image {
   @media #{$PC} {
     margin: 0 auto 4rem auto;
     width: 828px;
+    position: relative;
+
+    .float-element-1 {
+      @include div-img-responsive($width: 370px, $height:370px, $url: '../images/float-element-1.png');
+      position: absolute;
+      top: -150px;
+      left: -300px;
+    }
+    .float-element-2 {
+      @include div-img-responsive($width: 370px, $height:370px, $url: '../images/float-element-2.png');
+      position: absolute;
+      bottom: -200px;
+      right: -220px;
+    }
+
   }
   @media #{$mobile} {
     width: 100%;

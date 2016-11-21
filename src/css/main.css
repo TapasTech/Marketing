@@ -1447,6 +1447,35 @@ img, .image {
   .video2-wrapper {
     margin: 0 auto 4rem auto;
     width: 828px;
+    position: relative;
+  }
+  .video2-wrapper .float-element-1 {
+    width: 370px;
+    height: 370px;
+    max-width: 100vw;
+    max-height: 100vw;
+    background-image: url("../images/float-element-1.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    top: -150px;
+    left: -300px;
+  }
+  .video2-wrapper .float-element-2 {
+    width: 370px;
+    height: 370px;
+    max-width: 100vw;
+    max-height: 100vw;
+    background-image: url("../images/float-element-2.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    bottom: -200px;
+    right: -220px;
   }
 }
 
