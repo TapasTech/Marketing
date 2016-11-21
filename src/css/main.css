@@ -471,144 +471,90 @@ body {
   }
 }
 
+@media (min-width: 720px) {
+  .logos-img-wrapper img {
+    width: 720px;
+    margin: auto;
+  }
+}
+
+/*
 .allies-logo-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  @include my-flex($direction: column);
   font-family: PingFangSC-Regular;
-}
 
-.allies-logo-container .row-block {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
+  .row-block {
+    @include my-flex($direction: column, $justify: flex-start, $align: flex-start);
+    @media (min-width: 720px) {
+      width: 820px;
+      .allies-title {
+        display: inline-block;
+        width: 25%;
+        margin: 1rem 0;
+        font-size: 14px;
+        color: #137CFF;
+      }
+    }
+    @media (max-width: 720px) {
+      width: 100%;
+      .allies-title {
+        display: inline-block;
+        width: 25%;
+        margin: 8px 0;
+        font-size: 14px;
+        color: #137CFF;
+      }
+      .title-bar {
+        padding-left: 8px;
+      }
+    }
 
-@media (min-width: 720px) {
-  .allies-logo-container .row-block {
-    width: 820px;
-  }
-  .allies-logo-container .row-block .allies-title {
-    display: inline-block;
-    width: 25%;
-    margin: 1rem 0;
-    font-size: 14px;
-    color: #137CFF;
-  }
-}
+    .title-bar {
+      width: 100%;
+    }
 
-@media (max-width: 720px) {
-  .allies-logo-container .row-block {
-    width: 100%;
-  }
-  .allies-logo-container .row-block .allies-title {
-    display: inline-block;
-    width: 25%;
-    margin: 8px 0;
-    font-size: 14px;
-    color: #137CFF;
-  }
-  .allies-logo-container .row-block .title-bar {
-    padding-left: 8px;
-  }
-}
+    .logos-row {
+      width: 100%;
+      @include my-flex($direction: row, $wrap:wrap, $justify: flex-start);
 
-.allies-logo-container .row-block .title-bar {
-  width: 100%;
-}
+      .logo-unit {
+        background: url(../images/logo-frame.png) no-repeat;
+        background-size: 100%;
 
-.allies-logo-container .row-block .logos-row {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
+        @media (min-width: 720px) {
+          width: 205px;
+          height: 72px;
+          margin: 0 0 1.5rem 0;
+          .logo-img {
+            position: relative;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            //height: 90%;
+          }
+        }
 
-.allies-logo-container .row-block .logos-row .logo-unit {
-  background: url(../images/logo-frame.png) no-repeat;
-  -webkit-background-size: 100% 100%;
-          background-size: 100%;
-}
+        @media (max-width: 720px) {
+          $width: 25vw;
+          width: $width;
+          height: $width/2.85;
+          margin: 0 0 2vw 0;
+          text-align: center;
+          .logo-img {
+            position: relative;
+            top: 7%;
+            width: 86%;
+            //height: 90%;
+          }
 
-@media (min-width: 720px) {
-  .allies-logo-container .row-block .logos-row .logo-unit {
-    width: 205px;
-    height: 72px;
-    margin: 0 0 1.5rem 0;
+        }
+
+      }
+
+    }
   }
-  .allies-logo-container .row-block .logos-row .logo-unit .logo-img {
-    position: relative;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-  }
-}
 
-@media (max-width: 720px) {
-  .allies-logo-container .row-block .logos-row .logo-unit {
-    width: 25vw;
-    height: 8.77193vw;
-    margin: 0 0 2vw 0;
-    text-align: center;
-  }
-  .allies-logo-container .row-block .logos-row .logo-unit .logo-img {
-    position: relative;
-    top: 7%;
-    width: 86%;
-  }
-}
-
+}*/
 .news-border-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -636,18 +582,6 @@ body {
 }
 
 @media (min-width: 720px) {
-  .news-border-wrapper {
-    /*&:after {
-      position: absolute;
-      top: -220px;
-      left: -400px;
-      content: '';
-      display: inline-block;
-      width: 658px;
-      height: 440px;
-      @include div-img-responsive($width:658px, $height: 440px, $url: '../images/shiny-dots.png');
-    }*/
-  }
   .news-border-wrapper .news-container {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1097,7 +1031,7 @@ img, .image {
   position: relative;
   width: 100vw;
   min-width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 @media (min-width: 720px) {
@@ -1333,6 +1267,10 @@ img, .image {
   }
 }
 
+.content-wrapper {
+  position: relative;
+}
+
 @media (min-width: 720px) {
   .content-wrapper {
     margin: 2rem 0;
@@ -1473,8 +1411,8 @@ img, .image {
   .img-agenda-fiesta {
     position: relative;
     overflow: hidden;
-    width: 1136px;
-    height: 640px;
+    width: 1056px;
+    height: 561px;
     background-image: url("../images/fiesta-agenda.png");
     -webkit-background-size: 100% 100%;
             background-size: 100% 100%;
@@ -1489,8 +1427,8 @@ img, .image {
 
 .shiny-dots {
   position: absolute;
-  top: -170px;
-  right: -60px;
+  top: -175px;
+  right: -25px;
   overflow: hidden;
   content: '';
   display: inline-block;
@@ -1505,10 +1443,6 @@ img, .image {
           background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-.pages {
-  overflow: hidden;
 }
 
 .agenda-mobile {
@@ -1579,34 +1513,6 @@ img, .image {
     width: 828px;
     position: relative;
   }
-  .video2-wrapper .float-element-1 {
-    width: 370px;
-    height: 370px;
-    max-width: 100vw;
-    max-height: 100vw;
-    background-image: url("../images/float-element-1.png");
-    -webkit-background-size: 100% 100%;
-            background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: absolute;
-    top: -150px;
-    left: -300px;
-  }
-  .video2-wrapper .float-element-2 {
-    width: 370px;
-    height: 370px;
-    max-width: 100vw;
-    max-height: 100vw;
-    background-image: url("../images/float-element-2.png");
-    -webkit-background-size: 100% 100%;
-            background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: absolute;
-    bottom: -200px;
-    right: -220px;
-  }
 }
 
 @media (max-width: 720px) {
@@ -1614,6 +1520,36 @@ img, .image {
     width: 100%;
     padding: 0 1rem;
   }
+}
+
+.float-element-1 {
+  width: 370px;
+  height: 370px;
+  max-width: 100vw;
+  max-height: 100vw;
+  background-image: url("../images/float-element-1.png");
+  -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: -50px;
+  left: -280px;
+}
+
+.float-element-2 {
+  width: 370px;
+  height: 370px;
+  max-width: 100vw;
+  max-height: 100vw;
+  background-image: url("../images/float-element-2.png");
+  -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: -550px;
+  right: -40px;
 }
 
 .btn-to-top {
@@ -1636,4 +1572,8 @@ img, .image {
 
 .btn-to-top:hover {
   cursor: pointer;
+}
+
+#page3 .content-wrapper {
+  overflow: hidden;
 }

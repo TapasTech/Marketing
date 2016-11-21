@@ -143,7 +143,8 @@ img, .image {
   position: relative;
   width: 100vw;
   min-width: 100%;
-  overflow: hidden;
+  //overflow: hidden;
+  overflow: visible;
   @media #{$PC} {
     min-height: 100vw * 9/16;
   }
@@ -186,6 +187,7 @@ img, .image {
 }
 
 .content-wrapper {
+  position: relative;
   @media #{$PC} {
     margin: 2rem 0;
   }
@@ -250,8 +252,8 @@ img, .image {
   @media #{$PC} {
     position: relative;
     overflow: hidden;
-    width: 1136px;
-    height: 640px;
+    width: 1056px;
+    height: 561px;
     @include div-with-bgImage('../images/fiesta-agenda.png');
   }
 }
@@ -261,17 +263,14 @@ img, .image {
 }
 .shiny-dots {
   position: absolute;
-  top: -170px;
-  right: -60px;
+  top: -175px;
+  right: -25px;
   overflow: hidden;
   content: '';
   display: inline-block;
   width: 658px;
   height: 440px;
   @include div-img-responsive($width:658px, $height: 440px, $url: '../images/shiny-dots.png');
-}
-.pages {
-  overflow: hidden;
 }
 
 .agenda-mobile {
@@ -309,25 +308,25 @@ img, .image {
     width: 828px;
     position: relative;
 
-    .float-element-1 {
-      @include div-img-responsive($width: 370px, $height:370px, $url: '../images/float-element-1.png');
-      position: absolute;
-      top: -150px;
-      left: -300px;
-    }
-    .float-element-2 {
-      @include div-img-responsive($width: 370px, $height:370px, $url: '../images/float-element-2.png');
-      position: absolute;
-      bottom: -200px;
-      right: -220px;
-    }
-
   }
   @media #{$mobile} {
     width: 100%;
     padding: 0 1rem;
   }
 
+}
+
+.float-element-1 {
+  @include div-img-responsive($width: 370px, $height:370px, $url: '../images/float-element-1.png');
+  position: absolute;
+  top: -50px;
+  left: -280px;
+}
+.float-element-2 {
+  @include div-img-responsive($width: 370px, $height:370px, $url: '../images/float-element-2.png');
+  position: absolute;
+  top: -550px;
+  right: -40px;
 }
 
 
@@ -345,4 +344,10 @@ img, .image {
     cursor: pointer;
   }
   transition-duration: 0.8s;
+}
+
+#page3 {
+  .content-wrapper {
+    overflow: hidden;
+  }
 }

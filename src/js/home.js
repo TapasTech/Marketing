@@ -58,6 +58,7 @@ $(function(){
 
 
         var bgImg = $('#bgImage')[0];
+        var $floatObj = $('.float-obj');
         var scrollTriggered = false;
         var currentY = window.scrollY;
         var nextY = currentY;
@@ -71,6 +72,9 @@ $(function(){
         var bodyHeight = $('body').height();
         var maxScrollY = bodyHeight - HEIGHT;
         $(window).on('scroll', function () {
+
+            // return;
+
             if (scrollTriggered) return;
             scrollTriggered = true;
             setTimeout(function () {
@@ -80,9 +84,10 @@ $(function(){
                 // add parallax scroll only for PC device
                 if (!ISMOBILE) {
                     // parallax scroll for background planet image
-                    if (currentY > HEIGHT) {
-                        // bgImg.style.top = HEIGHT + (currentY-HEIGHT)/3 + 'px';
+                    if (currentY > HEIGHT) {  // from 2nd page
                         bgImg.style.backgroundPosition = 'left 0 top ' + (currentY-HEIGHT)/3 + 'px';
+                        $floatObj[0].style.top = 400 - (currentY-HEIGHT)/3 + 'px';
+                        $floatObj[1].style.top = 600 - (currentY-HEIGHT)/2 + 'px';
                     } else {
                         bgImg.style.top = HEIGHT + 'px';
                     }
@@ -97,7 +102,7 @@ $(function(){
 
                 }
                 currentY = nextY;
-            }, 0.02 * 1000);
+            }, 0.015 * 1000);
 
         });
     }

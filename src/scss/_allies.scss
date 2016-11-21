@@ -1,6 +1,19 @@
 @import "variables";
 @import "mixins";
 
+
+.logos-img-wrapper {
+  @media #{$PC} {
+    img {
+      width: 720px;
+      margin: auto;
+    }
+  }
+
+
+}
+
+/*
 .allies-logo-container {
   @include my-flex($direction: column);
   font-family: PingFangSC-Regular;
@@ -74,9 +87,6 @@
       }
 
     }
-
-
   }
 
-
-}
+}*/
