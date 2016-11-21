@@ -4,30 +4,24 @@
 .news-border-wrapper {
   @include my-flex($direction: column, $align: flex-start, $justify: center);
   width: 698px;
-  margin: auto;
+  margin: 0 auto 100px auto;
   position: relative;
-
 
   @media #{$PC} {
 
     .news-container {
-      width: 100%;
-      @include my-flex($direction: column, $align: flex-start);
+      @include my-flex($direction: column, $justify: flex-start);
       margin: auto;
       padding: 3rem 1.5rem 2rem 1.5rem;
 
-      .bg-news {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 698px;
-        height: 368px;
-        @include div-with-bgImage('../images/bg-news.png');
-        z-index: -1;
-      }
+      width: 698px;
+      height: 368px;
+      @include div-with-bgImage('../images/bg-news.png');
 
       .news-item {
+        z-index: 1;
         width: 100%;
+        transition-duration: 0.8s;
         @include my-flex($direction: row, $justify: space-between);
         margin: 0.3rem 0;
         &:hover {
@@ -39,6 +33,18 @@
       }
 
     }
+
+    &:after {
+      position: absolute;
+      top: -220px;
+      left: -400px;
+      content: '';
+      display: inline-block;
+      width: 658px;
+      height: 440px;
+      @include div-img-responsive($width:658px, $height: 440px, $url: '../images/shiny-dots.png');
+    }
+
   }
 
 }

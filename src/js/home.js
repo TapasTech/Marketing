@@ -19,6 +19,7 @@ $(function(){
     function init() {
         registerEventListeners();
         renderInitialDOM();
+        // newsCarousel();
     }
 
     function renderInitialDOM() {
@@ -29,23 +30,22 @@ $(function(){
             $('#videoWrapper').append('<video autoplay loop width="100%"><source src="videos/video.mp4" type="video/mp4">您的浏览器不支持mp4视频播放</video>');
             var logoCounter = 1;
             // render "allies", all media logos
-            renderMedia('#hostMedia', 3);
+            /*renderMedia('#hostMedia', 3);
             renderMedia('#officialMedia', 6);
             renderMedia('#strategicPartner', 14);
             renderMedia('#specialMedia', 13);
-            renderMedia('#partnerMedia', 25);
+            renderMedia('#partnerMedia', 25);*/
         }
 
 
-        function renderMedia(dom, number) {
+        /*function renderMedia(dom, number) {
             var html = '';
             for (let i = 0; i < number; i++) {
                 html += `<div class="logo-unit"><img class="logo-img" src="images/allies/logo${i + logoCounter}.png"></div>`;
             }
             $(dom).append(html);
             logoCounter += number;
-        }
-
+        }*/
 
     }
 
@@ -100,8 +100,20 @@ $(function(){
             }, 0.02 * 1000);
 
         });
-
     }
+
+    function newsCarousel() {
+        return;
+        var _counter = 0;
+        var $newsContainer = $('.news-container');
+        setInterval(function() {
+            console.log('carousel changes');
+            $('.news-item:eq(0)').addClass('hidden').appendTo($newsContainer);
+            $('.news-item.hidden:eq(0)').removeClass('hidden');
+            _counter++;
+        }, 1.5 * 1000)
+    }
+
 });
 
 $.fn.isVisible = function (offset) {

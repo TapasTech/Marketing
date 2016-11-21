@@ -135,12 +135,10 @@ img, .image {
 
 .pages-wrapper {
   background: url(../images/bg-grid.png) repeat;
-  //background-size: 100%;
   width: 100%;
 }
 
 .pages {
-  //background: url(../images/bg-grid.png) repeat;
   position: relative;
   width: 100vw;
   min-width: 100%;
@@ -244,8 +242,21 @@ img, .image {
 .img-agenda-fiesta {
   margin: auto;
   @media #{$PC} {
+    position: relative;
     @include img-responsive($width: 1136px, $height: 640px);
     @include div-with-bgImage('../images/fiesta-agenda.png');
+
+    &:after {
+      position: absolute;
+      top: -170px;
+      right: -200px;
+      content: '';
+      display: inline-block;
+      width: 658px;
+      height: 440px;
+      @include div-img-responsive($width:658px, $height: 440px, $url: '../images/shiny-dots.png');
+    }
+
   }
 }
 .agenda-mobile {

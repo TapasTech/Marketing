@@ -631,13 +631,12 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   width: 698px;
-  margin: auto;
+  margin: 0 auto 100px auto;
   position: relative;
 }
 
 @media (min-width: 720px) {
   .news-border-wrapper .news-container {
-    width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -650,21 +649,16 @@ body {
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: auto;
     padding: 3rem 1.5rem 2rem 1.5rem;
-  }
-  .news-border-wrapper .news-container .bg-news {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 698px;
     height: 368px;
     background-image: url("../images/bg-news.png");
@@ -672,10 +666,13 @@ body {
             background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
-    z-index: -1;
   }
   .news-border-wrapper .news-container .news-item {
+    z-index: 1;
     width: 100%;
+    -webkit-transition-duration: 0.8s;
+         -o-transition-duration: 0.8s;
+            transition-duration: 0.8s;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -701,6 +698,24 @@ body {
   .news-border-wrapper .news-container .news-item:hover {
     background: blue;
     cursor: pointer;
+  }
+  .news-border-wrapper:after {
+    position: absolute;
+    top: -220px;
+    left: -400px;
+    content: '';
+    display: inline-block;
+    width: 658px;
+    height: 440px;
+    width: 658px;
+    height: 440px;
+    max-width: 100vw;
+    max-height: 66.8693vw;
+    background-image: url("../images/shiny-dots.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 
@@ -878,7 +893,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .fix-top {
@@ -1369,11 +1384,30 @@ img, .image {
 
 @media (min-width: 720px) {
   .img-agenda-fiesta {
+    position: relative;
     width: 1136px;
     height: 640px;
     max-width: 100vw;
     max-height: 56.33803vw;
     background-image: url("../images/fiesta-agenda.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .img-agenda-fiesta:after {
+    position: absolute;
+    top: -170px;
+    right: -200px;
+    content: '';
+    display: inline-block;
+    width: 658px;
+    height: 440px;
+    width: 658px;
+    height: 440px;
+    max-width: 100vw;
+    max-height: 66.8693vw;
+    background-image: url("../images/shiny-dots.png");
     -webkit-background-size: 100% 100%;
             background-size: 100% 100%;
     background-repeat: no-repeat;
