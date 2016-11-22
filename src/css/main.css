@@ -1433,7 +1433,7 @@ img, .image {
 .shiny-dots {
   position: absolute;
   top: -175px;
-  right: -25px;
+  right: -195px;
   overflow: hidden;
   content: '';
   display: inline-block;
@@ -1554,7 +1554,7 @@ img, .image {
   background-position: center center;
   position: absolute;
   top: -550px;
-  right: -40px;
+  right: -180px;
 }
 
 .btn-to-top {
