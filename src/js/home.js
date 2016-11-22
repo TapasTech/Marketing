@@ -72,9 +72,6 @@ $(function(){
         var bodyHeight = $('body').height();
         var maxScrollY = bodyHeight - HEIGHT;
         $(window).on('scroll', function () {
-
-            // return;
-
             if (scrollTriggered) return;
             scrollTriggered = true;
             setTimeout(function () {
@@ -88,8 +85,6 @@ $(function(){
                         bgImg.style.backgroundPosition = 'left 0 top ' + (currentY-HEIGHT)/3 + 'px';
                         $floatObj[0].style.top = 400 - (currentY-HEIGHT)/3 + 'px';
                         $floatObj[1].style.top = 600 - (currentY-HEIGHT)/2 + 'px';
-                    } else {
-                        // bgImg.style.top = HEIGHT + 'px';
                     }
                     // decide whether to show 'go-to-top button' or not
                     if (currentY > window.innerHeight * 0.8) {
@@ -97,9 +92,6 @@ $(function(){
                     } else {
                         $btnTop.fadeOut(600);
                     }
-                } else {
-
-
                 }
                 currentY = nextY;
             }, 0.015 * 1000);

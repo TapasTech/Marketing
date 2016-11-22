@@ -9,7 +9,7 @@ body{
   @media #{$PC} {
     @include div-with-bgImage('../images/nav-bg.png');
     min-height: 120px;
-    z-index: 10;
+    z-index: 100;
     position: fixed;
 
   }
