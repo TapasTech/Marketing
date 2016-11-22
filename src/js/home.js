@@ -27,7 +27,7 @@ $(function(){
         // for PC only
         if (!ISMOBILE) {
             // append video to initial view
-            $('#videoWrapper').append('<video autoplay loop width="100%"><source src="videos/video.mp4" type="video/mp4">您的浏览器不支持mp4视频播放</video>');
+            $('#videoWrapper').append('<video autoplay loop width="100%"><source src="./videos/video.mp4" type="video/mp4">您的浏览器不支持mp4视频播放</video>');
             var logoCounter = 1;
             // render "allies", all media logos
             /*renderMedia('#hostMedia', 3);

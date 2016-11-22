@@ -325,6 +325,10 @@ body {
           transform: skew(120deg);
 }
 
+.leaders-wrapper {
+  margin: auto;
+}
+
 @media (min-width: 720px) {
   .leaders-wrapper {
     display: -webkit-box;
@@ -347,7 +351,7 @@ body {
     -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start;
-    width: 1140px;
+    width: 1160px;
     margin: auto;
     padding: 0 0 96px 0;
   }
@@ -383,7 +387,8 @@ body {
 @media (min-width: 720px) {
   .leaders-wrapper .hex-column {
     position: relative;
-    width: 184px;
+    width: 204px;
+    margin: 0 -10px;
   }
   .leaders-wrapper .hex-column:nth-of-type(2n) {
     top: 104.5px;
@@ -967,6 +972,7 @@ img, .image {
 
 .btn-scroll-down:hover {
   cursor: pointer;
+  background-image: url("../images/hex-single-hover.png");
 }
 
 @media (max-width: 720px) {
@@ -981,6 +987,90 @@ img, .image {
 .btn-scroll-down .arrows-button {
   width: 100%;
   height: 100%;
+  display: inline-block;
+  position: relative;
+  -webkit-animation-name: arrow-toggle;
+       -o-animation-name: arrow-toggle;
+          animation-name: arrow-toggle;
+  -webkit-animation-duration: 2s;
+       -o-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+       -o-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  top: -9%;
+}
+
+@-webkit-keyframes arrow-toggle {
+  0%, 20%, 50%, 80%, 100% {
+    top: 18%;
+  }
+  40% {
+    top: 0;
+  }
+  60% {
+    top: 7.2%;
+  }
+  /*0% {
+        top: 0;
+      }
+      25% {
+        top: $distance;
+      }
+      75% {
+        top: $distance;
+      }
+      100% {
+        top: 0;
+      }*/
+}
+
+@-o-keyframes arrow-toggle {
+  0%, 20%, 50%, 80%, 100% {
+    top: 18%;
+  }
+  40% {
+    top: 0;
+  }
+  60% {
+    top: 7.2%;
+  }
+  /*0% {
+        top: 0;
+      }
+      25% {
+        top: $distance;
+      }
+      75% {
+        top: $distance;
+      }
+      100% {
+        top: 0;
+      }*/
+}
+
+@keyframes arrow-toggle {
+  0%, 20%, 50%, 80%, 100% {
+    top: 18%;
+  }
+  40% {
+    top: 0;
+  }
+  60% {
+    top: 7.2%;
+  }
+  /*0% {
+        top: 0;
+      }
+      25% {
+        top: $distance;
+      }
+      75% {
+        top: $distance;
+      }
+      100% {
+        top: 0;
+      }*/
 }
 
 .btn-scroll-down .arrows-button .arrow {
@@ -994,15 +1084,15 @@ img, .image {
 }
 
 .btn-scroll-down .arrows-button .arrow.arrow0 {
-  top: -5%;
+  top: -10%;
 }
 
 .btn-scroll-down .arrows-button .arrow.arrow1 {
-  top: 5%;
+  top: 0%;
 }
 
 .btn-scroll-down .arrows-button .arrow.arrow2 {
-  top: 15%;
+  top: 10%;
 }
 
 .pages-wrapper {

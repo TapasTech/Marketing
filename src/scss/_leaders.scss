@@ -2,7 +2,7 @@
 @import "mixins";
 
 .leaders-wrapper {
-
+  margin: auto;
   @media #{$PC} {
     // screen width between 720px and 1140px
     @media screen and (max-width:1140px) {
@@ -11,7 +11,7 @@
       overflow: scroll;
     }
     @include my-flex($direction: row, $wrap: no-wrap, $justify: center, $align: flex-start);
-    width: 1140px;
+    width: 1160px;
     margin: auto;
     padding: 0 0 96px 0;
     $hex-unit-width: 220px;
@@ -20,13 +20,12 @@
 
     .hex-column {
       position: relative;
-      width: 184px;
+      width: 204px;
+      margin: 0 -10px;
       &:nth-of-type(2n) {
         top: ($hex-unit-height + $hex-unit-gap) / 2;
       }
     }
-
-
 
     .hex-unit {
       position: relative;
