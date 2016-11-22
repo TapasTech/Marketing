@@ -36,7 +36,7 @@ $(function(){
             renderMedia('#specialMedia', 13);
             renderMedia('#partnerMedia', 25);*/
         }
-
+        $('#video2frame').append('<video controls width="90%" class="video2" id="video2"><source src="http://z.dtcj.com/cbndata/fiesta/2016/assets/video2.mp4" type="video/mp4">您的浏览器不支持mp4视频播放 </video>')
 
         /*function renderMedia(dom, number) {
             var html = '';
