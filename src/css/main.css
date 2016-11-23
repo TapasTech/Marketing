@@ -1011,18 +1011,6 @@ img, .image {
   60% {
     top: 7.2%;
   }
-  /*0% {
-        top: 0;
-      }
-      25% {
-        top: $distance;
-      }
-      75% {
-        top: $distance;
-      }
-      100% {
-        top: 0;
-      }*/
 }
 
 @-o-keyframes arrow-toggle {
@@ -1035,18 +1023,6 @@ img, .image {
   60% {
     top: 7.2%;
   }
-  /*0% {
-        top: 0;
-      }
-      25% {
-        top: $distance;
-      }
-      75% {
-        top: $distance;
-      }
-      100% {
-        top: 0;
-      }*/
 }
 
 @keyframes arrow-toggle {
@@ -1059,18 +1035,6 @@ img, .image {
   60% {
     top: 7.2%;
   }
-  /*0% {
-        top: 0;
-      }
-      25% {
-        top: $distance;
-      }
-      75% {
-        top: $distance;
-      }
-      100% {
-        top: 0;
-      }*/
 }
 
 .btn-scroll-down .arrows-button .arrow {

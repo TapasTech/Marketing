@@ -15,7 +15,6 @@
 }
 
 html {
-  //background: #0a1735;
   background: #0c1220;
 }
 
@@ -124,19 +123,6 @@ img, .image {
       60% {
         top: $distance-jump/2.5;
       }
-
-      /*0% {
-        top: 0;
-      }
-      25% {
-        top: $distance;
-      }
-      75% {
-        top: $distance;
-      }
-      100% {
-        top: 0;
-      }*/
     }
 
     .arrow {
@@ -176,7 +162,6 @@ img, .image {
   position: relative;
   width: 100vw;
   min-width: 100%;
-  //overflow: hidden;
   overflow: visible;
   @media #{$PC} {
     min-height: 100vw * 9/16;
@@ -366,7 +351,6 @@ img, .image {
 
 .btn-to-top {
   position: fixed !important;
-  //display: inline-block;
   display: none;
   right: 3rem;
   bottom: 14%;
@@ -379,15 +363,6 @@ img, .image {
     cursor: pointer;
   }
   transition-duration: 0.8s;
-}
-.show-btn {
-  //display: inline-block;
-}
-
-#page3 {
-  .content-wrapper {
-    //overflow: hidden;
-  }
 }
 
 .video2-frame {
