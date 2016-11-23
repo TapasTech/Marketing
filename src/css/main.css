@@ -1608,7 +1608,7 @@ img, .image {
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
-  top: -50px;
+  top: 400px;
   left: -280px;
 }
 
@@ -1623,13 +1623,13 @@ img, .image {
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
-  top: -550px;
+  top: 100px;
   right: -180px;
 }
 
 .btn-to-top {
   position: fixed !important;
-  display: inline-block;
+  display: none;
   right: 3rem;
   bottom: 14%;
   width: 50px;
@@ -1639,7 +1639,7 @@ img, .image {
           background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
-  z-index: 20;
+  z-index: 200;
   -webkit-transition-duration: 0.8s;
        -o-transition-duration: 0.8s;
           transition-duration: 0.8s;
@@ -1650,11 +1650,6 @@ img, .image {
 }
 
 .video2-frame {
-  background-image: url("../images/video-frame.png");
-  -webkit-background-size: 100% 100%;
-          background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1680,6 +1675,26 @@ img, .image {
 
 @media (min-width: 720px) {
   .video2-frame {
+    background-image: url("../images/video-frame.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 720px) {
+  .video2-frame {
+    background-image: url("../images/video-placeholder.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+@media (min-width: 720px) {
+  .video2-frame {
     width: 100%;
     height: 516px;
   }
@@ -1688,7 +1703,7 @@ img, .image {
 @media (max-width: 720px) {
   .video2-frame {
     width: 100vw;
-    height: 64vw;
+    height: 62vw;
   }
 }
 
@@ -1707,6 +1722,6 @@ img, .image {
 
 @media (max-width: 720px) {
   .video2-frame .video2 {
-    top: -1vw;
+    top: -0.5vw;
   }
 }

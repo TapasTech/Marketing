@@ -17,8 +17,8 @@ $(function(){
     init();
 
     function init() {
-        registerEventListeners();
         renderInitialDOM();
+        registerEventListeners();
         // newsCarousel();
     }
 
@@ -36,7 +36,14 @@ $(function(){
             renderMedia('#specialMedia', 13);
             renderMedia('#partnerMedia', 25);*/
         }
-        $('#video2frame').append('<video controls width="90%" class="video2" id="video2"><source src="http://z.dtcj.com/cbndata/fiesta/2016/assets/video2.mp4" type="video/mp4">您的浏览器不支持mp4视频播放 </video>')
+        $('#video2frame').append('<video preload="automatic" controls width="90%" class="video2" id="video2"><source src="http://z.dtcj.com/cbndata/fiesta/2016/assets/video2.mp4" type="video/mp4">您的浏览器不支持mp4视频播放 </video>')
+        // alert($('#video2').attr('preload'));
+        /*$('#video2').load = function() {
+            $('#video2')[0].play();
+            setTimeout( function() {
+                $('#video2')[0].pause();
+            },1000)
+        }*/
 
         /*function renderMedia(dom, number) {
             var html = '';
@@ -56,21 +63,14 @@ $(function(){
             $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 500);
         });
 
-
-        var bgImg = $('#bgImage')[0];
+        // var bgImg = $('#bgImage')[0];
         var $floatObj = $('.float-obj');
         var scrollTriggered = false;
         var currentY = window.scrollY;
         var nextY = currentY;
-        var $footer = $('#footer');
 
-        var baseScrollY = $('#page2').offset().top;
         var $btnTop = $('#btnTop');
-        // var layer3dWrapper = $('#layer3dWrapper')[0];
-        var layer3dWrapper = $('#bgPlanetWrapper')[0];
 
-        var bodyHeight = $('body').height();
-        var maxScrollY = bodyHeight - HEIGHT;
         $(window).on('scroll', function () {
             if (scrollTriggered) return;
             scrollTriggered = true;
@@ -82,7 +82,7 @@ $(function(){
                 if (!ISMOBILE) {
                     // parallax scroll for background planet image
                     if (currentY > HEIGHT) {  // from 2nd page
-                        bgImg.style.backgroundPosition = 'left 0 top ' + (currentY-HEIGHT)/3 + 'px';
+                        // bgImg.style.backgroundPosition = 'left 0 top ' + (currentY-HEIGHT)/3 + 'px';
                         $floatObj[0].style.top = 400 - (currentY-HEIGHT)/3 + 'px';
                         $floatObj[1].style.top = 600 - (currentY-HEIGHT)/2 + 'px';
                     }
@@ -99,7 +99,7 @@ $(function(){
         });
     }
 
-    function newsCarousel() {
+    /*function newsCarousel() {
         var _counter = 0;
         var $newsContainer = $('.news-container');
         setInterval(function() {
@@ -108,7 +108,7 @@ $(function(){
             $('.news-item.hidden:eq(0)').removeClass('hidden');
             _counter++;
         }, 2.5 * 1000)
-    }
+    }*/
 
 });
 

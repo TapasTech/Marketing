@@ -353,31 +353,35 @@ img, .image {
 .float-element-1 {
   @include div-img-responsive($width: 370px, $height:370px, $url: '../images/float-element-1.png');
   position: absolute;
-  top: -50px;
+  top: 400px;
   left: -280px;
 }
 .float-element-2 {
   @include div-img-responsive($width: 370px, $height:370px, $url: '../images/float-element-2.png');
   position: absolute;
-  top: -550px;
+  top: 100px;
   right: -180px;
 }
 
 
 .btn-to-top {
   position: fixed !important;
-  display: inline-block;
+  //display: inline-block;
+  display: none;
   right: 3rem;
   bottom: 14%;
   $btn-size: 50px;
   width: $btn-size;
   height: $btn-size;
   @include div-with-bgImage('../images/btn-goto-top.png');
-  z-index: 20;
+  z-index: 200;
   &:hover {
     cursor: pointer;
   }
   transition-duration: 0.8s;
+}
+.show-btn {
+  //display: inline-block;
 }
 
 #page3 {
@@ -387,7 +391,13 @@ img, .image {
 }
 
 .video2-frame {
-  @include div-with-bgImage('../images/video-frame.png');
+  @media #{$PC} {
+    @include div-with-bgImage('../images/video-frame.png');
+  }
+  @media #{$mobile} {
+    @include div-with-bgImage('../images/video-placeholder.png');
+
+  }
   position: relative;
   @include my-flex();
 
@@ -397,7 +407,7 @@ img, .image {
   }
   @media #{$mobile} {
     width: 100vw;
-    height: 64vw;
+    height: 62vw;
   }
 
   .video2 {
@@ -408,7 +418,7 @@ img, .image {
       top: -6px;
     }
     @media #{$mobile} {
-      top: -1vw;
+      top: -0.5vw;
     }
   }
 
