@@ -14,6 +14,13 @@ $(function(){
         ISMOBILE = true;
     }
 
+    if ('ontouchstart' in window && ISMOBILE) {
+        var click = 'touchstart';
+    }
+    else {
+        var click = 'click';
+    }
+
     init();
 
     function init() {
@@ -58,7 +65,7 @@ $(function(){
 
 
     function registerEventListeners() {
-        $('a.scroll').click(function(e) {
+        $('a.scroll').on(click, function(e) {
             e.preventDefault();
             $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 500);
         });
