@@ -1451,8 +1451,8 @@ img, .image {
   .img-agenda-fiesta {
     position: relative;
     width: 1056px;
-    height: 561px;
-    background-image: url("../images/fiesta-agenda.png");
+    height: 1035px;
+    background-image: url("../images/fiesta-agenda-v1125.png");
     -webkit-background-size: 100% 100%;
             background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -1466,8 +1466,8 @@ img, .image {
 
 .shiny-dots {
   position: absolute;
-  top: -175px;
-  right: -195px;
+  top: -220px;
+  right: -230px;
   overflow: hidden;
   content: '';
   display: inline-block;
@@ -1572,7 +1572,7 @@ img, .image {
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
-  top: 400px;
+  top: 200px;
   left: -280px;
 }
 
@@ -1588,7 +1588,7 @@ img, .image {
   background-position: center center;
   position: absolute;
   top: 100px;
-  right: -180px;
+  right: -200px;
 }
 
 .btn-to-top {
