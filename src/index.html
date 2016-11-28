@@ -17,7 +17,29 @@
 <a href="#page1" class="scroll btn-to-top PC-only" id="btnTop"></a>
 
 <div class="pages" id="page1">
-    <nav class="nav-bar">
+
+    <div class="circle-nav-area mobile-only" id="circleNavArea">
+        <div class="navbar"></div>
+
+        <div class="circle"></div>
+        <div class="menu">
+            <ul>
+                <li><a class="scroll" href="#page2">盛典纵览</a></li>
+                <li><a class="scroll" href="#page3">盛典日程</a></li>
+                <li><a class="scroll" href="#page4">星系领袖</a></li>
+                <li><a class="scroll" href="#page5">星系联盟</a></li>
+                <li><a class="scroll" href="#page6">空间资讯</a></li>
+                <li><a class="scroll" href="#page7">关于CBNData</a></li>
+            </ul>
+        </div>
+        <div class="burger">
+            <div class="x"></div>
+            <div class="y"></div>
+            <div class="z"></div>
+        </div>
+    </div>
+
+    <nav class="nav-bar PC-only">
         <div class="nav-wrapper">
             <span class="nav-item PC-only nav-logos">
                 <a href="http://www.yicai.com/" target="_blank"><img src="images/logo-cbn.png"></a>
@@ -303,7 +325,7 @@
         </div>
     </div>
 
-    <!--<div class="pages" id="page6">
+    <div class="pages" id="page6">
         <div class="title-img-wrapper figure-top-left-wrapper">
             <div class="img-above-title"></div>
         </div>
@@ -314,15 +336,23 @@
             </div>
             <div class="news-border-wrapper">
                 <div class="news-container">
-                    <a class="news-item">
-                        <span class="news-title">1. SDHBSETYHNRWB房产大数据真能准确预测楼市？</span>
-                        <span class="news-date">2016.10.20</span>
+                    <a class="news-item" href="http://www.yicai.com/news/5155159.html" target="_blank">
+                        <span class="news-title">数据连接共赢 第一财经举办首届数据盛典</span>
+                        <span class="news-date">2016.11.10</span>
+                    </a>
+                    <a class="news-item" href="http://www.yicai.com/news/5155159.html" target="_blank">
+                        <span class="news-title">数据连接共赢 第一财经举办首届数据盛典</span>
+                        <span class="news-date">2016.11.10</span>
+                    </a>
+                    <a class="news-item" href="http://www.yicai.com/news/5155159.html" target="_blank">
+                        <span class="news-title">数据连接共赢 第一财经举办首届数据盛典</span>
+                        <span class="news-date">2016.11.10</span>
                     </a>
                 </div>
                 <div class="shiny-dots"></div>
             </div>
         </div>
-    </div>-->
+    </div>
 
     <div class="pages" id="page7">
         <div class="title-img-wrapper figure-top-right-wrapper">
@@ -378,6 +408,7 @@
 
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <script src="js/home.js"></script>
+<script src="./test/js.js"></script>
 
 <script>
     var _hmt = _hmt || [];

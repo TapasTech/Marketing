@@ -9,6 +9,7 @@
 @import "about-cbndata";
 @import "mobile";
 @import "common";
+@import "circle-nav";
 
 * {
   box-sizing: border-box;
@@ -281,14 +282,15 @@ img, .image {
 }
 .shiny-dots {
   position: absolute;
-  top: -220px;
-  right: -230px;
   overflow: hidden;
   content: '';
   display: inline-block;
   width: 658px;
   height: 440px;
   @include div-img-responsive($width:658px, $height: 440px, $url: '../images/shiny-dots.png');
+  @media #{$mobile} {
+
+  }
 }
 
 .agenda-mobile {

@@ -3,17 +3,27 @@
 
 .news-border-wrapper {
   @include my-flex($direction: column, $align: flex-start, $justify: center);
-  width: 698px;
+
   margin: 0 auto 100px auto;
   position: relative;
 
+  .news-container {
+    margin: auto;
+    @include my-flex($direction: column, $justify: flex-start, $align:flex-start);
+
+    .news-item {
+      font-size: 14px;
+    }
+
+  }
+
   @media #{$PC} {
 
-    .news-container {
-      @include my-flex($direction: column, $justify: flex-start);
-      margin: auto;
-      padding: 3rem 1.5rem 2rem 1.5rem;
+    width: 698px;
 
+    .news-container {
+
+      padding: 3rem 1.5rem 2rem 1.5rem;
       width: 698px;
       height: 368px;
       @include div-with-bgImage('../images/bg-news.png');
@@ -36,10 +46,37 @@
 
   }
 
+  @media #{$mobile} {
+    .news-container {
+      padding: 2rem 1rem;
+      width: 90vw;
+      height: 110vw;
+      @include div-with-bgImage('../images/mobile/bg-news-mobile.png');
+
+      .news-item {
+        margin: 0.5rem 0;
+
+        .news-title {
+          display: block;
+        }
+
+      }
+
+    }
+
+  }
+
   .shiny-dots {
-    right: 0;
-    left: -410px;
-    top: -210px;
+    @media #{$PC} {
+      right: 0;
+      left: -410px;
+      top: -210px;
+    }
+    @media #{$mobile} {
+      //right: 0;
+      left: -100px;
+      top: 0;
+    }
   }
 
 }

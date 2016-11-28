@@ -66,6 +66,7 @@ $(function(){
 
     function registerEventListeners() {
         $('a.scroll').on(click, function(e) {
+            // alert('scroll');
             e.preventDefault();
             $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 500);
         });
@@ -89,7 +90,6 @@ $(function(){
                 if (!ISMOBILE) {
                     // parallax scroll for background planet image
                     if (currentY > HEIGHT) {  // from 2nd page
-                        // bgImg.style.backgroundPosition = 'left 0 top ' + (currentY-HEIGHT)/3 + 'px';
                         $floatObj[0].style.top = 200 - (currentY-HEIGHT)/3 + 'px';
                         $floatObj[1].style.top = 600 - (currentY-HEIGHT)/2 + 'px';
                     }

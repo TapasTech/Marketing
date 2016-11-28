@@ -1,0 +1,146 @@
+@import "mixins";
+
+@mixin rotate($deg, $time) {
+  transform: rotate($deg + deg);
+  transition: all $time ms ease-out;
+}
+
+@mixin animateList($n) {
+  top: 20 + 60*$n + px;
+  transition-delay: 0.05 * ($n - 1) + s;
+}
+
+.cover-height {
+  height: 100%;
+}
+
+.circle-nav-area {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 100;
+
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .navbar {
+    height: 73px;
+    @include div-with-bgImage('../images/nav-bg-mobile.png')
+  }
+
+  .circle {
+    border-radius: 50%;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #05101d;
+    opacity: 0.85;
+    //transition: all 300ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
+    transition: all 300ms linear;
+
+    &.expand {
+      width: 1000px;
+      height: 1400px;
+      top: -400px;
+      right: -400px;
+      //transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
+      transition: all 300ms linear;
+
+    }
+
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    ul {
+      li {
+        list-style: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 0px;
+        transition: all 70ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
+
+        a {
+          color: #4a89dc;
+          text-transform: uppercase;
+          text-decoration: none;
+          letter-spacing: 3px;
+        }
+
+        &.animate {
+          font-size: 18px;
+          opacity: 1;
+          transition: all 150ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
+        }
+
+        @for $i from 1 through 6 {
+          &.animate:nth-of-type(#{$i}) {
+            @include animateList($i);
+          }
+        }
+      }
+
+    }
+
+  }
+
+  .burger {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer;
+    .x, .y, .z {
+      position: absolute;
+      margin: auto;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 200ms ease-out;
+      height: 3px;
+      width: 26px;
+      bottom: 0;
+      left: 6px;
+    }
+    .x {
+      top: -18px;
+    }
+    .y {
+      top: 0;
+    }
+    .z {
+      top: 18px;
+    }
+    .collapse {
+      top: 4px;
+      background: #4a89dc;
+      transition: all 70ms ease-out;
+    }
+    .rotate30 {
+      @include rotate(30, 50);
+    }
+    .rotate150 {
+      @include rotate(150, 50);
+    }
+    .rotate45 {
+      @include rotate(45, 100);
+    }
+    .rotate135 {
+      @include rotate(135, 100);
+    }
+  }
+
+}
