@@ -1388,7 +1388,7 @@ img, .image {
 
 @media (max-width: 720px) {
   .title-about-fiesta {
-    width: 35vw;
+    width: 37vw;
     height: 10vh;
   }
 }
@@ -1405,7 +1405,7 @@ img, .image {
 
 @media (max-width: 720px) {
   .title-agenda {
-    width: 35vw;
+    width: 37vw;
     height: 10vh;
   }
 }
@@ -1462,7 +1462,7 @@ img, .image {
 
 @media (max-width: 720px) {
   .title-leaders {
-    width: 35vw;
+    width: 37vw;
     height: 10vh;
   }
 }
@@ -1477,7 +1477,7 @@ img, .image {
 
 @media (max-width: 720px) {
   .title-allies {
-    width: 35vw;
+    width: 37vw;
     height: 10vh;
   }
 }
@@ -1493,7 +1493,7 @@ img, .image {
 
 @media (max-width: 720px) {
   .title-news {
-    width: 35vw;
+    width: 37vw;
     height: 10vh;
   }
 }
@@ -1550,7 +1550,14 @@ img, .image {
 
 @media (max-width: 720px) {
   .title-about-cbndata {
-    width: 35vw;
+    width: 37vw;
+    height: 10vh;
+  }
+}
+
+@media (max-width: 720px) {
+  .title-about-cbndata {
+    width: 42vw;
     height: 10vh;
   }
 }
@@ -1700,7 +1707,7 @@ img, .image {
     position: relative;
     width: 1056px;
     height: 1035px;
-    background-image: url("../images/fiesta-agenda-v1125.png");
+    background-image: url("../images/fiesta-agenda-v1202.png");
     -webkit-background-size: 100% 100%;
             background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -1714,6 +1721,8 @@ img, .image {
 
 .shiny-dots {
   position: absolute;
+  top: -220px;
+  right: -230px;
   overflow: hidden;
   content: '';
   display: inline-block;

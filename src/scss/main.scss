@@ -204,6 +204,10 @@ img, .image {
 }
 .title-about-cbndata {
   @include div-title-img($url:'../images/title-about-cbndata.png', $width: 326px, $height: 127px);
+  @media #{$mobile} {
+    width: 42vw;
+    height: 10vh;
+  }
 }
 
 .content-wrapper {
@@ -273,7 +277,7 @@ img, .image {
     position: relative;
     width: 1056px;
     height: 1035px;
-    @include div-with-bgImage('../images/fiesta-agenda-v1125.png');
+    @include div-with-bgImage('../images/fiesta-agenda-v1202.png');
   }
 }
 
@@ -282,6 +286,8 @@ img, .image {
 }
 .shiny-dots {
   position: absolute;
+  top: -220px;
+  right: -230px;
   overflow: hidden;
   content: '';
   display: inline-block;

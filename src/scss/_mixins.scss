@@ -39,7 +39,7 @@
     $height:127px;
   }
   @media #{$mobile} {
-    width: 35vw;
+    width: 37vw;
     height: 10vh;
   }
   @include div-with-bgImage($url);
