@@ -573,8 +573,7 @@ body {
 
 .news-border-wrapper .news-container .news-item {
   font-size: 14px;
-  /*animation-duration: 0.9s;
-      animation-delay: 0.9s;*/
+  z-index: 20;
 }
 
 @media (min-width: 720px) {
@@ -613,7 +612,6 @@ body {
     background-position: center center;
   }
   .news-border-wrapper .news-container .news-item {
-    z-index: 1;
     width: 100%;
     -webkit-transition-duration: 0.2s;
          -o-transition-duration: 0.2s;
@@ -681,7 +679,6 @@ body {
   }
   .news-border-wrapper .news-container .news-item {
     display: block;
-    position: relative;
     width: 100%;
     height: 48px !important;
     margin: 1px 0;

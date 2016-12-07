@@ -27,9 +27,18 @@ $(function(){
         renderInitialDOM();
         registerEventListeners();
       if (ISMOBILE) {
-        activateMobileNav()
+        activateMobileNav();
       }
         // newsCarousel();
+      recordVisitHistory();
+    }
+    
+    function recordVisitHistory() {
+      if (!location.hash) {
+        location.hash = '#back_flag';
+        location.hash = '#';
+      }
+      
     }
 
     function renderInitialDOM() {

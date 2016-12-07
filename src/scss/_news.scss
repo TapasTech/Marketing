@@ -8,8 +8,7 @@
     margin: auto;
     .news-item {
       font-size: 14px;
-      /*animation-duration: 0.9s;
-      animation-delay: 0.9s;*/
+      z-index:20;
     }
 
   }
@@ -28,7 +27,6 @@
       @include div-with-bgImage('../images/bg-news.png');
 
       .news-item {
-        z-index: 1;
         width: 100%;
         transition-duration: 0.2s;
         @include my-flex($direction: row, $justify: space-between);
@@ -58,7 +56,7 @@
 
       .news-item {
         display: block;
-        position: relative;
+        //position: relative;
         width: 100%;
         height: 48px !important;
         margin: 1px 0;
@@ -81,6 +79,7 @@
   }
 
   .shiny-dots {
+    //z-index: -100;
     @media #{$PC} {
       right: 0;
       left: -410px;
