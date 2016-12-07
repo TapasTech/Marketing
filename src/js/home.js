@@ -26,6 +26,9 @@ $(function(){
     function init() {
         renderInitialDOM();
         registerEventListeners();
+      if (ISMOBILE) {
+        activateMobileNav()
+      }
         // newsCarousel();
     }
 
@@ -35,31 +38,8 @@ $(function(){
         if (!ISMOBILE) {
             // append video to initial view
             $('#videoWrapper').append('<video autoplay loop width="100%"><source src="./videos/video.mp4" type="video/mp4">您的浏览器不支持mp4视频播放</video>');
-            var logoCounter = 1;
-            // render "allies", all media logos
-            /*renderMedia('#hostMedia', 3);
-            renderMedia('#officialMedia', 6);
-            renderMedia('#strategicPartner', 14);
-            renderMedia('#specialMedia', 13);
-            renderMedia('#partnerMedia', 25);*/
         }
         $('#video2frame').append('<video preload="automatic" controls width="90%" class="video2" id="video2"><source src="http://z.dtcj.com/cbndata/fiesta/2016/assets/video2.mp4" type="video/mp4">您的浏览器不支持mp4视频播放 </video>')
-        // alert($('#video2').attr('preload'));
-        /*$('#video2').load = function() {
-            $('#video2')[0].play();
-            setTimeout( function() {
-                $('#video2')[0].pause();
-            },1000)
-        }*/
-
-        /*function renderMedia(dom, number) {
-            var html = '';
-            for (let i = 0; i < number; i++) {
-                html += `<div class="logo-unit"><img class="logo-img" src="images/allies/logo${i + logoCounter}.png"></div>`;
-            }
-            $(dom).append(html);
-            logoCounter += number;
-        }*/
 
     }
 
@@ -106,7 +86,7 @@ $(function(){
         });
     }
 
-    /*function newsCarousel() {
+    function newsCarousel() {
         var _counter = 0;
         var $newsContainer = $('.news-container');
         setInterval(function() {
@@ -115,7 +95,70 @@ $(function(){
             $('.news-item.hidden:eq(0)').removeClass('hidden');
             _counter++;
         }, 2.5 * 1000)
-    }*/
+    }
+  
+  
+  function activateMobileNav() {
+    $('div.burger').on(click, function () {
+    
+      if (!$(this).hasClass('open')) {
+        openMenu();
+      }
+      else {
+        closeMenu();
+      }
+    
+    });
+  
+    // close menu once menu-item clicked
+    $('div.menu ul li a').on(click, function (e) {
+      e.preventDefault();
+      closeMenu();
+    });
+  
+    // effects of opening menu
+    function openMenu() {
+      $('#circleNavArea').addClass('cover-height');
+      $('div.circle').addClass('expand');
+    
+      $('div.burger').addClass('open');
+      $('div.x, div.y, div.z').addClass('collapse');
+      $('.menu li').addClass('animate');
+    
+      setTimeout(function () {
+        $('div.y').hide();
+        $('div.x').addClass('rotate30');
+        $('div.z').addClass('rotate150');
+      }, 70);
+      setTimeout(function () {
+        $('div.x').addClass('rotate45');
+        $('div.z').addClass('rotate135');
+      }, 120);
+    }
+  
+  
+    function closeMenu() {
+      $('div.burger').removeClass('open');
+      $('div.x').removeClass('rotate45').addClass('rotate30');
+      $('div.z').removeClass('rotate135').addClass('rotate150');
+      $('div.circle').removeClass('expand');
+      $('.menu li').removeClass('animate');
+    
+      setTimeout(function () {
+        $('div.x').removeClass('rotate30');
+        $('div.z').removeClass('rotate150');
+      }, 50);
+      setTimeout(function () {
+        $('div.y').show();
+        $('div.x, div.y, div.z').removeClass('collapse');
+      
+      }, 70);
+    
+      setTimeout( function() {
+        $('#circleNavArea').removeClass('cover-height');
+      }, 200)
+    }
+  }
 
 });
 
