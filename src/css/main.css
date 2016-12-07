@@ -1006,9 +1006,9 @@ body {
   width: 100%;
   text-align: center;
   font-size: 0px;
-  -webkit-transition: all 70ms cubic-bezier(0, 0.995, 0.99, 1);
-  -o-transition: all 70ms cubic-bezier(0, 0.995, 0.99, 1);
-  transition: all 70ms cubic-bezier(0, 0.995, 0.99, 1);
+  -webkit-transition: all 70ms linear;
+  -o-transition: all 70ms linear;
+  transition: all 70ms linear;
 }
 
 .circle-nav-area .menu ul li a {
@@ -1021,9 +1021,9 @@ body {
 .circle-nav-area .menu ul li.animate {
   font-size: 18px;
   opacity: 1;
-  -webkit-transition: all 150ms cubic-bezier(0, 0.995, 0.99, 1);
-  -o-transition: all 150ms cubic-bezier(0, 0.995, 0.99, 1);
-  transition: all 150ms cubic-bezier(0, 0.995, 0.99, 1);
+  -webkit-transition: all 150ms linear;
+  -o-transition: all 150ms linear;
+  transition: all 150ms linear;
 }
 
 .circle-nav-area .menu ul li.animate:nth-of-type(1) {
