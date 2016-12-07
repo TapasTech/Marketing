@@ -25,7 +25,7 @@ body{
       @include my-flex();
 
       @media #{$PC} {
-        margin: 0 0.75rem;
+        margin: 0 4px;
         position: relative;
 
         &.nav-logos {

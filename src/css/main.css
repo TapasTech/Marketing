@@ -90,7 +90,7 @@ body {
 
 @media (min-width: 720px) {
   .nav-bar .nav-wrapper .nav-item {
-    margin: 0 0.75rem;
+    margin: 0 4px;
     position: relative;
   }
   .nav-bar .nav-wrapper .nav-item.nav-logos a:first-of-type:after {
