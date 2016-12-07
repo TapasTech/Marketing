@@ -168,6 +168,9 @@ img, .image {
     min-height: 100vw * 9/16;
   }
 }
+#page6 {
+  min-height: 0;
+}
 
 #page2 {
   @include my-flex($direction: column, $justify: space-around)

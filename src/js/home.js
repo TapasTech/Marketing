@@ -34,7 +34,7 @@ $(function(){
     }
     
     function recordVisitHistory() {
-      if (!location.hash) {
+      if (!location.hash && ISMOBILE) {
         location.hash = '#back_flag';
         location.hash = '#';
       }
