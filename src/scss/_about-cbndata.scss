@@ -42,3 +42,23 @@
     margin: 0 0 3rem 0;
   }
 }
+
+.review-agenda {
+  margin: auto;
+  @media #{$PC} {
+    $size-factor: 0.85;
+    width: 973px * $size-factor;
+    height: 3392px * $size-factor;
+    margin-bottom: 96px;
+    @include div-with-bgImage('../images/review-agenda.png')
+  }
+  @media #{$mobile} {
+    $width: 100vw;
+    $height: $width * 4122/1097;
+    width: $width;
+    height: $height;
+    margin-bottom: 48px;
+    @include div-with-bgImage('../images/mobile/review-mobile.png')
+  }
+
+}

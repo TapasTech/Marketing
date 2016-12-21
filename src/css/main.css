@@ -854,6 +854,36 @@ body {
   margin: 0 0 3rem 0;
 }
 
+.review-agenda {
+  margin: auto;
+}
+
+@media (min-width: 720px) {
+  .review-agenda {
+    width: 827.05px;
+    height: 2883.2px;
+    margin-bottom: 96px;
+    background-image: url("../images/review-agenda.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 720px) {
+  .review-agenda {
+    width: 100vw;
+    height: 375.75205vw;
+    margin-bottom: 48px;
+    background-image: url("../images/mobile/review-mobile.png");
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
 @media (min-width: 720px) {
   .mobile-only {
     display: none !important;
@@ -1768,9 +1798,9 @@ img, .image {
 @media (min-width: 720px) {
   .img-agenda-fiesta {
     position: relative;
-    width: 1056px;
-    height: 1035px;
-    background-image: url("../images/fiesta-agenda-v1202.png");
+    width: 954.9px;
+    height: 931.5px;
+    background-image: url("../images/fiesta-agenda-v1221.png");
     -webkit-background-size: 100% 100%;
             background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -1800,6 +1830,11 @@ img, .image {
           background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.agenda-mobile {
+  text-align: right;
+  padding-left: 12px;
 }
 
 .agenda-mobile img {

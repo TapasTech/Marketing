@@ -278,9 +278,10 @@ img, .image {
   margin: auto;
   @media #{$PC} {
     position: relative;
-    width: 1056px;
-    height: 1035px;
-    @include div-with-bgImage('../images/fiesta-agenda-v1202.png');
+    $ratio: 0.9;
+    width: 1061px * $ratio;
+    height: 1035px * $ratio;
+    @include div-with-bgImage('../images/fiesta-agenda-v1221.png');
   }
 }
 
@@ -303,6 +304,8 @@ img, .image {
 }
 
 .agenda-mobile {
+  text-align: right;
+  padding-left: 12px;
   img {
     width: 100%;
   }
