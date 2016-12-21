@@ -111,7 +111,7 @@
           transition: all 150ms linear;
         }
 
-        @for $i from 1 through 6 {
+        @for $i from 1 through 7 {
           &.animate:nth-of-type(#{$i}) {
             @include animateList($i);
           }

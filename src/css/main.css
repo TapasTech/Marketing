@@ -61,7 +61,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  max-width: 840px;
+  max-width: 920px;
 }
 
 .nav-bar .nav-wrapper .nav-item {
@@ -120,8 +120,8 @@ body {
             transition-duration: 0.3s;
     -webkit-perspective: 1000;
             perspective: 1000;
-    top: 7px;
-    left: -20px;
+    top: 8px;
+    left: -16px;
     height: 20px;
     width: 4px;
     background-color: #daf8ff;
@@ -851,7 +851,7 @@ body {
 
 .logo-fiesta img {
   width: 54px;
-  margin: 0 0 3rem 0;
+  margin: 0 0 40px 0;
 }
 
 .review-agenda {
@@ -1096,6 +1096,13 @@ body {
   -webkit-transition-delay: 0.42s;
        -o-transition-delay: 0.42s;
           transition-delay: 0.42s;
+}
+
+.circle-nav-area .menu ul li.animate:nth-of-type(7) {
+  top: 440px;
+  -webkit-transition-delay: 0.48s;
+       -o-transition-delay: 0.48s;
+          transition-delay: 0.48s;
 }
 
 .circle-nav-area .burger {
