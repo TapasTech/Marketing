@@ -3,73 +3,75 @@
 
 .news-border-wrapper {
   position: relative;
+  @include my-flex($direction: column, $justify: center, $align:center);
 
   .news-container {
     margin: auto;
+    overflow: hidden;
     .news-item {
       font-size: 14px;
       z-index:20;
     }
-
   }
 
   @media #{$PC} {
-
+    @include div-with-bgImage('../images/bg-news.png');
+    $gap-h: 12px;
+    $gap-v: 30px;
+    $height-pc: 408px;
+    $width-pc: 698px;
     margin: 0 auto 80px auto;
-    width: 698px;
-
+    width: $width-pc;
+    height: $height-pc;
     .news-container {
-      @include my-flex($direction: column, $justify: flex-start, $align:flex-start);
-
-      padding: 32px 24px;
-      width: 698px;
-      height: 368px;
-      @include div-with-bgImage('../images/bg-news.png');
-
+      margin: $gap-v $gap-h;
+      width: $width-pc - $gap-h*2.5;
+      height: $height-pc - $gap-v*2;
       .news-item {
+        padding: 0 $gap-h/2;
         width: 100%;
-        transition-duration: 0.2s;
-        @include my-flex($direction: row, $justify: space-between);
-        margin: 0.3rem 0;
+        display: block;
+        height: 34px;
+        line-height: 34px;
         &:hover {
           background: blue;
           cursor: pointer;
-
         }
-
+        .news-title {
+          float: left;
+        }
+        .news-date {
+          float: right;
+        }
       }
-
     }
-
   }
 
   @media #{$mobile} {
     margin: 0 auto 15% auto;
+    width: 94vw;
+    height: 680px;
+    @include div-with-bgImage('../images/mobile/bg-news-mobile.png');
 
     .news-container {
-      @include my-flex($direction: column, $justify: space-around, $align:flex-start);
-
-      padding: 16px 8px;
-      width: 94vw;
-      height: 190vw;
-      @include div-with-bgImage('../images/mobile/bg-news-mobile.png');
-
+      margin-top: 10px;
+      padding: 0 10px;
+      height: 640px;
+      overflow: hidden;
       .news-item {
         display: block;
-        //position: relative;
         width: 100%;
         height: 48px !important;
-        margin: 1px 0;
+        margin: 16px 0;
         font-size: 13px;
         line-height: 14px;
         @include my-flex($direction: column, $justify: space-around, $align:flex-start);
-
       }
     }
 
     @media #{$iphone5} {
       .news-container {
-        height: 220vw;
+        //height: 220vw;
         .news-item {
           font-size: 12px;
         }
@@ -79,7 +81,6 @@
   }
 
   .shiny-dots {
-    //z-index: -100;
     @media #{$PC} {
       right: 0;
       left: -410px;
