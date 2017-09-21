@@ -45,35 +45,49 @@ function animate() {
   clearCanvas();
   shapes = shapes || initShapes(numShapes);
   
+  /** Iterate over all shapes to draw, check bounce, and move next step **/
   for (let i = 0; i < numShapes; i++) {
     var tempShape = shapes[i];
-    tempShape.checkBounce();
+  
+    /** draw and fill at current position **/
+    drawShape(tempShape);
+  
+    /** move to next time step **/
     tempShape.move();
     tempShape.accelerate();
     
+    /** check border and collision bounce **/
+    tempShape.checkBounce();
     for (let j = i + 1; j < numShapes; j++) {
       if (checkOverlap(tempShape, shapes[j])) {
-        // collision equation
-        [tempShape.vx, shapes[j].vx] = [shapes[j].vx, tempShape.vx];
-        [tempShape.vy, shapes[j].vy] = [shapes[j].vy, tempShape.vy];
+        collide(tempShape, shapes[j]);
       }
     }
-    // draw and fill
-    context.fillStyle = tempShape.fillColor;
-    context.beginPath();
-    context.arc(tempShape.x, tempShape.y, tempShape.radius, 0, Math.PI * 2);
-    context.closePath();
-    context.fill();
+    
   }
 }
 
-// constructor function for shape unit
-var ShapeUnit = function Shape(x, y, radius = 20) {
-  var [r, g, b] = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
+function drawShape(tempShape) {
+  context.fillStyle = tempShape.fillColor;
+  context.beginPath();
+  context.arc(tempShape.x, tempShape.y, tempShape.radius, 0, Math.PI * 2);
+  context.closePath();
+  context.fill();
+}
+
+/** constructor function for shape unit **/
+var ShapeUnit = function (x, y, radius) {
+  var [r, g, b] = [
+    Math.floor(getRandomInRange(0, 255)),
+    Math.floor(getRandomInRange(0, 255)),
+    Math.floor(getRandomInRange(0, 255))
+  ];
   var fillColor = 'rgb(' + r + ',' + g + ',' + b + ')';
-  var vx = Math.random() * myCanvas.width / 200;
-  var vy = Math.random() * myCanvas.height / 200;
+  var vx = getRandomInRange(2, myCanvas.width / 200);
+  var vy = getRandomInRange(3, myCanvas.height / 200);
   var a = 0;
+  var mass = Math.pow(radius, 3);
+  
   return {
     x,
     y,
@@ -82,6 +96,7 @@ var ShapeUnit = function Shape(x, y, radius = 20) {
     vx,
     vy,
     a,
+    mass,
     checkBounce: function () {
       if (this.x < this.radius || this.x + this.radius > myCanvas.width) {
         this.vx = this.x < this.radius ? Math.abs(this.vx) : -Math.abs(this.vx);
@@ -103,6 +118,7 @@ var ShapeUnit = function Shape(x, y, radius = 20) {
 
 function initShapes(number) {
   var shapes = [], randomX, randomY, newShape, posAvailable;
+  
   var radius = 20;
   while (shapes.length < number) {
     [randomX, randomY] = getRandomPosition(radius);
@@ -120,15 +136,78 @@ function initShapes(number) {
 
 function checkOverlap(shape1, shape2) {
   var d_square = Math.pow(shape1.x - shape2.x, 2) + Math.pow(shape1.y - shape2.y, 2);
-  if (d_square < Math.pow(shape1.radius + shape2.radius, 2)) {
-    console.log('collision!');
-    return true;
-  } else {
-    return false;
-  }
+  return d_square < Math.pow(shape1.radius + shape2.radius, 2);
 }
 
 function getRandomPosition(radius) {
   const {width, height} = myCanvas;
-  return [radius + Math.random() * (width - radius), radius + Math.random() * (height - radius)]
+  return [getRandomInRange(radius, width), getRandomInRange(radius, height)]
+}
+
+function getRandomInRange(min, max) {
+  return min + (max - min) * Math.random();
+}
+
+function collide(shape1, shape2) {
+  var dCenter = shape1.radius + shape2.radius;
+  var dx = shape2.x - shape1.x;
+  var dy = shape2.y - shape1.y;
+  var theta = Math.atan2(dy, dx);
+  var sin = Math.sin(theta);
+  var cos = Math.cos(theta);
+  
+  /** translate to new coordinate system with shape1 center as original point and **/
+  shape1.x_ = 0;
+  shape1.y_ = 0;
+  shape2.x_ = dCenter;
+  shape2.y_ = 0;
+  
+  /** rotate shapes to a new axis along their centers;
+   * the velocity variables below are the projections of their original velocities on the rotated axis **/
+  shape1.vx_ = getVx_(shape1);
+  shape1.vy_ = getVy_(shape1);
+  shape2.vx_ = getVx_(shape2);
+  shape2.vy_ = getVy_(shape2);
+  
+  /** exchange velocity along x_ axis */
+  shape1.vx_ = -shape1.vx_;
+  shape2.vx_ = -shape2.vx_;
+  
+  /** avoid shapes from stick together after collision */
+  // shape2.x = shape1.x_ + shape1.radius + shape2.radius;
+  shape1.x = getX(shape1);
+  shape1.y = getY(shape1);
+  shape2.x = getX(shape2);
+  shape2.y = getY(shape2);
+  
+  /** convert velocities along (x_,y_) back to the (x,y) axis */
+  shape1.vx = getVx(shape1);
+  shape1.vy = getVy(shape1);
+  shape2.vx = getVx(shape2);
+  shape2.vy = getVy(shape2);
+  
+  function getX(shape) {
+    return shape.x + (shape.x_ * cos - shape.y_ * sin);
+  }
+  
+  function getY(shape) {
+    return shape.y + (shape.y_ * cos + shape.x_ * sin);
+  }
+  
+  function getVx_(shape) {
+    return shape.vx * cos + shape.vy * sin;
+  }
+  
+  function getVy_(shape) {
+    return shape.vy * cos - shape.vx * sin;
+  }
+  
+  function getVx(shape) {
+    return shape.vx_ * cos + shape.vy_ * sin;
+  }
+  
+  function getVy(shape) {
+    return shape.vy_ * cos + shape.vx_ * sin;
+  }
+  
 }
