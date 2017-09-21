@@ -55,9 +55,9 @@ gulp.task('jshint', function () {
     return gulp.src('src/js/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
-        .pipe(babel({
+        /*.pipe(babel({
             presets: ['es2015']
-        }))
+        }))*/
         .pipe(gulp.dest('src/js'));
 });
 
