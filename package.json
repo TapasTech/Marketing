@@ -35,6 +35,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "lodash": "^4.17.4",
     "precss": "^2.0.0",
     "qiniu-go": "github:tapastech/qiniu-go#671df18d56bcdf1ca7654a4ff0d989ba654ee263",
     "rollup-plugin-babel": "^3.0.2",
