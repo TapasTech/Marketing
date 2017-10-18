@@ -37,12 +37,12 @@ const rollupOptions = {
 
 const DIST = 'dist';
 const isProd = process.env.NODE_ENV === 'production';
-let cssOutputStyle = isProd ? 'compressed' : 'expanded';
+const cssOutputStyle = isProd ? 'compressed' : 'expanded';
 
 gulp.task('clean', () => del(DIST));
 
 gulp.task('scss', () => {
-  let stream = gulp.src('src/scss/index.scss')
+  var stream = gulp.src('src/scss/index.scss')
     .pipe(sourceMaps.init())
     .pipe(sass({outputStyle: cssOutputStyle}))
     .on('error', sass.logError)
@@ -62,9 +62,9 @@ gulp.task('scss', () => {
 });
 
 gulp.task('js', () => {
-  let name = 'app.js';
-  let distPath = DIST + '/assets/';
-  let stream = gulp.src(['src/js/*.js'])
+  var name = 'app.js';
+  var distPath = DIST + '/assets/';
+  var stream = gulp.src(['src/js/*.js'])
     .pipe(sourceMaps.init())
     .pipe(concat(name))
     .pipe(sourceMaps.write())
@@ -83,8 +83,8 @@ gulp.task('js', () => {
 });
 
 gulp.task('pug', () => {
-  let pretty = !isProd;
-  let stream = gulp.src('src/templates/index.pug')
+  var pretty = !isProd;
+  var stream = gulp.src('src/templates/index.pug')
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(pug({pretty}))
     .pipe(rename('index.html'))
