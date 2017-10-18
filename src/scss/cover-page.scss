@@ -1,0 +1,108 @@
+@import 'utils';
+@import 'mixins';
+@import 'variables';
+
+#cover-page {
+  margin-bottom: 120px;
+
+  @media #{$mobile} {
+    margin-top: 48px;
+    .cover-bg {
+      @include bg-img($url: $assets-url + 'bg/bg-cover-mobile.png');
+      $HW_Ratio: 1028/640;
+      width: 100vw;
+      height: 100vw * $HW_Ratio;
+    }
+  }
+
+  @media #{$PC} {
+    .cover-bg {
+      @include bg-img($url: $assets-url + 'bg/bg-home.png');
+      $HW_Ratio: 1612/2880;
+      width: 100vw;
+      height: 100vw * $HW_Ratio;
+    }
+  }
+
+
+  .info-wrapper {
+
+    @include Flex(column, flex-start, flex-start);
+    font-family: DIN-Medium;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+    .date {
+      @include Underline();
+      margin-bottom: 75px;
+      letter-spacing: -2px;
+    }
+    .city {
+      letter-spacing: -1.34px;
+      @include Underline();
+    }
+
+    @media #{$PC} {
+      @include abs-locate-vw(84, 192);
+      font-size: 48px;
+
+    }
+
+    @media #{$mobile} {
+      @include abs-locate-vw(320, 2100);
+      font-size: 6vw;
+      position: absolute;
+      .date {
+        margin-bottom: 25px;
+      }
+    }
+
+
+  }
+
+  .content-wrapper {
+    position: relative;
+
+    .content-bg {
+      position: absolute;
+      top: -7vw;
+      z-index: -1;
+      width: 100vw;
+      @include Flex(row, space-between, center);
+      overflow: hidden;
+      .bg-mountain {
+        @include bg-geom(bg-mountain, 533px, 327px, $size: contain);
+        &:last-of-type {
+          transform: scaleX(-1) translate(-5vw, 6vw);
+        }
+
+      }
+    }
+
+    margin-top: 32px;
+    @include Flex(column, flex-start, center);
+
+    .title-wrapper {
+      @include Flex(column, flex-start, center);
+      margin-bottom: 32px;
+      .module-title {
+        @include module-title(white, 48px);
+      }
+
+    }
+
+    .text-wrapper {
+      font-size: 16px;
+      max-width: 566px;
+      text-align: center;
+      @media #{$mobile} {
+        text-align: start;
+      }
+      padding: 0 18px;
+      .text-detail {
+        color: rgba(255, 255, 255, 0.90);
+        letter-spacing: -0.45px;
+        margin-bottom: 10px;
+      }
+    }
+
+  }
+}

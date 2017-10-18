@@ -1,0 +1,189 @@
+@import 'utils';
+@import 'mixins';
+@import 'variables';
+
+#tickets {
+  position: relative;
+  margin-bottom: 120px;
+  padding-top: 108px;
+  overflow: hidden;
+
+  @media #{$PC} {
+    @include bg-geom(bg-mountain-full, 100%);
+    background-position: 0 0;
+  }
+
+  .tickets-wrapper {
+
+    @media #{$PC} {
+      @include Flex(row, center, center);
+    }
+    @media #{$mobile} {
+      @include Flex(row, center, center);
+      height: 500px;
+    }
+
+    margin: 43px 0 56px 0;
+
+    $numTickets: 2;
+    @for $index from 1 through $numTickets {
+      &.selected-#{$index} {
+        .ticket-unit {
+          @media #{$mobile} {
+            transform: translateX( -$index * 100% + 150%) scale(0.715) rotate(90deg);
+          }
+          transform: translateX((($numTickets + 1)/2 - $index) * 100%);
+          &:not(.selected) {
+            filter: grayscale(70%) brightness(0.5);
+            @media #{$mobile} {
+              transform: translateX( $index * (36%) - 54%) scale(0.64) rotate(90deg);
+            }
+            transform: translate((($numTickets + 1)/2 - $index) * 100%, 20px) scale(0.9);
+          }
+        }
+        & ~ .control-panel {
+          .bar-dots {
+            .dot-unit {
+              @include hollow-diamond();
+              &:nth-of-type(#{$index}) {
+                @include diamond();
+              }
+            }
+          }
+        }
+      }
+      &.selected-1 {
+        & ~ .control-panel {
+          .arrow:last-of-type {
+            opacity: 0.4;
+            &:hover {
+              cursor: default;
+            }
+          }
+        }
+      }
+      &.selected-#{$numTickets} {
+        & ~ .control-panel {
+          .arrow:first-of-type {
+            opacity: 0.4;
+            &:hover {
+              cursor: default;
+            }
+          }
+        }
+      }
+    }
+
+    .ticket-unit {
+      position: relative;
+      transition-duration: 1000ms;
+
+      .image {
+        @include bg-img();
+        background-size: contain;
+        width: 744px;
+        height: 338px;
+      }
+      .text {
+        @include abs-locate-px(432, 225);
+        font-size: 36px;
+        &:before, &:after {
+          @include hollow-diamond();
+        }
+        &:hover {
+          color: $color-cyan;
+          &:before, &:after {
+            @include diamond();
+          }
+        }
+      }
+    }
+  }
+
+  .control-panel {
+    .bar-dots {
+      @include Flex(row, center, flex-start);
+      .dot-unit {
+        $gap: 24px;
+        margin: 0 $gap/2;
+      }
+    }
+
+    .bar-info {
+      @include Flex(row, center, center);
+      margin-top: 20px;
+
+      .info-wrapper {
+        @include Flex(row, center, center);
+        border: 1px solid $border-grey;
+        @media #{$PC} {
+          margin: 0 80px 0 108px;
+          width: 540px;
+          height: 83px;
+        }
+        @media #{$mobile} {
+          margin-left: 20%;
+        }
+
+        .info-text {
+          @media #{$PC} {
+            width: 420px;
+            transform: translate(-96px, 0);
+          }
+          @media #{$mobile} {
+            transform: translate(-46px, 0);
+            margin: 16px;
+          }
+          padding: 4px 0;
+          @include bg-black();
+          font-size: 12px;
+
+          .text {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      .arrow {
+        $arrow-size: 26px;
+        width: $arrow-size;
+        height: $arrow-size * 1.5;
+        @include Flex(row, center, center);
+
+        @media #{$mobile} {
+          position: absolute;
+          top: 50%;
+          &:first-of-type {
+            left: 3%;
+          }
+          &:last-of-type {
+            right: 3%;
+          }
+        }
+
+        .arrow-unit {
+          &:after {
+            transition-duration: 0.2s;
+          }
+        }
+
+        .left {
+          @include hollow-triangle();
+        }
+        .right {
+          @include hollow-triangle($direction: right);
+        }
+
+        &:hover {
+          cursor: pointer;
+          .arrow-unit {
+            &:after {
+              opacity: 0;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@import 'utils';
+@import 'mixins';
+@import 'variables';
+
+#contact {
+  @include Flex(column, flex-start, center);
+
+  @include bg-geom(bg-bottom, 100%);
+  background-position: bottom;
+
+  .slashes-wrapper {
+    margin-bottom: 50px;
+    @include slash-bar();
+  }
+
+  .module-title {
+    margin-bottom: 68px;
+    @include module-title($color-cyan);
+  }
+
+  .detail-wrapper {
+
+    .contact-unit {
+      @include Flex(column, flex-start, center);
+      margin-bottom: 40px;
+
+      &:last-of-type {
+        margin-bottom: 128px;
+      }
+
+      .contact-title {
+        @include fz-pc-mob(24px, 20px);
+        margin-bottom: 2px;
+      }
+
+      .contact-detail {
+        text-align: center;
+        &:before, &:after {
+          margin: 0 14px;
+          @include slash($transform: skew(-60deg));
+        }
+      }
+
+      .contact-detail, .contact-phone {
+        @include fz-pc-mob();
+      }
+
+    }
+
+  }
+
+}

@@ -1,13 +1,9 @@
 
-// device geometry related
-$mobile: "(max-width: 720px)";
-$iphone5: "(max-width: 320px)";
-$iphone6: "(max-width: 375px)";
-$iphone6p: "(max-width: 414px)";
-$PC: "(min-width: 720px)";
-$PC-small: "(max-width: 1000px)";
-$tablet: "(max-width: 880px)";
+$color-cyan: #41F0E1;
+$slash-blue: #003CB4;
+$border-grey: rgba(255, 255, 255, 0.40);
+$bg-black: #000000;
 
-// theme-related
-$bg-color: #031024;
-$theme-color: #52CBFF;
+$assets-url: 'http://z.dtcj.com/cbndata/';
+$font-url: $assets-url + 'fonts/';
+$image-url: $assets-url + 'images/';

@@ -1,6 +1,10 @@
 node_modules
-dist
 *.log
-.DS_Store
-.idea
-src/test/**
+*.lock
+/.idea
+/dist
+src/**/*.html
+src/assets/images
+src/assets/fonts
+package-lock.json
+

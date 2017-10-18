@@ -1,0 +1,189 @@
+@import 'utils';
+@import 'mixins';
+@import 'variables';
+
+$section-width: 266px;
+
+#highlights {
+
+  @media #{$PC} {
+    @include bg-geom(bg-mountain-full, 100%);
+    background-position: 0 95%;
+  }
+
+
+  .content-wrapper {
+    margin: 46px auto;
+
+    @media #{$PC} {
+      @include bg-geom(bg-highlights, 100%);
+      background-size: 27%;
+      background-position: top;
+      @include Flex(column wrap, flext-start, space-between);
+      align-content: space-between;
+      flex: 0;
+      height: 1000px;
+      max-width: 1048px;
+    }
+
+    @media #{$mobile} {
+      @include Flex(column nowrap, flex-start, center);
+    }
+
+    .unit-wrapper {
+      position: relative;
+      @include Flex(column, flex-start, flex-start);
+      overflow: visible;
+      width: $section-width;
+      height: 259px;
+      margin-bottom: 42px;
+      border: 1px solid $border-grey;
+
+      @media #{$mobile} {
+        left: -8px;
+      }
+
+      &:first-of-type {
+        .section-title {
+          margin-left: -8px;
+        }
+        .slashes-wrapper {
+          left: 254px;
+          top: 30px;
+        }
+      }
+
+      &:nth-of-type(2) {
+        &:before {
+          content: '';
+          display: inline-block;
+          @include abs-locate-px(-100, 60);
+          @include bg-geom(diamond, 50%);
+        }
+      }
+
+      &:nth-of-type(3) {
+        height: 409px;
+        .title {
+          margin-left: 8px;
+        }
+        &:after {
+          @media #{$PC} {
+            content: '';
+            display: inline-block;
+            @include abs-locate-px(270, 290);
+            @include bg-geom(circle-magenta, 50%);
+          }
+
+        }
+      }
+      &:nth-of-type(n+2) {
+        .section-content {
+          width: 348px;
+        }
+      }
+      &:nth-of-type(n+3) {
+        .section-content {
+          width: 308px;
+        }
+      }
+
+      &:last-of-type {
+        height: 400px;
+        border-bottom: none;
+        @media #{$mobile} {
+          margin-bottom: 200px;
+        }
+        .inner-wrapper {
+          .section-content {
+            margin-top: 0;
+          }
+          .section-title {
+            width: 80%;
+            white-space: normal;
+          }
+        }
+
+        &:after {
+          @include chevron($section-width/2, 45deg, left, $color: $border-grey);
+        }
+        &:before {
+          @include chevron($section-width/2, -45deg, right, $color: $border-grey);
+        }
+      }
+
+      .inner-wrapper {
+        margin-left: 24px;
+        .section-title {
+          margin-top: -63px;
+          white-space: nowrap;
+          letter-spacing: -0.67px;
+          .number {
+            font-size: 144px;
+            font-family: DIN-Black;
+            letter-spacing: -4.03px;
+            display: inline-block;
+            @include text-fill-linear(#E832B4, white);
+            &:nth-of-type(n-2) {
+              margin-right: -4px;
+            }
+          }
+          .title {
+            padding: 12px 6px 0 0;
+            background: $bg-black;
+            font-size: 24px;
+            display: inline-block;
+          }
+        }
+
+        .section-content {
+          @media #{$PC} {
+            width: 324px;
+          }
+          @media #{$mobile} {
+            width: 110%;
+          }
+          margin: -26px 0 0 0;
+          padding: 16px 0 4px 0;
+          background: $bg-black;
+          letter-spacing: -0.45px;
+          .sub-wrapper {
+            .section-text {
+              margin: 2px 0 14px 0;
+            }
+          }
+          .subtitle {
+            font-size: 18px;
+          }
+          .section-text {
+            opacity: 0.9;
+            @media #{$mobile} {
+              max-width: 266px;
+            }
+          }
+        }
+      }
+
+    }
+
+    .chevron {
+      @include bg-geom(chevron, 171px, 187px);
+      align-self: center;
+      transform: translateY(64px);
+    }
+
+    .slashes-wrapper {
+      @media #{$mobile} {
+        display: none;
+      }
+      position: absolute;
+      @include slash-bar();
+      @include abs-locate-px(-54, 480);
+      &:last-of-type {
+        @include abs-locate-px(232, 130);
+      }
+    }
+
+  }
+
+}

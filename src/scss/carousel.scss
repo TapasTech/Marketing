@@ -1,0 +1,171 @@
+@import 'utils';
+@import 'mixins';
+@import 'variables';
+
+#carousel {
+
+  position: relative;
+  z-index: 1;
+
+  .detail-popup {
+    @include abs-locate(50%, 50%);
+    transform: translate(-50%, -50%);
+
+    z-index: 20;
+    @media #{$mobile} {
+      @include Flex(column, flex-start, stretch);
+    }
+    .detail-wrapper {
+      @include bg-black();
+      max-width: 240px;
+      border: 2px solid $color-cyan;
+      .text-wrapper {
+        padding: 14px;
+        color: #000;
+        background: #fff;
+        .type {
+          margin: 20px 0 12px 0;
+        }
+      }
+      .avatar {
+        width: 180px;
+        height: 180px;
+        margin: auto;
+        @include bg-img();
+      }
+    }
+
+  }
+
+  .rows-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    @media #{$PC} {
+      padding-bottom: 184px;
+      height: 580px;
+    }
+
+    @media #{$mobile} {
+      padding-bottom: 100px;
+      margin-bottom: 0px;
+    }
+
+    .row-unit {
+      position: relative;
+      overflow: visible;
+      white-space: nowrap;
+      @media #{$PC} {
+        width: 5000px;
+      }
+      @media #{$mobile} {
+        width: 3400px;
+      }
+
+      @mixin carousel-group($num, $names, $posStart, $posEnd, $period, $delays) {
+        @for $i from 1 through $num {
+          &:nth-of-type(#{$i}) {
+            @include carousel(nth($names, $i), nth($posStart, $i), nth($posEnd, $i), $duration: $period, $delay: $period * nth($delays, $i));
+            z-index: 10 - $i;
+          }
+        }
+      }
+
+      // animation effects
+      $names: (right, left, right, left);
+      $delays: (0, 0.3, 0.2, 0.1);
+      $period: 36s;
+      $screenSize: 100vw;
+      $posStart: (-100%, $screenSize, -100%, $screenSize);
+      $posEnd: ($screenSize, -100%, $screenSize, -100%);
+      @include carousel-group(4, $names, $posStart, $posEnd, $period, $delays);
+
+      &:hover, &.paused {
+        animation-play-state: paused;
+      }
+      .person-unit {
+        position: relative;
+        display: inline-block;
+        overflow: visible;
+        margin-right: 24px;
+        .brief-wrapper {
+          @include Flex(row, center, flex-start);
+          .type {
+            width: 32px;
+            white-space: normal;
+            font-size: 16px;
+            @media #{$mobile} {
+              font-size: 14px;
+            }
+          }
+          .name {
+            font-size: 72px;
+            @media #{$mobile} {
+              font-size: 52px;
+            }
+          }
+        }
+        .detail-wrapper {
+          display: none;
+          z-index: 10;
+
+          @include abs-locate(80%, 70%);
+          &.move-left {
+            @include abs-locate(-280px, 70%);
+            @media #{$mobile} {
+              @include abs-locate(-180px, 75%);
+            }
+          }
+
+          border: 2px solid $color-cyan;
+          @include bg-black();
+          .text-wrapper {
+            @include Flex(column, space-between, flex-start);
+            width: 220px;
+            padding: 16px 16px 24px 16px;
+            background: white;
+            color: #000;
+            div {
+              width: 100%;
+              white-space: normal;
+            }
+            .job {
+              font-size: 18px;
+              flex-grow: 3;
+            }
+            .type {
+              font-size: 20px;
+            }
+            .time {
+              font-family: DIN-Regular;
+            }
+          }
+          .avatar {
+            margin: auto;
+            width: 168px;
+            height: 168px;
+            @include bg-img();
+            background-color: $bg-black;
+          }
+        }
+
+        &.active {
+          color: $color-cyan;
+        }
+
+        &:hover {
+          cursor: default;
+          .brief-wrapper {
+            color: $color-cyan;
+          }
+          .detail-wrapper {
+            @media #{$PC} {
+              @include Flex(row, space-between, stretch);
+            }
+          }
+        }
+      }
+    }
+  }
+}

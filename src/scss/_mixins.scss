@@ -1,68 +1,64 @@
-@import "variables";
+@import '_variables';
+@import '_utils';
 
-@mixin div-with-bgImage($url) {
-  background-image: url($url);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
+@mixin Underline($color: white, $width: 1px) {
+  display: inline-block;
+  border-bottom: $width solid $color;
 }
 
-@mixin vendor-prefix($name, $value) {
-  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
-    #{$vendor}#{$name}: #{$value};
-  }
-}
-
-@mixin my-flex($direction:row, $wrap:nowrap, $justify:center, $align:center ) {
-  display: flex;
-  flex-direction: $direction;
-  flex-wrap: $wrap;
-  justify-content: $justify;
-  align-items: $align;
-}
-
-@mixin img-responsive($width, $height) {
+@mixin slash($width: 2px, $height: 10px, $color: $slash-blue, $transform: none) {
+  content: '';
+  display: inline-block;
   width: $width;
   height: $height;
-  max-width: 100vw;
-  max-height: 100vw * $height/$width;
+  background-color: $color;
+  transform: $transform;
 }
 
-@mixin div-img-responsive($width, $height, $url) {
-  @include img-responsive($width, $height);
-  @include div-with-bgImage($url);
+@mixin chevron($length, $skew, $direction,$width: 1.5px, $color: $slash-blue) {
+  position: absolute;
+  @if $direction == left {
+    left: $length/2 - 1.4px;
+  } @else if $direction == right {
+    right: $length/2 - 1.4px;
+  }
+  bottom: -$length;
+  @include slash($width: $width, $height: $length, $color: $color, $transform: skew($skew));
 }
 
-@mixin div-title-img($url, $width:280px, $height:127px) {
+@mixin module-title($color: $color-cyan, $size: 51px, $size-mobile: 28px) {
+  @extend .pf-Medium;
+  font-size: $size;
+  letter-spacing: -1.43px;
+  @include Underline($color);
+  @media #{$mobile} {
+    font-size: $size-mobile;
+  }
+}
+
+@mixin slash-bar($margin: 8px, $color: $slash-blue) {
+  @include Flex(row, center, flex-start);
+  .slash-unit {
+    @include slash($transform: skew(-60deg), $color: $color);
+    margin: 0 $margin;
+  }
+}
+
+@mixin bg-black() {
+  background: $bg-black;
+}
+
+@mixin bg-geom($name, $width, $height: $width, $format: '.png', $size: contain) {
+  width: $width;
+  height: $height;
+  @include bg-img($url: #{$assets-url}bg/#{$name}#{$format}, $size: $size);
+}
+
+@mixin fz-pc-mob($pc: 16px, $mob: 12px) {
   @media #{$PC} {
-    $width:280px;
-    $height:127px;
+    font-size: $pc;
   }
   @media #{$mobile} {
-    width: 37vw;
-    height: 10vh;
-  }
-  @include div-with-bgImage($url);
-}
-
-@mixin line-under-title() {
-  &:after{
-    position: absolute;
-    display: inline-block;
-    content: '';
-    @media #{$PC} {
-      bottom: 0;
-      left: 100px;
-      width: 186px;
-      height: 52px;
-      @include div-img-responsive($width: 186px, $height:52px, $url:'../images/line-under-title.png');
-    }
-    @media #{$mobile} {
-      bottom: 0;
-      left: 50px;
-      width: 93px;
-      height: 26px;
-      @include div-img-responsive($width: 93px, $height:26px, $url:'../images/line-under-title.png');
-    }
+    font-size: $mob;
   }
 }

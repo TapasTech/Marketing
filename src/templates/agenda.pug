@@ -1,0 +1,56 @@
+include _common
+
+mixin person-unit(name, job, starter)
+  .person-unit
+    .avatar-wrapper
+      .avatar(style=`background-image: url(${imagePath}avatars/${name}.png)`)
+    .info-wrapper
+      if (starter)
+        .prefix=starter
+        .name=`${name}`
+      else
+        .name=`/${name}`
+      .job=job
+
+mixin tag(tagName)
+  .tag-wrapper
+    .tag=tagName
+    //.separator
+
+mixin agenda-unit(item)
+  -
+    var {time, type, people, title} = item;
+  .agenda-unit
+    .time=time
+    .program
+      .content
+        .type.pf-Medium=type
+        if(title)
+          .title.pf-Medium=title
+        if(people)
+          .people-wrapper
+            each person in people
+              +person-unit(person.name, person.job, person.starter)
+  .separator
+
+#agenda
+  +title-bar('活动流程')
+  .content-wrapper
+    .control-bar
+      .control-unit(data-detail).active 详尽版
+      .control-unit 精简版
+    .list-wrapper
+      .prelude
+        each item in prelude
+          +agenda-unit(item)
+      +slash-bar(23, true)
+      .rhapsodies
+        each list in rhapsodies
+          .rhapsody-unit-wrapper
+            .rhapsody-unit
+              +tag(list.tag)
+              .separator
+              each item in list.items
+                +agenda-unit(item)
+              if (!list.last)
+                +slash-bar(16)
