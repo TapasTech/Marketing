@@ -63,6 +63,11 @@
         display: inline-block;
       }
 
+      @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}) {
+          z-index: 10 - $i;
+        }
+      }
 
       @mixin carousel-group($num, $names, $posStart, $posEnd, $period, $delays, $numNames) {
         @for $i from 1 through $num {
