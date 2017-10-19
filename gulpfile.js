@@ -5,6 +5,7 @@ const esLint = require('gulp-eslint');
 const concat = require('gulp-concat');
 const sourceMaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
+const removeLog = require('gulp-remove-logging');
 const rollup = require('gulp-rollup');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
@@ -79,6 +80,7 @@ gulp.task('js', () => {
       .pipe(rollup(Object.assign({
         input: distPath + name,
       }, rollupOptions)))
+      .pipe(removeLog())
       .pipe(uglify())
       .pipe(gulp.dest(distPath));
   }

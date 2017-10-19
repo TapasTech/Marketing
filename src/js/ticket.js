@@ -22,6 +22,7 @@ $(function () {
   });
   
   $ticketUnits.on(CLICK, function(e) {
+    return; // 3rd-party platform currently unavailable
     const url = $(this).find('a').attr('href');
     window.open(url);
   });

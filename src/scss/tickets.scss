@@ -85,9 +85,11 @@
         height: 338px;
       }
       .text {
-        @include abs-locate-px(432, 225);
+        @include abs-locate-px(422, 225);
+        @include Flex(row, center, center);
         font-size: 36px;
         &:before, &:after {
+          margin: 0 11px;
           @include hollow-diamond();
         }
         &:hover {
