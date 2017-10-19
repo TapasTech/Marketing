@@ -84,9 +84,11 @@ gulp.task('js', () => {
 
 gulp.task('pug', () => {
   var pretty = !isProd;
-  var stream = gulp.src('src/templates/index.pug')
-    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-    .pipe(pug({pretty}))
+  var stream = gulp.src('src/templates/index.pug');
+  if (!isProd) {
+    stream = stream.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}));
+  }
+  stream = stream.pipe(pug({pretty}))
     .pipe(rename('index.html'))
     .pipe(gulp.dest('src/'));
   if (isProd) {
@@ -107,7 +109,7 @@ gulp.task('pug', () => {
 
 gulp.task('copy', () => {
   return gulp.src([
-    'src/assets/**',
+    'src/assets/**', 'src/index.html'
   ], {base: 'src'})
     .pipe(gulp.dest(DIST));
 });
