@@ -1,5 +1,5 @@
 
-const WIDTH = window.innerWidth;
+const WIDTH = window.innerWidth || document.documentElement.clientWidth;
 // iPad屏幕宽度(含)以内的，算作移动设备
 const IS_MOBILE = WIDTH <= 768;
 
@@ -8,6 +8,4 @@ var CLICK = 'click';
 if ('ontouchstart' in window && IS_MOBILE) {
   CLICK = 'touchstart';
 }
-
-
 
