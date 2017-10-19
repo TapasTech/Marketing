@@ -64,8 +64,13 @@ gulp.task('scss', () => {
 gulp.task('js', () => {
   var name = 'app.js';
   var distPath = DIST + '/assets/';
-  var stream = gulp.src(['src/js/*.js'])
-    .pipe(sourceMaps.init())
+  var stream = gulp.src([
+    'src/js/global.js',
+    'src/js/agenda.js',
+    'src/js/carousel.js',
+    'src/js/navbar.js',
+    'src/js/ticket.js'
+  ]).pipe(sourceMaps.init())
     .pipe(concat(name))
     .pipe(sourceMaps.write())
     .pipe(gulp.dest(distPath));

@@ -40,6 +40,7 @@
     @media #{$PC} {
       width: 45%;
       min-width: 480px;
+      max-width: 640px;
       .items-wrapper {
         @include Flex(row, space-between, center);
       }

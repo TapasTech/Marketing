@@ -56,16 +56,18 @@
       position: relative;
       overflow: visible;
       white-space: nowrap;
-      @media #{$PC} {
-        width: 5000px;
-      }
-      @media #{$mobile} {
-        width: 3400px;
-      }
 
-      @mixin carousel-group($num, $names, $posStart, $posEnd, $period, $delays) {
+      @mixin carousel-group($num, $names, $posStart, $posEnd, $period, $delays, $numNames) {
         @for $i from 1 through $num {
           &:nth-of-type(#{$i}) {
+            @media #{$PC} {
+              $unit-ave-width: 272px;
+              width: $unit-ave-width * nth($numNames, $i) * 10;
+            }
+            @media #{$mobile} {
+              $unit-ave-width: 212px;
+              width: $unit-ave-width * nth($numNames, $i) * 10;
+            }
             @include carousel(nth($names, $i), nth($posStart, $i), nth($posEnd, $i), $duration: $period, $delay: $period * nth($delays, $i));
             z-index: 10 - $i;
           }
@@ -74,12 +76,13 @@
 
       // animation effects
       $names: (right, left, right, left);
-      $delays: (0, 0.3, 0.2, 0.1);
-      $period: 36s;
+      $delays: (0, 0, 0, 0);
+      $numNames: (6, 7, 6, 7);
+      $period: 200s;
       $screenSize: 100vw;
-      $posStart: (-100%, $screenSize, -100%, $screenSize);
-      $posEnd: ($screenSize, -100%, $screenSize, -100%);
-      @include carousel-group(4, $names, $posStart, $posEnd, $period, $delays);
+      $posStart: (-50%, 0, -50%, 0);
+      $posEnd: (0, -50%, 0, -50%);
+      @include carousel-group(4, $names, $posStart, $posEnd, $period, $delays, $numNames);
 
       &:hover, &.paused {
         animation-play-state: paused;
