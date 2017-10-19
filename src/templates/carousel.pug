@@ -43,9 +43,10 @@ mixin personUnit(person)
         .avatar(style=`background-image: url(${imagePath}avatars/${name}.png)`)
 mixin personRow(start, end)
   .row-unit
-    - for(var j = 0; j < 10; j++)
-      - for (var i = start; i < end; i++)
-          +personUnit(peopleList[i])
+    - for(var j = 0; j < 2; j++)
+      .repeat-unit
+        - for (var i = start; i < end; i++)
+            +personUnit(peopleList[i])
 
 #carousel
   .rows-wrapper

@@ -3,9 +3,9 @@ $(() => {
   console.log('carousel');
   
   const mouseEnter = 'mouseenter';
-  const personUnit = $('#carousel .person-unit');
+  const $personUnit = $('#carousel .person-unit');
   
-  personUnit.on(mouseEnter, function(e) {
+  $personUnit.on(mouseEnter, function(e) {
     const $this = $(this);
     if (IS_MOBILE) {
       e.stopPropagation();
@@ -38,6 +38,20 @@ $(() => {
   
   $('body').on(CLICK, function(e) {
     $('.detail-popup').addClass('hidden');
-  })
+  });
+  
+  let transX = 0;
+  let timeSteps = 100;
+  const $rowUnit = $('.repeat-unit');
+  
+  function step() {
+    transX -= Math.floor(100/timeSteps) / 10;
+    if (transX <= -100 ) {
+      transX = 0;
+    }
+    $rowUnit.css('transform', `translateX(${transX}%)`);
+    window.requestAnimationFrame(step);
+  }
+  window.requestAnimationFrame(step);
   
 });

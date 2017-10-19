@@ -56,6 +56,13 @@
       position: relative;
       overflow: visible;
       white-space: nowrap;
+      transform: translateX(0);
+
+      display: inline-block;
+      .repeat-unit {
+        display: inline-block;
+      }
+
 
       @mixin carousel-group($num, $names, $posStart, $posEnd, $period, $delays, $numNames) {
         @for $i from 1 through $num {
@@ -82,7 +89,7 @@
       $screenSize: 100vw;
       $posStart: (-50%, 0, -50%, 0);
       $posEnd: (0, -50%, 0, -50%);
-      @include carousel-group(4, $names, $posStart, $posEnd, $period, $delays, $numNames);
+      //@include carousel-group(4, $names, $posStart, $posEnd, $period, $delays, $numNames);
 
       &:hover, &.paused {
         animation-play-state: paused;
