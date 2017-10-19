@@ -136,6 +136,4 @@ gulp.task('browser-sync', ['default'], () => {
   });
 });
 
-gulp.task('build', ['pug', 'scss', 'js'], () => {
-  gulp.run('copy');
-});
+gulp.task('build', ['pug', 'scss', 'js', 'copy']);
