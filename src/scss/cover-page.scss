@@ -17,7 +17,7 @@
 
   @media #{$PC} {
     .cover-bg {
-      @include bg-img($url: $assets-url + 'bg/bg-home.png');
+      @include bg-img($url: $assets-url + 'bg/bg-home.png', $size: 90%);
       $HW_Ratio: 1612/2880;
       width: 100vw;
       height: 100vw * $HW_Ratio;

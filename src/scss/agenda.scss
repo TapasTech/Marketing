@@ -76,6 +76,9 @@
               @media #{$mobile} {
                 max-width: 100%;
               }
+              @media #{$PC} {
+                padding-bottom: 20px;
+              }
               .person-unit {
                 background: $bg-black;
                 .info-wrapper {
@@ -194,6 +197,9 @@
             display: inline-block;
             .type {
               color: $color-cyan;
+            }
+            .title {
+              margin-bottom: 6px;
             }
             .people-wrapper {
               @media #{$iphone5} {
