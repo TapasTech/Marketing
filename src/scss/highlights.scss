@@ -13,6 +13,7 @@ $section-width: 266px;
 
 
   .content-wrapper {
+    position: relative;
     margin: 46px auto;
 
     @media #{$PC} {
@@ -28,6 +29,22 @@ $section-width: 266px;
 
     @media #{$mobile} {
       @include Flex(column nowrap, flex-start, center);
+    }
+
+    &:after {
+      content: '以下嘉宾为拟邀名单';
+      position: absolute;
+      color: $color-cyan;
+
+      @media #{$PC} {
+        bottom: -24px;
+        right: 56px;
+      }
+      @media #{$mobile} {
+        bottom: -5px;
+        display: inline-block;
+        text-align: center;
+      }
     }
 
     .unit-wrapper {
