@@ -4,8 +4,12 @@ const WIDTH = window.innerWidth || document.documentElement.clientWidth;
 const IS_MOBILE = WIDTH <= 768;
 
 // 如果存在ontouchstart事件，并且是移动设备，则用ontouchstart替换点击事件，以加快事件响应速度。
-var CLICK = 'click';
+let CLICK = 'click';
+let MOUSEENTER = 'mouseenter';
+let MOUSEOUT = 'mouseout';
 if ('ontouchstart' in window && IS_MOBILE) {
   CLICK = 'touchstart';
+  MOUSEENTER = 'touchstart';
+  MOUSEOUT = 'touchend';
 }
 

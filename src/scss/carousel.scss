@@ -61,6 +61,13 @@
       display: inline-block;
       .repeat-unit {
         display: inline-block;
+        position: relative;
+        &:first-of-type {
+          z-index: 2;
+        }
+        &:last-of-type {
+          z-index: 1;
+        }
       }
 
       @for $i from 1 through 4 {
@@ -94,11 +101,7 @@
       $screenSize: 100vw;
       $posStart: (-50%, 0, -50%, 0);
       $posEnd: (0, -50%, 0, -50%);
-      //@include carousel-group(4, $names, $posStart, $posEnd, $period, $delays, $numNames);
 
-      &:hover, &.paused {
-        animation-play-state: paused;
-      }
       .person-unit {
         position: relative;
         display: inline-block;
