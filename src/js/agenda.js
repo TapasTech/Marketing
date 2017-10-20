@@ -1,6 +1,6 @@
 $(() => {
   
-  console.log('into agenda');
+  console.log('agenda');
   const $avatar = $('#agenda .avatar-wrapper');
   const $controlUnit = $('.control-unit');
   const $info = $('#agenda .info-wrapper');

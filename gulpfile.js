@@ -70,7 +70,8 @@ gulp.task('js', () => {
     'src/js/navbar.js',
     'src/js/carousel.js',
     'src/js/agenda.js',
-    'src/js/ticket.js'
+    'src/js/ticket.js',
+    'src/js/statistics.js'
   ]).pipe(sourceMaps.init())
     .pipe(concat(name))
     .pipe(sourceMaps.write())
