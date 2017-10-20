@@ -8,6 +8,8 @@
   @media #{$mobile} {
     margin-top: 48px;
     .cover-bg {
+      position: relative;
+      top: -48px;
       @include bg-img($url: $assets-url + 'bg/bg-cover-mobile.png');
       $HW_Ratio: 1028/640;
       width: 100vw;
@@ -18,6 +20,7 @@
   @media #{$PC} {
     .cover-bg {
       @include bg-img($url: $assets-url + 'bg/bg-home.png', $size: 90%);
+      background-position: center 0;
       $HW_Ratio: 1612/2880;
       width: 100vw;
       height: 100vw * $HW_Ratio;
@@ -26,8 +29,6 @@
 
 
   .info-wrapper {
-
-    @include Flex(column, flex-start, flex-start);
     font-family: DIN-Medium;
     text-shadow: 0 2px 4px rgba(0,0,0,0.50);
     .date {
@@ -42,14 +43,16 @@
 
     @media #{$PC} {
       @include abs-locate-vw(84, 192);
+      @include Flex(column, flex-start, flex-start);
       font-size: 48px;
 
     }
 
     @media #{$mobile} {
-      @include abs-locate-vw(320, 2100);
+      @include abs-locate-vw(0, 1960);
+      @include Flex(column, flex-start, center);
+      width: 100%;
       font-size: 6vw;
-      position: absolute;
       .date {
         margin-bottom: 25px;
       }
