@@ -10,6 +10,7 @@
   }
   .content-wrapper {
     @include Flex(column, flex-start, center);
+
     .control-bar {
       @include Flex(row, center, flex-start);
       .control-unit {
@@ -92,7 +93,7 @@
         .agenda-unit:nth-child(3) {
           .program {
             .content {
-              padding-bottom: 50px;
+              //padding-bottom: 50px;
               .people-wrapper {
                 background: $bg-black;
                 white-space: nowrap;
@@ -187,6 +188,7 @@
         }
         .program {
           display: inline-block;
+          width: 70%;
           @media #{$PC} {
             width: 70%;
           }
@@ -374,6 +376,9 @@
             }
 
             .separator {
+              @media #{$PC} {
+                height: 80px;
+              }
               margin: 0 70% 0 30%;
             }
 
