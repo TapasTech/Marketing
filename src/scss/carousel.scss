@@ -127,6 +127,7 @@
         .detail-wrapper {
           display: none;
           z-index: 10;
+          background-color: #fff;
 
           @include abs-locate(80%, 70%);
           &.move-left {
@@ -137,7 +138,7 @@
           }
 
           border: 2px solid $color-cyan;
-          @include bg-black();
+          //@include bg-black();
           .text-wrapper {
             @include Flex(column, space-between, flex-start);
             width: 220px;
@@ -165,7 +166,7 @@
             width: 168px;
             height: 168px;
             @include bg-img();
-            background-color: $bg-black;
+            background-color: #fff;
           }
         }
 

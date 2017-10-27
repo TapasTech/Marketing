@@ -2,8 +2,8 @@ include _common
 
 mixin person-unit(name, job, starter)
   .person-unit
-    .avatar-wrapper
-      .avatar(style=`background-image: url(${imagePath}avatars/${name}.png)`)
+    //.avatar-wrapper
+    //  .avatar(style=`background-image: url(${imagePath}avatars/${name}.png)`)
     .info-wrapper
       if (starter)
         .prefix=starter
@@ -15,7 +15,6 @@ mixin person-unit(name, job, starter)
 mixin tag(tagName)
   .tag-wrapper
     .tag=tagName
-    //.separator
 
 mixin agenda-unit(item)
   -
