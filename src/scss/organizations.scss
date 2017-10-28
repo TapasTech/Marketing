@@ -55,6 +55,18 @@ $wrapper-width: 1086px;
 
     }
 
+    &:nth-of-type(2) {
+      .logo {
+        transform: scale(0.6);
+      }
+    }
+
+    &:nth-of-type(3) {
+      .logo {
+        transform: scale(1.4);
+      }
+    }
+
   }
 
 }
