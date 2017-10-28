@@ -1,0 +1,49 @@
+@import 'utils';
+@import 'mixins';
+@import 'variables';
+
+#about {
+  margin: 0 0 94px 0;
+  .slashes-wrapper {
+    margin-bottom: 90px;
+    @include slash-bar();
+  }
+  .content {
+    position: relative;
+    max-width: 1052px;
+    min-width: 960px;
+    margin: auto;
+    padding: 60px 24px;
+
+    @media #{$PC} {
+      padding: 36px 180px;
+      border: 1px solid $border-grey;
+      width: 75%;
+      .text {
+        position: relative;
+        left: -50px;
+      }
+
+      .qr {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(-50%, 30%);
+      }
+
+    }
+
+
+    .qr {
+      width: 123px;
+      height: 123px;
+      margin: auto;
+      @include bg-img($url: $assets-url + 'logos/qr-cbndata.png');
+      @media #{$mobile} {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+

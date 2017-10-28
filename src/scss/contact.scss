@@ -8,11 +8,6 @@
   @include bg-geom(bg-bottom, 100%);
   background-position: bottom;
 
-  .slashes-wrapper {
-    margin-bottom: 50px;
-    @include slash-bar();
-  }
-
   .module-title {
     margin-bottom: 68px;
     @include module-title($color-cyan);
