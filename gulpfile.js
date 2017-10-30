@@ -17,7 +17,8 @@ const autoPrefix = require('autoprefixer')();
 const cssNano = require('cssnano')();
 const browserSync = require('browser-sync').create();
 // const gutil = require('gulp-util');
-// const rev = require('gulp-rev');
+const rev = require('gulp-rev');
+const revReplace = require('gulp-rev-replace');
 // const through = require('through2');
 // const assetsInjector = require('gulp-assets-injector')();
 
@@ -37,6 +38,8 @@ const rollupOptions = {
 };
 
 const DIST = 'dist';
+const distAssets = DIST + '/assets/';
+
 const isProd = process.env.NODE_ENV === 'production';
 const cssOutputStyle = isProd ? 'compressed' : 'expanded';
 
@@ -50,21 +53,20 @@ gulp.task('scss', () => {
     .pipe(sourceMaps.write());
   if (isProd) {
     stream = stream
-    .pipe(postCss([autoPrefix, cssNano]));
-  }
-  stream = stream
-    .pipe(rename('styles.css'))
-    .pipe(gulp.dest(DIST + '/assets'));
-  if (!isProd) {
+      .pipe(postCss([autoPrefix, cssNano]))
+      .pipe(rename('styles.css'))
+      .pipe(gulp.dest(distAssets));
+  } else {
     stream = stream
-      .pipe(browserSync.stream());
+      .pipe((rename('styles.css')))
+      .pipe(gulp.dest(distAssets))
+      .pipe(browserSync.stream())
   }
   return stream;
 });
 
 gulp.task('js', () => {
   var name = 'app.js';
-  var distPath = DIST + '/assets/';
   var stream = gulp.src([
     'src/js/global.js',
     'src/js/navbar.js',
@@ -75,18 +77,19 @@ gulp.task('js', () => {
   ]).pipe(sourceMaps.init())
     .pipe(concat(name))
     .pipe(sourceMaps.write())
-    .pipe(gulp.dest(distPath));
+    .pipe(gulp.dest(distAssets));
   if (isProd) {
     stream = stream
       .pipe(rollup(Object.assign({
-        input: distPath + name,
+        input: distAssets + name,
       }, rollupOptions)))
       .pipe(removeLog())
       .pipe(uglify())
-      .pipe(gulp.dest(distPath));
+      .pipe(gulp.dest(distAssets))
+  } else {
+    stream = stream
+      .pipe(browserSync.stream());
   }
-  if (!isProd) stream = stream
-    .pipe(browserSync.stream());
   return stream;
 });
 
@@ -142,6 +145,27 @@ gulp.task('browser-sync', ['default'], () => {
       baseDir: DIST,
     },
   });
+});
+
+gulp.task('revManifest', ()=>{
+  return gulp.src([`${distAssets}/*.js`, `${distAssets}/*.css`])
+    .pipe(rev())
+    .pipe(gulp.dest(distAssets))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(distAssets))
+});
+
+gulp.task("revReplace", ['revManifest'], ()=>{
+  var manifest = gulp.src(distAssets + "/rev-manifest.json");
+  return gulp.src(DIST + "/index.html")
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest(DIST));
+});
+
+gulp.task("rev", ['revReplace'], ()=>{
+  del(`${distAssets}app.js`);
+  del(`${distAssets}styles.css`);
+  del(`${distAssets}*.json`);
 });
 
 gulp.task('build', ['pug', 'scss', 'js', 'copy']);
