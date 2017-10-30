@@ -12,12 +12,13 @@
     transform: translate(-50%, -50%);
 
     z-index: 20;
-    @media #{$mobile} {
-      @include Flex(column, flex-start, stretch);
-    }
     .detail-wrapper {
+      @media #{$mobile} {
+        @include Flex(column, flex-start, stretch);
+      }
       @include bg-black();
       max-width: 240px;
+      width: 184px;
       border: 2px solid $color-cyan;
       .text-wrapper {
         padding: 14px;
@@ -28,10 +29,11 @@
         }
       }
       .avatar {
-        width: 180px;
         height: 180px;
-        margin: auto;
-        @include bg-img();
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
       }
     }
 
