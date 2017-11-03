@@ -23,7 +23,9 @@ $(function () {
   
   $ticketUnits.on(CLICK, function(e) {
     const url = $(this).find('a').attr('href');
-    window.open(url);
+    if (url) {
+      location.href = url;
+    }
   });
   
   $ticketUnits.find('a').on(CLICK, function(e) {
