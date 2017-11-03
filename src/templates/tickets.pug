@@ -4,11 +4,11 @@ include _common
   var tickets = [
     {
       img: 'VIP',
-      link: 'fake-url-VIP-ticket'
+      link: 'https://www.wmnetwork.cc/conference/detail/default_template.htm?mid=25821'
     },
     {
       img: 'normal',
-      link: 'fake-url-normal-ticket',
+      link: 'https://www.wmnetwork.cc/conference/detail/default_template.htm?mid=25821',
       selected: true
     }
   ]
@@ -17,7 +17,7 @@ mixin ticket-unit(ticket)
   div(class=`ticket-unit ${ticket.selected ? 'selected' : ''}`)
     .image(style=`background-image: url(${imagePath}tickets/ticket_${ticket.img}.png)`)
     a.text.pf-Medium(href=`${ticket.link}`, target="_blank").
-      即将开售
+      立即购票
 
 mixin arrow(direction, move)
   .arrow
