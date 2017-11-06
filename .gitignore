@@ -3,7 +3,10 @@ node_modules
 *.lock
 /.idea
 /dist
+dist.zip
 src/**/*.html
+bin/upload.sh
+npm-shrinkwrap.json
 src/assets/images
 src/assets/fonts
 package-lock.json
