@@ -11,6 +11,7 @@ const appId = 'wxc10409226d71fb93';
 
 const shareInfo = {
   title: '未来狂享曲·2017第一财经数据盛典',
+  decs: '数据引领未来——第一财经商业数据中心',
   link: 'http://z.cbndata.com/cbndata/fiesta/2017/index.html',
   imgUrl: 'http://z.dtcj.com/cbndata/icons/icon.png',
 };
@@ -18,7 +19,7 @@ const shareInfo = {
 requestSign()
   .then((data) => {
     wx.config({
-      debug: true,
+      debug: false,
       timestamp: data.timestamp + '',
       nonceStr: data.noncestr,
       signature: data.signature,
@@ -26,14 +27,11 @@ requestSign()
       jsApiList
     });
     
-    /*wx.ready(function () {
-      jsApiList.forEach(channel => {
-        wx[channel](shareInfo);
-      })
-    });*/
-    wx.onMenuShareAppMessage(shareInfo);
-    wx.onMenuShareTimeline(shareInfo);
-    wx.onMenuShareQQ(shareInfo);
+    wx.ready(function () {
+      wx.onMenuShareAppMessage(shareInfo);
+      wx.onMenuShareTimeline(shareInfo);
+      wx.onMenuShareQQ(shareInfo);
+    });
     
   });
 
