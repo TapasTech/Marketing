@@ -6,8 +6,8 @@ const jsApiList = [
   'onMenuShareQZone'
 ];
 
-const appId = 'wxeaa18784c86a9864';
-// const appId = 'wxc10409226d71fb93';
+// const appId = 'wxeaa18784c86a9864';
+const appId = 'wxc10409226d71fb93';
 
 const shareInfo = {
   title: '未来狂享曲·2017第一财经数据盛典',
