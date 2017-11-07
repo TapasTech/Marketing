@@ -35,7 +35,7 @@ requestSign()
 
 function requestSign(url) {
   var url = url || encodeURIComponent(location.href.split('#')[0]);
-  var xhr = createCORSRequest('GET', 'http://admin-cbndata.dtcj.com/wechat/signature?url=' + url);
+  var xhr = createCORSRequest('GET', 'http://www.cbndata.com/wechat/signature?url=' + url);
   if (!xhr) {
     throw new Error('CORS not supported');
   }
