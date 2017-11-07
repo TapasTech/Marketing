@@ -6,13 +6,13 @@ const jsApiList = [
   'onMenuShareQZone'
 ];
 
-// const appId = 'wxeaa18784c86a9864';
-const appId = 'wxc10409226d71fb93';
+const appId = 'wxeaa18784c86a9864';
+// const appId = 'wxc10409226d71fb93';
 
 const shareInfo = {
-  title: '未来狂享曲·2017第一财经数据盛典', // 分享标题
-  link: 'http://z.cbndata.com/cbndata/fiesta/2017', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-  imgUrl: 'http://z.dtcj.com/cbndata/icons/icon.png', // 分享图标
+  title: '未来狂享曲·2017第一财经数据盛典',
+  link: 'http://z.cbndata.com/cbndata/fiesta/2017/index.html',
+  imgUrl: 'http://z.dtcj.com/cbndata/icons/icon.png',
 };
 
 requestSign()
@@ -26,11 +26,15 @@ requestSign()
       jsApiList
     });
     
-    wx.ready(function () {
+    /*wx.ready(function () {
       jsApiList.forEach(channel => {
         wx[channel](shareInfo);
       })
-    });
+    });*/
+    wx.onMenuShareAppMessage(shareInfo);
+    wx.onMenuShareTimeline(shareInfo);
+    wx.onMenuShareQQ(shareInfo);
+    
   });
 
 function requestSign(url) {

@@ -6,6 +6,7 @@ node_modules
 dist.zip
 src/**/*.html
 bin/upload.sh
+bin/upload_assets.sh
 npm-shrinkwrap.json
 src/assets/images
 src/assets/fonts
