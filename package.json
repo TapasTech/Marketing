@@ -9,7 +9,8 @@
     "dev": "gulp clean && gulp browser-sync",
     "build": "gulp clean && NODE_ENV=production gulp build && gulp rev",
     "lint": "gulp lint",
-    "upload": "sh bin/upload.sh && sh bin/upload_assets.sh"
+    "upload": "sh bin/upload.sh && sh bin/upload_assets.sh",
+    "release": "npm run build && npm run upload"
   },
   "devDependencies": {
     "ajv": "^5.3.0",
