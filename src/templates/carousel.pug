@@ -28,6 +28,7 @@ include _common
     })
   })
 
+
 mixin personUnit(person)
   - var {name, job, type, title, time} = person;
     .person-unit(data-name=name, data-job=job, data-type=type, data-title=title, data-time=time,)
@@ -50,10 +51,10 @@ mixin personRow(start, end)
 
 #carousel
   .rows-wrapper
-    +personRow(0, 6)
-    +personRow(6, 13)
-    +personRow(13, 19)
-    +personRow(20, 26)
+    +personRow(0, 5)
+    +personRow(5, 10)
+    +personRow(10, 15)
+    +personRow(15, 21)
     .detail-popup.mobile-only.hidden
       .detail-wrapper
         .text-wrapper
