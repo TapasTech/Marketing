@@ -21,7 +21,7 @@ $(function () {
     }
   });
   
-  $ticketUnits.on(CLICK, function(e) {
+  $ticketUnits.on('click', function(e) {
     const url = $(this).find('a').attr('href');
     if (url) {
       location.href = url;
