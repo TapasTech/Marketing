@@ -7,6 +7,7 @@ dist.zip
 src/**/*.html
 bin/upload.sh
 bin/upload_assets.sh
+bin/refresh.js
 npm-shrinkwrap.json
 src/assets/images
 src/assets/fonts
