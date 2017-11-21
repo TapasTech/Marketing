@@ -22,4 +22,6 @@ $ npm run lint
 
 Deploy
 ---
-
+``` sh
+$ npm run release
+```
