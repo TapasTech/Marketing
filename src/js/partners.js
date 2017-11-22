@@ -29,9 +29,10 @@ $(() => {
     },
   ];
   
+  var timeStamp = new Date().valueOf();
   
   $.getJSON({
-    url: 'http://invest-images.oss-cn-shanghai.aliyuncs.com/production/cbndata_parterners.json',
+    url: `http://invest-images.oss-cn-shanghai.aliyuncs.com/production/cbndata_parterners.json?t=${timeStamp}`,
     success: function(data) {
       console.log(data);
       
