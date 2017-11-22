@@ -28,6 +28,7 @@ include _common
     })
   })
 
+  console.log(peopleList.length)
 
 mixin personUnit(person)
   - var {name, job, type, title, time} = person;
@@ -52,9 +53,9 @@ mixin personRow(start, end)
 #carousel
   .rows-wrapper
     +personRow(0, 5)
-    +personRow(5, 10)
-    +personRow(10, 15)
-    +personRow(15, 21)
+    +personRow(5, 11)
+    +personRow(11, 17)
+    +personRow(17, 23)
     .detail-popup.mobile-only.hidden
       .detail-wrapper
         .text-wrapper

@@ -34,27 +34,33 @@ $(() => {
   $.getJSON({
     url: `http://invest-images.oss-cn-shanghai.aliyuncs.com/production/cbndata_parterners.json?t=${timeStamp}`,
     success: function(data) {
-      console.log(data);
       
-      types.forEach((item, index) => {
+      types.forEach(item => {
         
-        var filteredData = data.filter(datum => datum.type === item.key).sort(datum => Number(datum.order));
+        var filteredData = data
+          .filter(datum => datum.type === item.key)
+          .sort(datum => Number(datum.order));
         
-        var logosHtml = '';
-        filteredData.forEach(datum => {
-          logosHtml += `
+        if (filteredData.length > 0) {
+          var logosHtml = '';
+          filteredData.forEach(datum => {
+            logosHtml += `
           <div class="logo-unit">
           <div class="logo" style="background-image: url('${datum.image_url}')"></div>
           </div>`;
-        });
-        
-        var html = `
+          });
+  
+          var html = `
         <div class="section-unit">
           <div class="section-title">${item.name}</div>
           <div class="logos-wrapper partners">${logosHtml}</div>
         </div>`;
-        
-        $('#organizations').append(html);
+  
+          // $('#organizations').append(html);
+          
+          $('#organizations .section-unit:last-of-type').before(html);
+          
+        }
         
       })
       

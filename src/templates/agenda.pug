@@ -2,8 +2,8 @@ include _common
 
 mixin person-unit(name, job, starter)
   .person-unit
-    //.avatar-wrapper
-    //  .avatar(style=`background-image: url(${imagePath}avatars/${name}.png)`)
+    .avatar-wrapper
+      .avatar(style=`background-image: url(${imagePath}avatars/${name}.png)`)
     .info-wrapper
       if (starter)
         .prefix=starter
@@ -26,7 +26,7 @@ mixin agenda-unit(item)
         .type.pf-Medium=type
         if(title)
           .title.pf-Medium=title
-        //if(people)
+        if(people)
           .people-wrapper
             each person in people
               +person-unit(person.name, person.job, person.starter)
@@ -35,7 +35,7 @@ mixin agenda-unit(item)
 #agenda
   +title-bar('活动流程')
   .content-wrapper
-    //.control-bar
+    .control-bar
       .control-unit(data-detail).active 详尽版
       .control-unit 精简版
     .list-wrapper
