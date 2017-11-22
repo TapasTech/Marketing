@@ -39,7 +39,7 @@ $(() => {
         
         var filteredData = data
           .filter(datum => datum.type === item.key)
-          .sort(datum => Number(datum.order));
+          .sort((a, b) => Number(a.order) - Number(b.order));
         
         if (filteredData.length > 0) {
           var logosHtml = '';
