@@ -15,6 +15,13 @@ $wrapper-width: 1086px;
 
   .section-unit {
     @include Flex(column, flex-start, center);
+
+    &[outdoor-media] {
+      .logo {
+        transform: scale(1.2);
+      }
+    }
+
     .section-title {
       text-align: center;
       margin-bottom: 40px;

@@ -59,7 +59,7 @@ $(() => {
           });
   
           var html = `
-        <div class="section-unit">
+        <div class=${'section-unit ' + item.key}>
           <div class="section-title">${item.name}</div>
           <div class="logos-wrapper partners">${logosHtml}</div>
         </div>`;
