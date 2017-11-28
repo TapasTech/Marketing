@@ -2,10 +2,14 @@ $(() => {
   
   console.log('partners');
   
-  var types = [
+  var partnerTypes = [
     {
       name: '战略合作伙伴',
       key: 'strategic-partner'
+    },
+    {
+      name: '智慧合作伙伴',
+      key: 'wise-partner'
     },
     {
       name: '特约合作伙伴',
@@ -18,6 +22,10 @@ $(() => {
     {
       name: '战略合作媒体',
       key: 'strategic-media'
+    },
+    {
+      name: '首席战略户外新媒体',
+      key: 'outdoor-media'
     },
     {
       name: '特邀合作媒体',
@@ -35,7 +43,7 @@ $(() => {
     url: `http://invest-images.oss-cn-shanghai.aliyuncs.com/production/cbndata_parterners.json?t=${timeStamp}`,
     success: function(data) {
       
-      types.forEach(item => {
+      partnerTypes.forEach(item => {
         
         var filteredData = data
           .filter(datum => datum.type === item.key)
@@ -55,10 +63,8 @@ $(() => {
           <div class="section-title">${item.name}</div>
           <div class="logos-wrapper partners">${logosHtml}</div>
         </div>`;
-  
-          // $('#organizations').append(html);
           
-          $('#organizations .section-unit:last-of-type').before(html);
+          $('#organizations').append(html);
           
         }
         
