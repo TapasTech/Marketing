@@ -37,9 +37,10 @@ requestSign()
     
   });
 
-function requestSign(url) {
-  var url = url || encodeURIComponent(location.href.split('#')[0]);
-  var xhr = createCORSRequest('GET', 'http://www.cbndata.com/wechat/signature?url=' + url);
+function requestSign(path) {
+  var url = path || encodeURIComponent(location.href.split('#')[0]);
+  var apiPath = 'http://www.cbndata.com/api/v2/wechat/signature?url=' + url;
+  var xhr = createCORSRequest('GET', apiPath);
   if (!xhr) {
     throw new Error('CORS not supported');
   }
