@@ -28,7 +28,8 @@ include _common
     })
   })
 
-  console.log(peopleList.length)
+  var numPeople = peopleList.length;
+  console.log(numPeople)
 
 mixin personUnit(person)
   - var {name, job, type, title, time} = person;
@@ -52,10 +53,10 @@ mixin personRow(start, end)
 
 #carousel
   .rows-wrapper
-    +personRow(0, 5)
-    +personRow(5, 11)
-    +personRow(11, 17)
-    +personRow(17, 23)
+    +personRow(0, Math.floor(numPeople/4))
+    +personRow(Math.floor(numPeople/4), Math.ceil(numPeople/2))
+    +personRow(Math.ceil(numPeople/2), Math.ceil(numPeople*3/4))
+    +personRow(Math.ceil(numPeople*3/4), numPeople)
     .detail-popup.mobile-only.hidden
       .detail-wrapper
         .text-wrapper
