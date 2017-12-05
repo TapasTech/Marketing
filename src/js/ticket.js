@@ -30,6 +30,7 @@ $(function () {
   
   $ticketUnits.find('a').on(CLICK, function(e) {
     e.preventDefault();
+    location.href = $(this).attr('href');
   })
   
 });
