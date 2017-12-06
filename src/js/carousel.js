@@ -29,7 +29,7 @@ $(() => {
         $text.find('.type').html(type);
         $text.find('.title').html(title);
         $text.find('.time').html(time);
-        $avatar.css("backgroundImage", `url(http://z.dtcj.com/cbndata/avatars-color/${name}.png)`);
+        $avatar.css("backgroundImage", `url(http://z.dtcj.com/cbndata/avatars-color/${name.replace(' ', '%20')}.png)`);
       } else {
         const gap = 420;
         var $detail = $this.find('.detail-wrapper');

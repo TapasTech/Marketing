@@ -122,7 +122,8 @@ gulp.task('pug', () => {
 
 gulp.task('copy', () => {
   return gulp.src([
-    'src/assets/**', 'src/index.html'
+    // 'src/assets/**',
+    'src/index.html'
   ], {base: 'src'})
     .pipe(gulp.dest(DIST));
 });

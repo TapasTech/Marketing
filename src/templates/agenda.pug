@@ -3,7 +3,7 @@ include _common
 mixin person-unit(name, job, starter)
   .person-unit
     .avatar-wrapper
-      .avatar(style=`background-image: url(${imagePath}avatars/${name}.png)`)
+      .avatar(style=`background-image: url(${imagePath}avatars/${name.replace(' ', '%20')}.png)`)
     .info-wrapper
       if (starter)
         .prefix=starter

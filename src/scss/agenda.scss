@@ -87,6 +87,12 @@
                   }
                 }
               }
+              .avatar-wrapper {
+                @media #{$PC} {
+                  left: -18px !important;
+                }
+              }
+
             }
           }
         }
