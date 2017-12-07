@@ -35,6 +35,10 @@ $(() => {
       name: '合作媒体',
       key: 'data-media'
     },
+    {
+      name: '会务支持',
+      key: 'support'
+    },
   ];
   
   var timeStamp = new Date().valueOf();
