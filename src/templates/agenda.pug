@@ -10,7 +10,8 @@ mixin person-unit(name, job, starter)
         .name=`${name}`
       else
         .name=`/${name}`
-      .job=job
+      .job
+        !=job
 
 mixin tag(tagName)
   .tag-wrapper
