@@ -276,6 +276,7 @@
                     }
                   }
                   &.static {
+                    @include Flex(row nowrap, flex-start, flex-start);
                     .name, .job {
                       display: inline-block;
                       margin-right: 10px;

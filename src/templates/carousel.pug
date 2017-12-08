@@ -39,7 +39,8 @@ mixin personUnit(person)
         .name.pf-Medium=name
       .detail-wrapper
         .text-wrapper
-          .job=job
+          .job
+            !=job
           .type.pf-Medium=type
           //.title=title
           .time=time
