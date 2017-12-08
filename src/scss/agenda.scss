@@ -267,6 +267,7 @@
 
                 .info-wrapper {
                   //white-space: nowrap;
+                  position: relative;
                   z-index: 10;
                   @media #{$mobile} {
                     //max-width: 120px;
