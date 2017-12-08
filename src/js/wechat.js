@@ -1,6 +1,6 @@
 function checkWechat() {
   const ua = window.navigator.userAgent.toLowerCase();
-  return ua.match(/MicroMessenger/i) === 'micromessenger';
+  return ua.match(/MicroMessenger/i);
 }
 
 if (checkWechat()) {
@@ -27,7 +27,7 @@ function configWechatShare() {
   };
   
   requestSign()
-    .then((data) => {
+    .then(({data}) => {
       wx.config({
         debug: false,
         timestamp: data.timestamp + '',
