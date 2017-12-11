@@ -281,6 +281,9 @@
                       display: inline-block;
                       margin-right: 10px;
                     }
+                    .name, .prefix {
+                      white-space: nowrap;
+                    }
                   }
                 }
                 &:not(:first-child) {
