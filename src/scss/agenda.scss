@@ -38,7 +38,7 @@
 
     .list-wrapper {
       width: 100%;
-      @include Flex(column, flex-start, center);
+      //@include Flex(column, flex-start, center);
       .prelude {
         margin: 34px 0 0 0;
         width: 100%;
@@ -319,7 +319,21 @@
 
       .rhapsodies {
         @media #{$PC} {
-          @include Flex(row, center, flex-start);
+          //@include Flex(row, center, flex-start);
+          max-width: 1398px;
+          display: block;
+          text-align: center;
+          .rhapsody-unit-wrapper {
+            display: inline-block;
+            .rhapsody-unit {
+              position: relative;
+              text-align: start;
+              width: 33%;
+              .slashes-wrapper {
+                left: 64px;
+              }
+            }
+          }
         }
         @media #{$mobile} {
           @include Flex(column, flex-start, center);
