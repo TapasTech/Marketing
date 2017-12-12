@@ -45,6 +45,7 @@
         @media #{$PC} {
           @include bg-geom(bg-mountain-full, 100%);
           background-position: 0 85%;
+          height: auto;
         }
 
         .agenda-unit {
