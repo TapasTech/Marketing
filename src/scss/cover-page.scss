@@ -38,6 +38,12 @@
     }
     .city {
       letter-spacing: -1.34px;
+      margin-bottom: 75px;
+      @include Underline();
+    }
+
+    .preview {
+      cursor: pointer;
       @include Underline();
     }
 
@@ -54,6 +60,9 @@
       width: 100%;
       font-size: 6vw;
       .date {
+        margin-bottom: 25px;
+      }
+      .city {
         margin-bottom: 25px;
       }
     }
@@ -107,5 +116,81 @@
       }
     }
 
+  }
+
+  .preview-video-wrapper {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, .6);
+    display: none;
+    &.visible {
+      @include Flex(row, center, center);
+      .preview-video {
+        transform: scaleY(1);
+        opacity: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    .preview-video {
+      transition: all .3s ease;
+      transform: scaleY(0);
+      transform-origin: top left;
+      opacity: 0;
+      max-width: 100%;
+      width: 830px;
+      height: 480px;
+      margin: auto auto;
+      border-radius: 5px;
+      box-sizing: border-box;
+      .close-btn {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        z-index: 1000;
+        top: 0;
+        right: 0;
+        transform: translateX(80%) translateY(-60%);
+        border-radius: 50%;
+        background: rgba(0, 0, 0, .5);
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+        @media #{$mobile} {
+          transform: translateX(0%) translateY(-80%);
+        }
+        &:after {
+          content: '+';
+          color: #fff;
+          font-size: 25px;
+          line-height: 30px;
+          height: 30px;
+          width: 30px;
+          box-sizing: border-box;
+          display: inline-block;
+          transform: rotate(45deg) translateY(-2px);
+        }
+      }
+      @include Flex(row, center, center);
+      video {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @media #{$mobile} {
+      .preview-video {
+        width: 100vw;
+        height: 60vw;
+      }
+    }
   }
 }

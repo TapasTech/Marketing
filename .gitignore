@@ -10,4 +10,5 @@ npm-shrinkwrap.json
 src/assets/images
 src/assets/fonts
 package-lock.json
+.tps_log
 

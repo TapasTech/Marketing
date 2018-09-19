@@ -68,14 +68,7 @@ gulp.task('scss', () => {
 gulp.task('js', () => {
   var name = 'app.js';
   var stream = gulp.src([
-    'src/js/global.js',
-    'src/js/navbar.js',
-    'src/js/carousel.js',
-    'src/js/agenda.js',
-    'src/js/ticket.js',
-    'src/js/partners.js',
-    'src/js/wechat.js',
-    'src/js/statistics.js'
+    'src/js/*.js',
   ]).pipe(sourceMaps.init())
     .pipe(concat(name))
     .pipe(sourceMaps.write())
@@ -90,6 +83,10 @@ gulp.task('js', () => {
       .pipe(gulp.dest(distAssets))
   } else {
     stream = stream
+      .pipe(rollup(Object.assign({
+        input: distAssets + name,
+      }, rollupOptions)))
+      .pipe(uglify())
       .pipe(browserSync.stream());
   }
   return stream;
